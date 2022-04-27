@@ -1,0 +1,26 @@
+# CybridApiBank::ExchangeBankModel
+
+## Properties
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **guid** | **String** | Auto-generated unique identifier for the exchange. | [optional] |
+| **name** | **String** | The name of the exchange. | [optional] |
+| **provider** | **String** | The provider for the exchange. | [optional] |
+| **environment** | **String** | The environment that the exchange is operating in. | [optional] |
+| **created_at** | **Time** | ISO8601 datetime the exchange was created at. | [optional] |
+
+## Example
+
+```ruby
+require 'cybrid_api_bank'
+
+instance = CybridApiBank::ExchangeBankModel.new(
+  guid: null,
+  name: null,
+  provider: null,
+  environment: null,
+  created_at: null
+)
+```
+
