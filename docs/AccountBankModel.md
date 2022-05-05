@@ -11,6 +11,8 @@
 | **name** | **String** | The name of the account. | [optional] |
 | **bank_guid** | **String** | The bank identifier associated with the account. | [optional] |
 | **customer_guid** | **String** | The customer identifier associated with the account. | [optional] |
+| **platform_balance** | **Integer** | The amount of funds that are in the account, in base units of the asset. | [optional] |
+| **platform_available** | **Integer** | The amount of funds that are in the account, in base units of the asset, that are available for use on the platform. | [optional] |
 
 ## Example
 
@@ -24,7 +26,9 @@ instance = CybridApiBank::AccountBankModel.new(
   asset: null,
   name: null,
   bank_guid: null,
-  customer_guid: null
+  customer_guid: null,
+  platform_balance: null,
+  platform_available: null
 )
 ```
 
