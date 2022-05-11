@@ -4,14 +4,14 @@ All URIs are relative to *https://bank.demo.cybrid.app*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_verification_key**](VerificationKeysBankApi.md#create_verification_key) | **POST** /api/banks/{bank_guid}/verification_keys | Create VerificationKey |
-| [**get_verification_key**](VerificationKeysBankApi.md#get_verification_key) | **GET** /api/banks/{bank_guid}/verification_keys/{verification_key_guid} | Get VerificationKey |
-| [**list_verification_keys**](VerificationKeysBankApi.md#list_verification_keys) | **GET** /api/banks/{bank_guid}/verification_keys | Get Verification Keys list |
+| [**create_verification_key**](VerificationKeysBankApi.md#create_verification_key) | **POST** /api/bank_verification_keys | Create VerificationKey |
+| [**get_verification_key**](VerificationKeysBankApi.md#get_verification_key) | **GET** /api/bank_verification_keys/{verification_key_guid} | Get VerificationKey |
+| [**list_verification_keys**](VerificationKeysBankApi.md#list_verification_keys) | **GET** /api/bank_verification_keys | Get Verification Keys list |
 
 
 ## create_verification_key
 
-> <VerificationKeyBankModel> create_verification_key(bank_guid, post_verification_key_bank_model)
+> <VerificationKeyBankModel> create_verification_key(post_verification_key_bank_model)
 
 Create VerificationKey
 
@@ -32,12 +32,11 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::VerificationKeysBankApi.new
-bank_guid = 'bank_guid_example' # String | Identifier for the bank.
 post_verification_key_bank_model = CybridApiBank::PostVerificationKeyBankModel.new({type: 'attestation', algorithm: 'RS512', public_key: 'public_key_example', nonce: 'nonce_example', signature: 'signature_example'}) # PostVerificationKeyBankModel | 
 
 begin
   # Create VerificationKey
-  result = api_instance.create_verification_key(bank_guid, post_verification_key_bank_model)
+  result = api_instance.create_verification_key(post_verification_key_bank_model)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling VerificationKeysBankApi->create_verification_key: #{e}"
@@ -48,12 +47,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<VerificationKeyBankModel>, Integer, Hash)> create_verification_key_with_http_info(bank_guid, post_verification_key_bank_model)
+> <Array(<VerificationKeyBankModel>, Integer, Hash)> create_verification_key_with_http_info(post_verification_key_bank_model)
 
 ```ruby
 begin
   # Create VerificationKey
-  data, status_code, headers = api_instance.create_verification_key_with_http_info(bank_guid, post_verification_key_bank_model)
+  data, status_code, headers = api_instance.create_verification_key_with_http_info(post_verification_key_bank_model)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <VerificationKeyBankModel>
@@ -66,7 +65,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **bank_guid** | **String** | Identifier for the bank. |  |
 | **post_verification_key_bank_model** | [**PostVerificationKeyBankModel**](PostVerificationKeyBankModel.md) |  |  |
 
 ### Return type
@@ -85,7 +83,7 @@ end
 
 ## get_verification_key
 
-> <VerificationKeyBankModel> get_verification_key(bank_guid, verification_key_guid)
+> <VerificationKeyBankModel> get_verification_key(verification_key_guid)
 
 Get VerificationKey
 
@@ -106,12 +104,11 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::VerificationKeysBankApi.new
-bank_guid = 'bank_guid_example' # String | Identifier for the bank.
 verification_key_guid = 'verification_key_guid_example' # String | Identifier for the verification key.
 
 begin
   # Get VerificationKey
-  result = api_instance.get_verification_key(bank_guid, verification_key_guid)
+  result = api_instance.get_verification_key(verification_key_guid)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling VerificationKeysBankApi->get_verification_key: #{e}"
@@ -122,12 +119,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<VerificationKeyBankModel>, Integer, Hash)> get_verification_key_with_http_info(bank_guid, verification_key_guid)
+> <Array(<VerificationKeyBankModel>, Integer, Hash)> get_verification_key_with_http_info(verification_key_guid)
 
 ```ruby
 begin
   # Get VerificationKey
-  data, status_code, headers = api_instance.get_verification_key_with_http_info(bank_guid, verification_key_guid)
+  data, status_code, headers = api_instance.get_verification_key_with_http_info(verification_key_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <VerificationKeyBankModel>
@@ -140,7 +137,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **bank_guid** | **String** | Identifier for the bank. |  |
 | **verification_key_guid** | **String** | Identifier for the verification key. |  |
 
 ### Return type
@@ -159,7 +155,7 @@ end
 
 ## list_verification_keys
 
-> <VerificationKeyListBankModel> list_verification_keys(bank_guid, opts)
+> <VerificationKeyListBankModel> list_verification_keys(opts)
 
 Get Verification Keys list
 
@@ -180,7 +176,6 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::VerificationKeysBankApi.new
-bank_guid = 'bank_guid_example' # String | Identifier for the bank.
 opts = {
   page: 56, # Integer | 
   per_page: 56 # Integer | 
@@ -188,7 +183,7 @@ opts = {
 
 begin
   # Get Verification Keys list
-  result = api_instance.list_verification_keys(bank_guid, opts)
+  result = api_instance.list_verification_keys(opts)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling VerificationKeysBankApi->list_verification_keys: #{e}"
@@ -199,12 +194,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<VerificationKeyListBankModel>, Integer, Hash)> list_verification_keys_with_http_info(bank_guid, opts)
+> <Array(<VerificationKeyListBankModel>, Integer, Hash)> list_verification_keys_with_http_info(opts)
 
 ```ruby
 begin
   # Get Verification Keys list
-  data, status_code, headers = api_instance.list_verification_keys_with_http_info(bank_guid, opts)
+  data, status_code, headers = api_instance.list_verification_keys_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <VerificationKeyListBankModel>
@@ -217,7 +212,6 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **bank_guid** | **String** | Identifier for the bank. |  |
 | **page** | **Integer** |  | [optional][default to 0] |
 | **per_page** | **Integer** |  | [optional][default to 10] |
 
