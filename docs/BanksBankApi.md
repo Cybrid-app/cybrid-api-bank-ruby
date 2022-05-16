@@ -32,7 +32,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::BanksBankApi.new
-post_bank_bank_model = CybridApiBank::PostBankBankModel.new({name: 'name_example', type: 'sandbox', features: ['attestation_identity_records']}) # PostBankBankModel | 
+post_bank_bank_model = CybridApiBank::PostBankBankModel.new({name: 'name_example', type: 'sandbox', supported_fiat_assets: ['supported_fiat_assets_example'], features: ['attestation_identity_records']}) # PostBankBankModel | 
 
 begin
   # Create Bank
