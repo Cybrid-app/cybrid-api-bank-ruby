@@ -83,7 +83,7 @@ end
 
 ## get_customer
 
-> <CustomerBankModel> get_customer(customer_guid, opts)
+> <CustomerBankModel> get_customer(customer_guid)
 
 Get Customer
 
@@ -105,13 +105,10 @@ end
 
 api_instance = CybridApiBank::CustomersBankApi.new
 customer_guid = 'customer_guid_example' # String | Identifier for the customer.
-opts = {
-  bank_guid: 'bank_guid_example' # String | Identifier for the bank.
-}
 
 begin
   # Get Customer
-  result = api_instance.get_customer(customer_guid, opts)
+  result = api_instance.get_customer(customer_guid)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling CustomersBankApi->get_customer: #{e}"
@@ -122,12 +119,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CustomerBankModel>, Integer, Hash)> get_customer_with_http_info(customer_guid, opts)
+> <Array(<CustomerBankModel>, Integer, Hash)> get_customer_with_http_info(customer_guid)
 
 ```ruby
 begin
   # Get Customer
-  data, status_code, headers = api_instance.get_customer_with_http_info(customer_guid, opts)
+  data, status_code, headers = api_instance.get_customer_with_http_info(customer_guid)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CustomerBankModel>
@@ -141,7 +138,6 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **customer_guid** | **String** | Identifier for the customer. |  |
-| **bank_guid** | **String** | Identifier for the bank. | [optional] |
 
 ### Return type
 
@@ -183,8 +179,8 @@ api_instance = CybridApiBank::CustomersBankApi.new
 opts = {
   page: 56, # Integer | 
   per_page: 56, # Integer | 
-  bank_guid: 'bank_guid_example', # String | Identifier for the bank.
-  guid: 'guid_example' # String | Comma separated customer_guid to list customers for.
+  bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list customers for.
+  guid: 'guid_example' # String | Comma separated customer_guids to list customers for.
 }
 
 begin
@@ -220,8 +216,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** |  | [optional][default to 0] |
 | **per_page** | **Integer** |  | [optional][default to 10] |
-| **bank_guid** | **String** | Identifier for the bank. | [optional] |
-| **guid** | **String** | Comma separated customer_guid to list customers for. | [optional] |
+| **bank_guid** | **String** | Comma separated bank_guids to list customers for. | [optional] |
+| **guid** | **String** | Comma separated customer_guids to list customers for. | [optional] |
 
 ### Return type
 
