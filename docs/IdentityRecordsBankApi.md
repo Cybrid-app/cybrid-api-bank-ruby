@@ -6,6 +6,7 @@ All URIs are relative to *https://bank.demo.cybrid.app*
 | ------ | ------------ | ----------- |
 | [**create_identity_record**](IdentityRecordsBankApi.md#create_identity_record) | **POST** /api/identity_records | Create Identity Record |
 | [**get_identity_record**](IdentityRecordsBankApi.md#get_identity_record) | **GET** /api/identity_records/{identity_record_guid} | Get Identity Record |
+| [**list_identity_records**](IdentityRecordsBankApi.md#list_identity_records) | **GET** /api/identity_records | List Identity Records |
 
 
 ## create_identity_record
@@ -141,6 +142,84 @@ end
 ### Return type
 
 [**IdentityRecordBankModel**](IdentityRecordBankModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## list_identity_records
+
+> <IdentityRecordListBankModel> list_identity_records(opts)
+
+List Identity Records
+
+Retrieves a listing of identity records for a bank.  Required scope: **customers:read**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_bank_ruby'
+# setup authorization
+CybridApiBank.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiBank::IdentityRecordsBankApi.new
+opts = {
+  customer_guid: 'customer_guid_example', # String | Comma separated customer identifier to list identity records for.
+  page: 56, # Integer | 
+  per_page: 56 # Integer | 
+}
+
+begin
+  # List Identity Records
+  result = api_instance.list_identity_records(opts)
+  p result
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling IdentityRecordsBankApi->list_identity_records: #{e}"
+end
+```
+
+#### Using the list_identity_records_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<IdentityRecordListBankModel>, Integer, Hash)> list_identity_records_with_http_info(opts)
+
+```ruby
+begin
+  # List Identity Records
+  data, status_code, headers = api_instance.list_identity_records_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <IdentityRecordListBankModel>
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling IdentityRecordsBankApi->list_identity_records_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **customer_guid** | **String** | Comma separated customer identifier to list identity records for. | [optional] |
+| **page** | **Integer** |  | [optional][default to 0] |
+| **per_page** | **Integer** |  | [optional][default to 10] |
+
+### Return type
+
+[**IdentityRecordListBankModel**](IdentityRecordListBankModel.md)
 
 ### Authorization
 
