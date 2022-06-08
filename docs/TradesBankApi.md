@@ -155,7 +155,7 @@ end
 
 ## list_trades
 
-> <TradeListBankModel> list_trades(customer_guid, account_guid, opts)
+> <TradeListBankModel> list_trades(opts)
 
 Get trades list
 
@@ -176,17 +176,18 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::TradesBankApi.new
-customer_guid = 'customer_guid_example' # String | The customer's identifier.
-account_guid = 'account_guid_example' # String | The account's identifier.
 opts = {
   page: 56, # Integer | The page index to retrieve.
   per_page: 56, # Integer | The number of entities per page to return.
-  guid: 'guid_example' # String | Comma separated trade_guids to list trades for.
+  guid: 'guid_example', # String | Comma separated trade_guids to list trades for.
+  bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list trades for.
+  customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list trades for.
+  account_guid: 'account_guid_example' # String | Comma separated account_guids to list trades for.
 }
 
 begin
   # Get trades list
-  result = api_instance.list_trades(customer_guid, account_guid, opts)
+  result = api_instance.list_trades(opts)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling TradesBankApi->list_trades: #{e}"
@@ -197,12 +198,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TradeListBankModel>, Integer, Hash)> list_trades_with_http_info(customer_guid, account_guid, opts)
+> <Array(<TradeListBankModel>, Integer, Hash)> list_trades_with_http_info(opts)
 
 ```ruby
 begin
   # Get trades list
-  data, status_code, headers = api_instance.list_trades_with_http_info(customer_guid, account_guid, opts)
+  data, status_code, headers = api_instance.list_trades_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TradeListBankModel>
@@ -215,11 +216,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **customer_guid** | **String** | The customer&#39;s identifier. |  |
-| **account_guid** | **String** | The account&#39;s identifier. |  |
 | **page** | **Integer** | The page index to retrieve. | [optional][default to 0] |
 | **per_page** | **Integer** | The number of entities per page to return. | [optional][default to 10] |
 | **guid** | **String** | Comma separated trade_guids to list trades for. | [optional] |
+| **bank_guid** | **String** | Comma separated bank_guids to list trades for. | [optional] |
+| **customer_guid** | **String** | Comma separated customer_guids to list trades for. | [optional] |
+| **account_guid** | **String** | Comma separated account_guids to list trades for. | [optional] |
 
 ### Return type
 
