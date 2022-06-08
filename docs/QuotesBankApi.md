@@ -178,7 +178,10 @@ end
 api_instance = CybridApiBank::QuotesBankApi.new
 opts = {
   page: 56, # Integer | 
-  per_page: 56 # Integer | 
+  per_page: 56, # Integer | 
+  guid: 'guid_example', # String | Comma separated quote_guids to list quotes for.
+  bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list quotes for.
+  customer_guid: 'customer_guid_example' # String | Comma separated customer_guids to list quotes for.
 }
 
 begin
@@ -214,6 +217,9 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** |  | [optional][default to 0] |
 | **per_page** | **Integer** |  | [optional][default to 10] |
+| **guid** | **String** | Comma separated quote_guids to list quotes for. | [optional] |
+| **bank_guid** | **String** | Comma separated bank_guids to list quotes for. | [optional] |
+| **customer_guid** | **String** | Comma separated customer_guids to list quotes for. | [optional] |
 
 ### Return type
 
