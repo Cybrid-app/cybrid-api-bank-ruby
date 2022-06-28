@@ -213,8 +213,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **page** | **Integer** | The page index to retrieve. | [optional][default to 0] |
-| **per_page** | **Integer** | The number of entities per page to return. | [optional][default to 10] |
+| **page** | **Integer** | The page index to retrieve. | [optional] |
+| **per_page** | **Integer** | The number of entities per page to return. | [optional] |
 | **guid** | **String** | Comma separated bank_guids to list banks for. | [optional] |
 
 ### Return type

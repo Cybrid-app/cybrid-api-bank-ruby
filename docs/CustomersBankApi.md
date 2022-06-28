@@ -214,8 +214,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **page** | **Integer** |  | [optional][default to 0] |
-| **per_page** | **Integer** |  | [optional][default to 10] |
+| **page** | **Integer** |  | [optional] |
+| **per_page** | **Integer** |  | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list customers for. | [optional] |
 | **guid** | **String** | Comma separated customer_guids to list customers for. | [optional] |
 

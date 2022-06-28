@@ -216,8 +216,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **page** | **Integer** | The page index to retrieve. | [optional][default to 0] |
-| **per_page** | **Integer** | The number of entities per page to return. | [optional][default to 10] |
+| **page** | **Integer** | The page index to retrieve. | [optional] |
+| **per_page** | **Integer** | The number of entities per page to return. | [optional] |
 | **guid** | **String** | Comma separated trade_guids to list trades for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list trades for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list trades for. | [optional] |

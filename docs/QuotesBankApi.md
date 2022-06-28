@@ -215,8 +215,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **page** | **Integer** |  | [optional][default to 0] |
-| **per_page** | **Integer** |  | [optional][default to 10] |
+| **page** | **Integer** |  | [optional] |
+| **per_page** | **Integer** |  | [optional] |
 | **guid** | **String** | Comma separated quote_guids to list quotes for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list quotes for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list quotes for. | [optional] |

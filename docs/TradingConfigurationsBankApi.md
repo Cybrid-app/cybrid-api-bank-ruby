@@ -212,8 +212,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **page** | **Integer** |  | [optional][default to 0] |
-| **per_page** | **Integer** |  | [optional][default to 10] |
+| **page** | **Integer** |  | [optional] |
+| **per_page** | **Integer** |  | [optional] |
 
 ### Return type
 

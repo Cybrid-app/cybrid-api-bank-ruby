@@ -214,8 +214,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **customer_guid** | **String** | Comma separated customer identifier to list identity records for. | [optional] |
-| **page** | **Integer** |  | [optional][default to 0] |
-| **per_page** | **Integer** |  | [optional][default to 10] |
+| **page** | **Integer** |  | [optional] |
+| **per_page** | **Integer** |  | [optional] |
 
 ### Return type
 
