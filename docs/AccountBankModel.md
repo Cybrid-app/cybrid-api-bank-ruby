@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** | The account type. | [optional] |
+| **provider** | **String** | The account provider, if applicable. | [optional] |
 | **guid** | **String** | Auto-generated unique identifier for the account. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the account was created at. | [optional] |
 | **asset** | **String** | The asset code. | [optional] |
@@ -22,6 +23,7 @@ require 'cybrid_api_bank_ruby'
 
 instance = CybridApiBank::AccountBankModel.new(
   type: null,
+  provider: null,
   guid: null,
   created_at: null,
   asset: null,
