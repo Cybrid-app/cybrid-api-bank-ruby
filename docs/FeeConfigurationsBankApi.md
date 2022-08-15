@@ -4,16 +4,16 @@ All URIs are relative to *https://bank.demo.cybrid.app*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_fee_configuration**](FeeConfigurationsBankApi.md#create_fee_configuration) | **POST** /api/fee_configurations | Create FeeConfiguration |
-| [**get_fee_configuration**](FeeConfigurationsBankApi.md#get_fee_configuration) | **GET** /api/fee_configurations/{fee_configuration_guid} | Get FeeConfiguration |
-| [**list_fee_configurations**](FeeConfigurationsBankApi.md#list_fee_configurations) | **GET** /api/fee_configurations | List fee configurations |
+| [**create_fee_configuration**](FeeConfigurationsBankApi.md#create_fee_configuration) | **POST** /api/fee_configurations | Create Fee Configuration |
+| [**get_fee_configuration**](FeeConfigurationsBankApi.md#get_fee_configuration) | **GET** /api/fee_configurations/{fee_configuration_guid} | Get Fee Configuration |
+| [**list_fee_configurations**](FeeConfigurationsBankApi.md#list_fee_configurations) | **GET** /api/fee_configurations | List Fee Configurations |
 
 
 ## create_fee_configuration
 
 > <FeeConfigurationBankModel> create_fee_configuration(post_fee_configuration_bank_model)
 
-Create FeeConfiguration
+Create Fee Configuration
 
 Creates a fee configuration.  Required scope: **banks:write**
 
@@ -35,7 +35,7 @@ api_instance = CybridApiBank::FeeConfigurationsBankApi.new
 post_fee_configuration_bank_model = CybridApiBank::PostFeeConfigurationBankModel.new({product_type: 'trading', asset: 'asset_example', fees: [CybridApiBank::PostFeeBankModel.new({type: 'spread'})]}) # PostFeeConfigurationBankModel | 
 
 begin
-  # Create FeeConfiguration
+  # Create Fee Configuration
   result = api_instance.create_fee_configuration(post_fee_configuration_bank_model)
   p result
 rescue CybridApiBank::ApiError => e
@@ -51,7 +51,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create FeeConfiguration
+  # Create Fee Configuration
   data, status_code, headers = api_instance.create_fee_configuration_with_http_info(post_fee_configuration_bank_model)
   p status_code # => 2xx
   p headers # => { ... }
@@ -85,7 +85,7 @@ end
 
 > <FeeConfigurationBankModel> get_fee_configuration(fee_configuration_guid)
 
-Get FeeConfiguration
+Get Fee Configuration
 
 Retrieves a fee configuration.  Required scope: **banks:read**
 
@@ -107,7 +107,7 @@ api_instance = CybridApiBank::FeeConfigurationsBankApi.new
 fee_configuration_guid = 'fee_configuration_guid_example' # String | Identifier for the fee configuration.
 
 begin
-  # Get FeeConfiguration
+  # Get Fee Configuration
   result = api_instance.get_fee_configuration(fee_configuration_guid)
   p result
 rescue CybridApiBank::ApiError => e
@@ -123,7 +123,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Get FeeConfiguration
+  # Get Fee Configuration
   data, status_code, headers = api_instance.get_fee_configuration_with_http_info(fee_configuration_guid)
   p status_code # => 2xx
   p headers # => { ... }
@@ -157,7 +157,7 @@ end
 
 > <FeeConfigurationListBankModel> list_fee_configurations(opts)
 
-List fee configurations
+List Fee Configurations
 
 Retrieves a listing of fee configurations for a bank.  Required scope: **banks:read**
 
@@ -182,7 +182,7 @@ opts = {
 }
 
 begin
-  # List fee configurations
+  # List Fee Configurations
   result = api_instance.list_fee_configurations(opts)
   p result
 rescue CybridApiBank::ApiError => e
@@ -198,7 +198,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # List fee configurations
+  # List Fee Configurations
   data, status_code, headers = api_instance.list_fee_configurations_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
