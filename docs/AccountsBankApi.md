@@ -32,7 +32,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::AccountsBankApi.new
-post_account_bank_model = CybridApiBank::PostAccountBankModel.new({type: 'staking', customer_guid: 'customer_guid_example', asset: 'asset_example', name: 'name_example'}) # PostAccountBankModel | 
+post_account_bank_model = CybridApiBank::PostAccountBankModel.new({type: 'trading', customer_guid: 'customer_guid_example', asset: 'asset_example', name: 'name_example'}) # PostAccountBankModel | 
 
 begin
   # Create Account
