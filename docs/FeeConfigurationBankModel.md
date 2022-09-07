@@ -9,7 +9,6 @@
 | **product_type** | **String** | The type of product being configured. | [optional] |
 | **asset** | **String** | The asset code. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the bank was created at. | [optional] |
-| **product_provider** | **String** | The provider for the product being configured. | [optional] |
 | **fees** | [**Array&lt;FeeBankModel&gt;**](FeeBankModel.md) | The fees associated with the configuration | [optional] |
 
 ## Example
@@ -23,7 +22,6 @@ instance = CybridApiBank::FeeConfigurationBankModel.new(
   product_type: null,
   asset: null,
   created_at: null,
-  product_provider: null,
   fees: null
 )
 ```
