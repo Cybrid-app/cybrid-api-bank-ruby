@@ -13,7 +13,7 @@ All URIs are relative to *https://bank.demo.cybrid.app*
 
 Get Symbols list
 
-Retrieves a listing of symbols.  Required scope: **prices:read**
+Retrieves a listing of symbols.
 
 ### Examples
 

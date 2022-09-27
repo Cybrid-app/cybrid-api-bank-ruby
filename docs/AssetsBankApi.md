@@ -13,21 +13,13 @@ All URIs are relative to *https://bank.demo.cybrid.app*
 
 Get assets list
 
-Retrieves a listing of assets.  Required scope: **prices:read**
+Retrieves a listing of assets.
 
 ### Examples
 
 ```ruby
 require 'time'
 require 'cybrid_api_bank_ruby'
-# setup authorization
-CybridApiBank.configure do |config|
-  # Configure Bearer authorization (JWT): BearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-
-  # Configure OAuth2 access token for authorization: oauth2
-  config.access_token = 'YOUR ACCESS TOKEN'
-end
 
 api_instance = CybridApiBank::AssetsBankApi.new
 opts = {
@@ -75,7 +67,7 @@ end
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+No authorization required
 
 ### HTTP request headers
 
