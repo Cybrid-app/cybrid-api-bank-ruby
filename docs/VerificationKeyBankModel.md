@@ -8,6 +8,7 @@
 | **bank_guid** | **String** | The banks&#39;s identifier. | [optional] |
 | **type** | **String** | The verification key&#39;s type. | [optional] |
 | **state** | **String** | The verification key&#39;s state. | [optional] |
+| **failure_code** | **String** | The verification key&#39;s failure code (if any). | [optional] |
 | **algorithm** | **String** | The verification key&#39;s algorithm. | [optional] |
 | **fingerprint** | **String** | The verification key&#39;s cryptographic fingerprint. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the verification key was created at. | [optional] |
@@ -22,6 +23,7 @@ instance = CybridApiBank::VerificationKeyBankModel.new(
   bank_guid: null,
   type: null,
   state: null,
+  failure_code: null,
   algorithm: null,
   fingerprint: null,
   created_at: null
