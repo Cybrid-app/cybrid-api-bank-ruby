@@ -9,6 +9,7 @@
 | **name** | **String** | The bank&#39;s name. |  |
 | **type** | **String** | The bank&#39;s type. |  |
 | **supported_trading_symbols** | **Array&lt;String&gt;** | The bank&#39;s list of supported trading symbols. | [optional] |
+| **supported_fiat_account_assets** | **Array&lt;String&gt;** | The bank&#39;s list of supported fiat symbols. | [optional] |
 | **features** | **Array&lt;String&gt;** | The bank&#39;s enabled features. |  |
 | **created_at** | **Time** | ISO8601 datetime the bank was created at. |  |
 
@@ -23,6 +24,7 @@ instance = CybridApiBank::BankBankModel.new(
   name: null,
   type: null,
   supported_trading_symbols: null,
+  supported_fiat_account_assets: null,
   features: null,
   created_at: null
 )
