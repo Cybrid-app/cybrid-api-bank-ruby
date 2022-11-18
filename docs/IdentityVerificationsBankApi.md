@@ -83,7 +83,7 @@ end
 
 ## get_identity_verification
 
-> <IdentityVerificationBankModel> get_identity_verification(identity_verification_guid)
+> <IdentityVerificationWithDetailsBankModel> get_identity_verification(identity_verification_guid)
 
 Get Identity Verification
 
@@ -119,7 +119,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<IdentityVerificationBankModel>, Integer, Hash)> get_identity_verification_with_http_info(identity_verification_guid)
+> <Array(<IdentityVerificationWithDetailsBankModel>, Integer, Hash)> get_identity_verification_with_http_info(identity_verification_guid)
 
 ```ruby
 begin
@@ -127,7 +127,7 @@ begin
   data, status_code, headers = api_instance.get_identity_verification_with_http_info(identity_verification_guid)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <IdentityVerificationBankModel>
+  p data # => <IdentityVerificationWithDetailsBankModel>
 rescue CybridApiBank::ApiError => e
   puts "Error when calling IdentityVerificationsBankApi->get_identity_verification_with_http_info: #{e}"
 end
@@ -141,7 +141,7 @@ end
 
 ### Return type
 
-[**IdentityVerificationBankModel**](IdentityVerificationBankModel.md)
+[**IdentityVerificationWithDetailsBankModel**](IdentityVerificationWithDetailsBankModel.md)
 
 ### Authorization
 
