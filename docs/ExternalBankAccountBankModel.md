@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the account. | [optional] |
 | **name** | **String** | The name of the account. | [optional] |
-| **asset_code** | **String** | The asset code. | [optional] |
+| **asset** | **String** | The asset code. | [optional] |
 | **account_kind** | **String** | The type of account. | [optional] |
 | **environment** | **String** | The environment that the external bank account is operating in. | [optional] |
 | **bank_guid** | **String** | The bank identifier. | [optional] |
@@ -22,7 +22,7 @@ require 'cybrid_api_bank_ruby'
 instance = CybridApiBank::ExternalBankAccountBankModel.new(
   guid: null,
   name: null,
-  asset_code: null,
+  asset: null,
   account_kind: null,
   environment: null,
   bank_guid: null,
