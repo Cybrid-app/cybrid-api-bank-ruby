@@ -12,7 +12,11 @@
 | **bank_guid** | **String** | The bank identifier. | [optional] |
 | **customer_guid** | **String** | The customer identifier. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the exchange was created at. | [optional] |
-| **plaid_access_token** | **String** | The Plaid access token for the account. | [optional] |
+| **plaid_institution_id** | **String** | The Plaid institution ID for the account. | [optional] |
+| **plaid_account_mask** | **String** | The account number mask for the account. | [optional] |
+| **plaid_account_name** | **String** | The name for the account. | [optional] |
+| **state** | **String** | The state of the external bank account. | [optional] |
+| **failure_code** | **String** | The failure code for failed transfers. | [optional] |
 
 ## Example
 
@@ -28,7 +32,11 @@ instance = CybridApiBank::ExternalBankAccountBankModel.new(
   bank_guid: null,
   customer_guid: null,
   created_at: null,
-  plaid_access_token: null
+  plaid_institution_id: null,
+  plaid_account_mask: null,
+  plaid_account_name: null,
+  state: null,
+  failure_code: null
 )
 ```
 
