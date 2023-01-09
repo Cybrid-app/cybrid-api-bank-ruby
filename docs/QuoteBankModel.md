@@ -14,6 +14,7 @@
 | **fee** | **Integer** | The fee associated with the trade. Denominated in \&quot;counter_asset\&quot; base units for trade quotes. | [optional] |
 | **issued_at** | **Time** | ISO8601 datetime the quote was created at. | [optional] |
 | **expires_at** | **Time** | ISO8601 datetime the quote is expiring at. Populated for trading quotes. | [optional] |
+| **asset** | **String** | The asset code the quote was requested for. Populated for book transfer and funding quotes. | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = CybridApiBank::QuoteBankModel.new(
   deliver_amount: null,
   fee: null,
   issued_at: null,
-  expires_at: null
+  expires_at: null,
+  asset: null
 )
 ```
 
