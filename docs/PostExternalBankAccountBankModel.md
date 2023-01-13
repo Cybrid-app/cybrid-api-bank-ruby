@@ -7,7 +7,7 @@
 | **name** | **String** | The name of the account. |  |
 | **account_kind** | **String** | The account type |  |
 | **customer_guid** | **String** | The customer identifier. | [optional] |
-| **asset** | **String** | The asset code. |  |
+| **asset** | **String** | The asset code. If not set will try and default to the Bank&#39;s configured fiat asset. |  |
 | **plaid_public_token** | **String** | The public token for the account. | [optional] |
 | **plaid_account_id** | **String** | The account identifier in plaid. | [optional] |
 
