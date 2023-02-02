@@ -8,7 +8,8 @@
 | **customer_guid** | **String** | The customer&#39;s identifier. | [optional] |
 | **type** | **String** | The identity record&#39;s type. | [optional] |
 | **attestation_details** | [**AttestationDetailsBankModel**](AttestationDetailsBankModel.md) |  | [optional] |
-| **created_at** | **Time** | ISO8601 datetime the customer was created at. | [optional] |
+| **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
+| **expired_at** | **Time** | ISO8601 datetime the record is expired at. | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = CybridApiBank::IdentityRecordBankModel.new(
   customer_guid: null,
   type: null,
   attestation_details: null,
-  created_at: null
+  created_at: null,
+  expired_at: null
 )
 ```
 
