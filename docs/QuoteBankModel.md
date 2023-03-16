@@ -15,6 +15,8 @@
 | **issued_at** | **Time** | ISO8601 datetime the quote was created at. | [optional] |
 | **expires_at** | **Time** | ISO8601 datetime the quote is expiring at. Populated for trading quotes. | [optional] |
 | **asset** | **String** | The asset code the quote was requested for. Populated for book transfer and funding quotes. | [optional] |
+| **network_fee** | **Integer** | The network fee in base units of network_fee_asset. Only present on &#x60;crypto_transfer&#x60; quotes. | [optional] |
+| **network_fee_asset** | **String** | The asset code of the network fee. | [optional] |
 
 ## Example
 
@@ -32,7 +34,9 @@ instance = CybridApiBank::QuoteBankModel.new(
   fee: null,
   issued_at: null,
   expires_at: null,
-  asset: null
+  asset: null,
+  network_fee: null,
+  network_fee_asset: null
 )
 ```
 
