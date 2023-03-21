@@ -6,8 +6,12 @@
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** | The type of identity verification. |  |
 | **method** | **String** | The identity verification method. |  |
-| **country_code** | **String** | The ISO 3166 country 2-Alpha country the customer is being verified in. If not present, will default to the Bank&#39;s configured country code. | [optional] |
 | **customer_guid** | **String** | The customer&#39;s identifier. | [optional] |
+| **country_code** | **String** | The ISO 3166 country 2-Alpha country the customer is being verified in; required when method is set to &#39;id_and_selfie&#39;. If not present, will default to the Bank&#39;s configured country code. | [optional] |
+| **name** | [**PostIdentityVerificationNameBankModel**](PostIdentityVerificationNameBankModel.md) |  | [optional] |
+| **address** | [**PostIdentityVerificationAddressBankModel**](PostIdentityVerificationAddressBankModel.md) |  | [optional] |
+| **date_of_birth** | **Date** | The customer&#39;s date of birth; required when method is set to &#39;attested&#39;. | [optional] |
+| **identification_numbers** | [**Array&lt;PostIdentificationNumberBankModel&gt;**](PostIdentificationNumberBankModel.md) | The customer&#39;s identification numbers; required when method is set to &#39;attested&#39;. | [optional] |
 | **expected_behaviours** | **Array&lt;String&gt;** | The optional expected behaviour to simulate. | [optional] |
 
 ## Example
@@ -18,8 +22,12 @@ require 'cybrid_api_bank_ruby'
 instance = CybridApiBank::PostIdentityVerificationBankModel.new(
   type: null,
   method: null,
-  country_code: null,
   customer_guid: null,
+  country_code: null,
+  name: null,
+  address: null,
+  date_of_birth: null,
+  identification_numbers: null,
   expected_behaviours: null
 )
 ```
