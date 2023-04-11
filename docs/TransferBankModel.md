@@ -13,7 +13,8 @@
 | **state** | **String** | The trade&#39;s state | [optional] |
 | **amount** | **Integer** | The amount being transferred. | [optional] |
 | **fee** | **Integer** | The fee associated with the trade. | [optional] |
-| **network_fee** | **Integer** | The network fee in base units of network_fee_asset. Only present on &#x60;crypto&#x60; transfers. | [optional] |
+| **estimated_network_fee** | **Integer** | The estimated network fee in base units of network_fee_asset. Only present on &#x60;crypto&#x60; transfers. | [optional] |
+| **network_fee** | **Integer** | The actual network fee in base units of network_fee_asset. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
 | **network_fee_asset** | **String** | The asset code of the network fee. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the bank was created at. | [optional] |
 
@@ -32,6 +33,7 @@ instance = CybridApiBank::TransferBankModel.new(
   state: null,
   amount: null,
   fee: null,
+  estimated_network_fee: null,
   network_fee: null,
   network_fee_asset: null,
   created_at: null
