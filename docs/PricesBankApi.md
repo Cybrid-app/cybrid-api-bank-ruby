@@ -31,7 +31,8 @@ end
 
 api_instance = CybridApiBank::PricesBankApi.new
 opts = {
-  symbol: 'symbol_example' # String | Comma separated symbols to list prices for.
+  symbol: 'symbol_example', # String | Comma separated symbols to list prices for.
+  bank_guid: 'bank_guid_example' # String | The bank identifier to retrieve prices for.
 }
 
 begin
@@ -66,6 +67,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **symbol** | **String** | Comma separated symbols to list prices for. | [optional] |
+| **bank_guid** | **String** | The bank identifier to retrieve prices for. | [optional] |
 
 ### Return type
 
