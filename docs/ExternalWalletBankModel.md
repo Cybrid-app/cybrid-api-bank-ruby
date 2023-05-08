@@ -4,13 +4,14 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **guid** | **String** | Auto-generated unique identifier for the account. | [optional] |
-| **name** | **String** | The name of the account. | [optional] |
+| **guid** | **String** | Auto-generated unique identifier for the wallet. | [optional] |
+| **name** | **String** | The name of the wallet. | [optional] |
 | **asset_code** | **String** | The asset code. | [optional] |
-| **account_kind** | **String** | The type of account. | [optional] |
-| **environment** | **String** | The environment that the exchange is operating in. | [optional] |
-| **exchange_guid** | **String** | The exchange identifier. | [optional] |
-| **created_at** | **Time** | ISO8601 datetime the exchange was created at. | [optional] |
+| **environment** | **String** | The environment that the wallet is configured for. | [optional] |
+| **customer_guid** | **String** | The customer identifier. | [optional] |
+| **address** | **String** | The blockchain wallet address for the wallet. | [optional] |
+| **tag** | **String** | The blockchain tag to use when transferring crypto to the wallet. | [optional] |
+| **created_at** | **Time** | ISO8601 datetime the wallet was created at. | [optional] |
 | **state** | **String** | The state of an external wallet | [optional] |
 | **failure_code** | **String** | The failure code of an external wallet (if any) | [optional] |
 
@@ -23,9 +24,10 @@ instance = CybridApiBank::ExternalWalletBankModel.new(
   guid: null,
   name: null,
   asset_code: null,
-  account_kind: null,
   environment: null,
-  exchange_guid: null,
+  customer_guid: null,
+  address: null,
+  tag: null,
   created_at: null,
   state: null,
   failure_code: null
