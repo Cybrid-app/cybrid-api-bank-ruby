@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the wallet. | [optional] |
 | **name** | **String** | The name of the wallet. | [optional] |
-| **asset_code** | **String** | The asset code. | [optional] |
+| **asset** | **String** | The asset code. | [optional] |
 | **environment** | **String** | The environment that the wallet is configured for. | [optional] |
 | **customer_guid** | **String** | The customer identifier. | [optional] |
 | **address** | **String** | The blockchain wallet address for the wallet. | [optional] |
@@ -23,7 +23,7 @@ require 'cybrid_api_bank_ruby'
 instance = CybridApiBank::ExternalWalletBankModel.new(
   guid: null,
   name: null,
-  asset_code: null,
+  asset: null,
   environment: null,
   customer_guid: null,
   address: null,
