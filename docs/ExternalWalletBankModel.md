@@ -8,6 +8,7 @@
 | **name** | **String** | The name of the wallet. | [optional] |
 | **asset** | **String** | The asset code. | [optional] |
 | **environment** | **String** | The environment that the wallet is configured for. | [optional] |
+| **bank_guid** | **String** | The bank identifier. | [optional] |
 | **customer_guid** | **String** | The customer identifier. | [optional] |
 | **address** | **String** | The blockchain wallet address for the wallet. | [optional] |
 | **tag** | **String** | The blockchain tag to use when transferring crypto to the wallet. | [optional] |
@@ -25,6 +26,7 @@ instance = CybridApiBank::ExternalWalletBankModel.new(
   name: null,
   asset: null,
   environment: null,
+  bank_guid: null,
   customer_guid: null,
   address: null,
   tag: null,

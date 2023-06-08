@@ -16,7 +16,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 Create ExternalWallet
 
-Create an ExternalWallet.  Required scope: **external_wallets:execute**
+Create an ExternalWallet.  External wallets can be added to the bank by leaving the customer_guid blank. External wallets added to the bank can be used by any customer of the bank.  External wallets can also be added to a specific customer by providing the customer_guid. External wallets added to a customer can only be used by that customer.  Required scope: **external_wallets:execute**
 
 ### Examples
 
@@ -33,7 +33,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::ExternalWalletsBankApi.new
-post_external_wallet_bank_model = CybridApiBank::PostExternalWalletBankModel.new({name: 'name_example', customer_guid: 'customer_guid_example', asset: 'asset_example', address: 'address_example'}) # PostExternalWalletBankModel | 
+post_external_wallet_bank_model = CybridApiBank::PostExternalWalletBankModel.new({name: 'name_example', asset: 'asset_example', address: 'address_example'}) # PostExternalWalletBankModel | 
 
 begin
   # Create ExternalWallet
