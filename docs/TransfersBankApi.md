@@ -182,7 +182,8 @@ opts = {
   guid: 'guid_example', # String | Comma separated trade_guids to list transfers for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list transfers for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list transfers for.
-  account_guid: 'account_guid_example' # String | Comma separated account_guids to list transfers for.
+  account_guid: 'account_guid_example', # String | Comma separated account_guids to list transfers for.
+  state: 'state_example' # String | Comma separated states to list transfers for.
 }
 
 begin
@@ -222,6 +223,7 @@ end
 | **bank_guid** | **String** | Comma separated bank_guids to list transfers for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list transfers for. | [optional] |
 | **account_guid** | **String** | Comma separated account_guids to list transfers for. | [optional] |
+| **state** | **String** | Comma separated states to list transfers for. | [optional] |
 
 ### Return type
 
