@@ -182,7 +182,8 @@ opts = {
   guid: 'guid_example', # String | Comma separated trade_guids to list trades for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list trades for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list trades for.
-  account_guid: 'account_guid_example' # String | Comma separated account_guids to list trades for.
+  account_guid: 'account_guid_example', # String | Comma separated account_guids to list trades for.
+  state: 'state_example' # String | Comma separated states to list trades for.
 }
 
 begin
@@ -222,6 +223,7 @@ end
 | **bank_guid** | **String** | Comma separated bank_guids to list trades for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list trades for. | [optional] |
 | **account_guid** | **String** | Comma separated account_guids to list trades for. | [optional] |
+| **state** | **String** | Comma separated states to list trades for. | [optional] |
 
 ### Return type
 
