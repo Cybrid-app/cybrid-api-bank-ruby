@@ -8,6 +8,7 @@
 | **transfer_type** | **String** | The type of transfer. | [optional] |
 | **customer_guid** | **String** | The associated customer&#39;s identifier. | [optional] |
 | **quote_guid** | **String** | The associated quote&#39;s identifier. | [optional] |
+| **external_bank_account_guid** | **String** | The associated external bank account&#39;s identifier. | [optional] |
 | **asset** | **String** | The asset the transfer is related to, e.g., USD. | [optional] |
 | **side** | **String** | The direction of the quote: &#39;deposit&#39; or &#39;withdrawal&#39;. | [optional] |
 | **state** | **String** | The trade&#39;s state | [optional] |
@@ -30,6 +31,7 @@ instance = CybridApiBank::TransferBankModel.new(
   transfer_type: null,
   customer_guid: null,
   quote_guid: null,
+  external_bank_account_guid: null,
   asset: null,
   side: null,
   state: null,
