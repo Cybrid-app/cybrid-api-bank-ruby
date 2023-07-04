@@ -179,7 +179,8 @@ api_instance = CybridApiBank::TransfersBankApi.new
 opts = {
   page: 56, # Integer | The page index to retrieve.
   per_page: 56, # Integer | The number of entities per page to return.
-  guid: 'guid_example', # String | Comma separated trade_guids to list transfers for.
+  guid: 'guid_example', # String | Comma separated transfer_guids to list transfers for.
+  transfer_type: 'transfer_type_example', # String | Comma separated transfer_types to list accounts for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list transfers for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list transfers for.
   account_guid: 'account_guid_example', # String | Comma separated account_guids to list transfers for.
@@ -219,7 +220,8 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** | The page index to retrieve. | [optional] |
 | **per_page** | **Integer** | The number of entities per page to return. | [optional] |
-| **guid** | **String** | Comma separated trade_guids to list transfers for. | [optional] |
+| **guid** | **String** | Comma separated transfer_guids to list transfers for. | [optional] |
+| **transfer_type** | **String** | Comma separated transfer_types to list accounts for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list transfers for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list transfers for. | [optional] |
 | **account_guid** | **String** | Comma separated account_guids to list transfers for. | [optional] |
