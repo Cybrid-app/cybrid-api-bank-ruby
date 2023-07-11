@@ -14,6 +14,7 @@
 | **failure_codes** | **Array&lt;String&gt;** | The reason codes explaining the outcome. | [optional] |
 | **persona_inquiry_id** | **String** | The Persona identifier of the backing inquiry. | [optional] |
 | **persona_state** | **String** | The Persona state of the backing inquiry. | [optional] |
+| **external_bank_account_guid** | **String** | The external bank account&#39;s identifier. | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = CybridApiBank::IdentityVerificationWithDetailsBankModel.new(
   outcome: null,
   failure_codes: null,
   persona_inquiry_id: null,
-  persona_state: null
+  persona_state: null,
+  external_bank_account_guid: null
 )
 ```
 

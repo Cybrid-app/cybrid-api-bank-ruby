@@ -11,7 +11,10 @@
 | **name** | [**PostIdentityVerificationNameBankModel**](PostIdentityVerificationNameBankModel.md) |  | [optional] |
 | **address** | [**PostIdentityVerificationAddressBankModel**](PostIdentityVerificationAddressBankModel.md) |  | [optional] |
 | **date_of_birth** | **Date** | The customer&#39;s date of birth; required when method is set to &#39;attested&#39;. | [optional] |
+| **phone_number** | **String** | The customer&#39;s phone number. | [optional] |
+| **email_address** | **String** | The customer&#39;s email address. | [optional] |
 | **identification_numbers** | [**Array&lt;PostIdentificationNumberBankModel&gt;**](PostIdentificationNumberBankModel.md) | The customer&#39;s identification numbers; required when method is set to &#39;attested&#39;. | [optional] |
+| **external_bank_account_guid** | **String** | The external bank account&#39;s identifier. Required for &#39;bank_account&#39; type. | [optional] |
 | **expected_behaviours** | **Array&lt;String&gt;** | The optional expected behaviour to simulate. | [optional] |
 
 ## Example
@@ -27,7 +30,10 @@ instance = CybridApiBank::PostIdentityVerificationBankModel.new(
   name: null,
   address: null,
   date_of_birth: null,
+  phone_number: null,
+  email_address: null,
   identification_numbers: null,
+  external_bank_account_guid: null,
   expected_behaviours: null
 )
 ```
