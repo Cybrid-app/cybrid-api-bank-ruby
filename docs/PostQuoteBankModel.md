@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **product_type** | **String** | The type of product the quote is for. | [optional][default to &#39;trading&#39;] |
+| **bank_guid** | **String** | The unique identifier for the bank. | [optional] |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **asset** | **String** | The asset code the quote was requested for. Populated for funding, book transfer and crypto transfer quotes. | [optional] |
 | **symbol** | **String** | Symbol the quote is being requested for. Format is \&quot;asset-counter_asset\&quot; in uppercase. See the Symbols API for a complete list of cryptocurrencies supported. Populated for trade quotes. | [optional] |
@@ -19,6 +20,7 @@ require 'cybrid_api_bank_ruby'
 
 instance = CybridApiBank::PostQuoteBankModel.new(
   product_type: null,
+  bank_guid: null,
   customer_guid: null,
   asset: null,
   symbol: null,

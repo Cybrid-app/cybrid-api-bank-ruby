@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the trade. | [optional] |
 | **transfer_type** | **String** | The type of transfer. | [optional] |
+| **bank_guid** | **String** | The associated bank&#39;s identifier. | [optional] |
 | **customer_guid** | **String** | The associated customer&#39;s identifier. | [optional] |
 | **quote_guid** | **String** | The associated quote&#39;s identifier. | [optional] |
 | **external_bank_account_guid** | **String** | The associated external bank account&#39;s identifier. | [optional] |
@@ -30,6 +31,7 @@ require 'cybrid_api_bank_ruby'
 instance = CybridApiBank::TransferBankModel.new(
   guid: null,
   transfer_type: null,
+  bank_guid: null,
   customer_guid: null,
   quote_guid: null,
   external_bank_account_guid: null,

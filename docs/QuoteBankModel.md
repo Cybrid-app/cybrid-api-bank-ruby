@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the quote. | [optional] |
 | **product_type** | **String** | The type of product the quote is for. | [optional] |
+| **bank_guid** | **String** | The unique identifier for the bank. | [optional] |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **symbol** | **String** | Symbol the quote was requested for. Format is \&quot;asset-counter_asset\&quot; in uppercase. Populated for trade quotes. | [optional] |
 | **side** | **String** | The direction of the quote: either &#39;buy&#39; or &#39;sell&#39; for trade quotes. | [optional] |
@@ -26,6 +27,7 @@ require 'cybrid_api_bank_ruby'
 instance = CybridApiBank::QuoteBankModel.new(
   guid: null,
   product_type: null,
+  bank_guid: null,
   customer_guid: null,
   symbol: null,
   side: null,
