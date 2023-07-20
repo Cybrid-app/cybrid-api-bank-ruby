@@ -32,7 +32,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::QuotesBankApi.new
-post_quote_bank_model = CybridApiBank::PostQuoteBankModel.new({side: 'buy'}) # PostQuoteBankModel | 
+post_quote_bank_model = CybridApiBank::PostQuoteBankModel.new # PostQuoteBankModel | 
 
 begin
   # Create Quote
