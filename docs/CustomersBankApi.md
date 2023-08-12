@@ -83,7 +83,7 @@ end
 
 ## get_customer
 
-> <CustomerBankModel> get_customer(customer_guid)
+> <CustomerBankModel> get_customer(customer_guid, opts)
 
 Get Customer
 
@@ -105,10 +105,13 @@ end
 
 api_instance = CybridApiBank::CustomersBankApi.new
 customer_guid = 'customer_guid_example' # String | Identifier for the customer.
+opts = {
+  include_pii: true # Boolean | Include PII in the response.
+}
 
 begin
   # Get Customer
-  result = api_instance.get_customer(customer_guid)
+  result = api_instance.get_customer(customer_guid, opts)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling CustomersBankApi->get_customer: #{e}"
@@ -119,12 +122,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<CustomerBankModel>, Integer, Hash)> get_customer_with_http_info(customer_guid)
+> <Array(<CustomerBankModel>, Integer, Hash)> get_customer_with_http_info(customer_guid, opts)
 
 ```ruby
 begin
   # Get Customer
-  data, status_code, headers = api_instance.get_customer_with_http_info(customer_guid)
+  data, status_code, headers = api_instance.get_customer_with_http_info(customer_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CustomerBankModel>
@@ -138,6 +141,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **customer_guid** | **String** | Identifier for the customer. |  |
+| **include_pii** | **Boolean** | Include PII in the response. | [optional] |
 
 ### Return type
 
