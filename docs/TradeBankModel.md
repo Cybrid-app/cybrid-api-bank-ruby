@@ -14,7 +14,8 @@
 | **receive_amount** | **Integer** | The amount to be received in base units of the currency: currency is \&quot;asset\&quot; for buy and \&quot;counter_asset\&quot; for sell. | [optional] |
 | **deliver_amount** | **Integer** | The amount to be delivered in base units of the currency: currency is \&quot;counter_asset\&quot; for buy and \&quot;asset\&quot; for sell. | [optional] |
 | **fee** | **Integer** | The fee associated with the trade. Denominated in \&quot;counter_asset\&quot; base units | [optional] |
-| **created_at** | **Time** | ISO8601 datetime the bank was created at. | [optional] |
+| **created_at** | **Time** | ISO8601 datetime the trade was created at. | [optional] |
+| **updated_at** | **Time** | ISO8601 datetime the trade was last updated at. | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = CybridApiBank::TradeBankModel.new(
   receive_amount: null,
   deliver_amount: null,
   fee: null,
-  created_at: null
+  created_at: null,
+  updated_at: null
 )
 ```
 
