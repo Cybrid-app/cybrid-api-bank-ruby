@@ -252,6 +252,7 @@ api_instance = CybridApiBank::ExternalWalletsBankApi.new
 opts = {
   page: 56, # Integer | The page index to retrieve.
   per_page: 56, # Integer | The number of entities per page to return.
+  owner: CybridApiBank::ListRequestOwnerBankModel::BANK, # ListRequestOwnerBankModel | The owner of the entity.
   guid: 'guid_example', # String | Comma separated external_wallet_guids to list external_wallets for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list external_wallets for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list external_wallets for.
@@ -291,6 +292,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** | The page index to retrieve. | [optional] |
 | **per_page** | **Integer** | The number of entities per page to return. | [optional] |
+| **owner** | [**ListRequestOwnerBankModel**](.md) | The owner of the entity. | [optional] |
 | **guid** | **String** | Comma separated external_wallet_guids to list external_wallets for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list external_wallets for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list external_wallets for. | [optional] |
