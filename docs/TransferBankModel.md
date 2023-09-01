@@ -23,6 +23,8 @@
 | **network_fee_liability_amount** | **Integer** | The equivalent fiat network fee in base units of network_fee_liability_amount_asset. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
 | **network_fee_liability_amount_asset** | **String** | The fiat asset the network_fee_liability_amount is denominated in. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
 | **txn_hash** | **String** | The hash of the blockchain transaction | [optional] |
+| **source_account** | [**TransferSourceAccountBankModel**](TransferSourceAccountBankModel.md) |  | [optional] |
+| **destination_account** | [**TransferDestinationAccountBankModel**](TransferDestinationAccountBankModel.md) |  | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the bank was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the trade was last updated at. | [optional] |
 
@@ -51,6 +53,8 @@ instance = CybridApiBank::TransferBankModel.new(
   network_fee_liability_amount: null,
   network_fee_liability_amount_asset: null,
   txn_hash: null,
+  source_account: null,
+  destination_account: null,
   created_at: null,
   updated_at: null
 )
