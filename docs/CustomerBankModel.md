@@ -13,7 +13,7 @@
 | **address** | [**CustomerAddressBankModel**](CustomerAddressBankModel.md) |  | [optional] |
 | **date_of_birth** | **Date** | The customer&#39;s DOB. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **phone_number** | **String** | The customer&#39;s phone number. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
-| **email_address** | **String** | The customer&#39;s phone number. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
+| **email_address** | **String** | The customer&#39;s email address. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 
 ## Example
 
