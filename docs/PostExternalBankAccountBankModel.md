@@ -14,6 +14,10 @@
 | **plaid_institution_id** | **String** | Plaid&#39;s institution ID for the account&#39;s institution. Required for &#39;plaid_processor_token&#39; accounts. | [optional] |
 | **plaid_account_mask** | **String** | The account mask for the account. Required for &#39;plaid_processor_token&#39; accounts. | [optional] |
 | **plaid_account_name** | **String** | The name of the account. Required for &#39;plaid_processor_token&#39; accounts. | [optional] |
+| **counterparty_bank_account** | [**PostExternalBankAccountCounterpartyBankAccountBankModel**](PostExternalBankAccountCounterpartyBankAccountBankModel.md) |  | [optional] |
+| **counterparty_name** | [**PostExternalBankAccountCounterpartyNameBankModel**](PostExternalBankAccountCounterpartyNameBankModel.md) |  | [optional] |
+| **counterparty_address** | [**PostExternalBankAccountCounterpartyAddressBankModel**](PostExternalBankAccountCounterpartyAddressBankModel.md) |  | [optional] |
+| **counterparty_email_address** | **String** | The counterparty&#39;s email address on the account. | [optional] |
 
 ## Example
 
@@ -30,7 +34,11 @@ instance = CybridApiBank::PostExternalBankAccountBankModel.new(
   plaid_processor_token: null,
   plaid_institution_id: null,
   plaid_account_mask: null,
-  plaid_account_name: null
+  plaid_account_name: null,
+  counterparty_bank_account: null,
+  counterparty_name: null,
+  counterparty_address: null,
+  counterparty_email_address: null
 )
 ```
 
