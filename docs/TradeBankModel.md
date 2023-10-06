@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the trade. | [optional] |
+| **trade_type** | **String** | The type of trade. | [optional] |
 | **customer_guid** | **String** | The associated customer&#39;s identifier. | [optional] |
 | **quote_guid** | **String** | The associated quote&#39;s identifier. | [optional] |
 | **symbol** | **String** | The trade symbol the pricing is related to. Format is asset-counter_asset, e.g., BTC-USD. | [optional] |
@@ -24,6 +25,7 @@ require 'cybrid_api_bank_ruby'
 
 instance = CybridApiBank::TradeBankModel.new(
   guid: null,
+  trade_type: null,
   customer_guid: null,
   quote_guid: null,
   symbol: null,
