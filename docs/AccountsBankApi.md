@@ -183,7 +183,8 @@ opts = {
   guid: 'guid_example', # String | Comma separated account_guids to list accounts for.
   type: 'type_example', # String | Comma separated account_types to list accounts for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list accounts for.
-  customer_guid: 'customer_guid_example' # String | Comma separated customer_guids to list accounts for.
+  customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list accounts for.
+  label: 'label_example' # String | Comma separated labels to list accounts for.
 }
 
 begin
@@ -224,6 +225,7 @@ end
 | **type** | **String** | Comma separated account_types to list accounts for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list accounts for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list accounts for. | [optional] |
+| **label** | **String** | Comma separated labels to list accounts for. | [optional] |
 
 ### Return type
 
