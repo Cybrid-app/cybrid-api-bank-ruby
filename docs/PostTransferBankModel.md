@@ -11,6 +11,7 @@
 | **external_wallet_guid** | **String** | The customer&#39;s external wallet&#39;s identifier. | [optional] |
 | **external_bank_account_guid** | **String** | The customer&#39;s &#39;plaid&#39; or &#39;plaid_processor_token&#39; external bank account&#39;s identifier. | [optional] |
 | **expected_error** | **String** | The optional expected error to simulate transfer failure. | [optional] |
+| **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = CybridApiBank::PostTransferBankModel.new(
   destination_account_guid: null,
   external_wallet_guid: null,
   external_bank_account_guid: null,
-  expected_error: null
+  expected_error: null,
+  labels: null
 )
 ```
 

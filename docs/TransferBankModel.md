@@ -27,7 +27,8 @@
 | **source_account** | [**TransferSourceAccountBankModel**](TransferSourceAccountBankModel.md) |  | [optional] |
 | **destination_account** | [**TransferDestinationAccountBankModel**](TransferDestinationAccountBankModel.md) |  | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the bank was created at. | [optional] |
-| **updated_at** | **Time** | ISO8601 datetime the trade was last updated at. | [optional] |
+| **updated_at** | **Time** | ISO8601 datetime the transfer was last updated at. | [optional] |
+| **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
 
 ## Example
 
@@ -58,7 +59,8 @@ instance = CybridApiBank::TransferBankModel.new(
   source_account: null,
   destination_account: null,
   created_at: null,
-  updated_at: null
+  updated_at: null,
+  labels: null
 )
 ```
 
