@@ -185,7 +185,8 @@ opts = {
   page: 56, # Integer | 
   per_page: 56, # Integer | 
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list customers for.
-  guid: 'guid_example' # String | Comma separated customer_guids to list customers for.
+  guid: 'guid_example', # String | Comma separated customer_guids to list customers for.
+  label: 'label_example' # String | Comma separated labels to list customers for.
 }
 
 begin
@@ -223,6 +224,7 @@ end
 | **per_page** | **Integer** |  | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list customers for. | [optional] |
 | **guid** | **String** | Comma separated customer_guids to list customers for. | [optional] |
+| **label** | **String** | Comma separated labels to list customers for. | [optional] |
 
 ### Return type
 

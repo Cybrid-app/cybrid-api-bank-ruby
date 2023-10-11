@@ -14,6 +14,7 @@
 | **date_of_birth** | **Date** | The customer&#39;s DOB. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **phone_number** | **String** | The customer&#39;s phone number. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **email_address** | **String** | The customer&#39;s email address. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
+| **labels** | **Array&lt;String&gt;** | The labels associated with the customer. | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = CybridApiBank::CustomerBankModel.new(
   address: null,
   date_of_birth: null,
   phone_number: null,
-  email_address: null
+  email_address: null,
+  labels: null
 )
 ```
 
