@@ -14,6 +14,7 @@
 | **address** | **String** | The blockchain address. | [optional] |
 | **format** | **String** | The blockchain address format. | [optional] |
 | **tag** | **String** | The blockchain address tag. | [optional] |
+| **labels** | **Array&lt;String&gt;** | The labels associated with the address. | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = CybridApiBank::DepositAddressBankModel.new(
   state: null,
   address: null,
   format: null,
-  tag: null
+  tag: null,
+  labels: null
 )
 ```
 

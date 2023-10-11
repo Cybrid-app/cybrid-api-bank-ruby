@@ -181,7 +181,8 @@ opts = {
   per_page: 56, # Integer | The number of entities per page to return.
   guid: 'guid_example', # String | Comma separated guids to list deposit addresses for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list deposit addresses for.
-  customer_guid: 'customer_guid_example' # String | Comma separated customer_guids to list deposit addresses for.
+  customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list deposit addresses for.
+  label: 'label_example' # String | Comma separated labels to list deposit addresses for.
 }
 
 begin
@@ -220,6 +221,7 @@ end
 | **guid** | **String** | Comma separated guids to list deposit addresses for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list deposit addresses for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list deposit addresses for. | [optional] |
+| **label** | **String** | Comma separated labels to list deposit addresses for. | [optional] |
 
 ### Return type
 
