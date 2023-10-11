@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **quote_guid** | **String** | The associated quote&#39;s identifier. |  |
 | **expected_error** | **String** | The optional expected error to simulate trade failure. | [optional] |
+| **labels** | **Array&lt;String&gt;** | The labels associated with the trade. | [optional] |
 
 ## Example
 
@@ -14,7 +15,8 @@ require 'cybrid_api_bank_ruby'
 
 instance = CybridApiBank::PostTradeBankModel.new(
   quote_guid: null,
-  expected_error: null
+  expected_error: null,
+  labels: null
 )
 ```
 

@@ -17,6 +17,7 @@
 | **fee** | **Integer** | The fee associated with the trade. Denominated in \&quot;counter_asset\&quot; base units | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the trade was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the trade was last updated at. | [optional] |
+| **labels** | **Array&lt;String&gt;** | The labels associated with the trade. | [optional] |
 
 ## Example
 
@@ -36,7 +37,8 @@ instance = CybridApiBank::TradeBankModel.new(
   deliver_amount: null,
   fee: null,
   created_at: null,
-  updated_at: null
+  updated_at: null,
+  labels: null
 )
 ```
 
