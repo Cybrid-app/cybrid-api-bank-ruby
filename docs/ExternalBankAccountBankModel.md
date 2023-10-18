@@ -17,6 +17,9 @@
 | **plaid_account_name** | **String** | The name for the account. | [optional] |
 | **state** | **String** | The state of the external bank account. | [optional] |
 | **failure_code** | **String** | The failure code for failed transfers. | [optional] |
+| **balance_updated_at** | **Time** | The timestamp that the balance information was last updated at. | [optional] |
+| **balances** | [**ExternalBankAccountBalancesBankModel**](ExternalBankAccountBalancesBankModel.md) |  | [optional] |
+| **pii** | [**Array&lt;ExternalBankAccountPiiInnerBankModel&gt;**](ExternalBankAccountPiiInnerBankModel.md) | The account holder information. | [optional] |
 
 ## Example
 
@@ -36,7 +39,10 @@ instance = CybridApiBank::ExternalBankAccountBankModel.new(
   plaid_account_mask: null,
   plaid_account_name: null,
   state: null,
-  failure_code: null
+  failure_code: null,
+  balance_updated_at: null,
+  balances: null,
+  pii: null
 )
 ```
 

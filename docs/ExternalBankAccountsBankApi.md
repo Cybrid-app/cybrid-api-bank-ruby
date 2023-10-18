@@ -157,7 +157,7 @@ end
 
 ## get_external_bank_account
 
-> <ExternalBankAccountBankModel> get_external_bank_account(external_bank_account_guid)
+> <ExternalBankAccountBankModel> get_external_bank_account(external_bank_account_guid, opts)
 
 Get External Bank Account
 
@@ -179,10 +179,15 @@ end
 
 api_instance = CybridApiBank::ExternalBankAccountsBankApi.new
 external_bank_account_guid = 'external_bank_account_guid_example' # String | Identifier for the external bank account.
+opts = {
+  force_balance_refresh: true, # Boolean | Force the balance on the account to be updated.
+  include_balances: true, # Boolean | Include account balances in the response.
+  include_pii: true # Boolean | Include account holder's PII in the response.
+}
 
 begin
   # Get External Bank Account
-  result = api_instance.get_external_bank_account(external_bank_account_guid)
+  result = api_instance.get_external_bank_account(external_bank_account_guid, opts)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling ExternalBankAccountsBankApi->get_external_bank_account: #{e}"
@@ -193,12 +198,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ExternalBankAccountBankModel>, Integer, Hash)> get_external_bank_account_with_http_info(external_bank_account_guid)
+> <Array(<ExternalBankAccountBankModel>, Integer, Hash)> get_external_bank_account_with_http_info(external_bank_account_guid, opts)
 
 ```ruby
 begin
   # Get External Bank Account
-  data, status_code, headers = api_instance.get_external_bank_account_with_http_info(external_bank_account_guid)
+  data, status_code, headers = api_instance.get_external_bank_account_with_http_info(external_bank_account_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ExternalBankAccountBankModel>
@@ -212,6 +217,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **external_bank_account_guid** | **String** | Identifier for the external bank account. |  |
+| **force_balance_refresh** | **Boolean** | Force the balance on the account to be updated. | [optional] |
+| **include_balances** | **Boolean** | Include account balances in the response. | [optional] |
+| **include_pii** | **Boolean** | Include account holder&#39;s PII in the response. | [optional] |
 
 ### Return type
 
