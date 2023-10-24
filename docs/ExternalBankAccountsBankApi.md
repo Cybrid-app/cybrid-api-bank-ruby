@@ -180,9 +180,9 @@ end
 api_instance = CybridApiBank::ExternalBankAccountsBankApi.new
 external_bank_account_guid = 'external_bank_account_guid_example' # String | Identifier for the external bank account.
 opts = {
-  force_balance_refresh: true, # Boolean | Force the balance on the account to be updated.
-  include_balances: true, # Boolean | Include account balances in the response.
-  include_pii: true # Boolean | Include account holder's PII in the response.
+  force_balance_refresh: true, # Boolean | Force the balance on the account to be retrieved.
+  include_balances: true, # Boolean | Include balance information in the response. If `force_balance_refresh` is `true`, the most up to date balance will be returned. If `force_balance_refresh` is `false`, the cached balance will be returned. `balance_updated_at` in the response will provide the timestamp the balance was last updated.
+  include_pii: true # Boolean | Include the account holder's PII in the response.
 }
 
 begin
@@ -217,9 +217,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **external_bank_account_guid** | **String** | Identifier for the external bank account. |  |
-| **force_balance_refresh** | **Boolean** | Force the balance on the account to be updated. | [optional] |
-| **include_balances** | **Boolean** | Include account balances in the response. | [optional] |
-| **include_pii** | **Boolean** | Include account holder&#39;s PII in the response. | [optional] |
+| **force_balance_refresh** | **Boolean** | Force the balance on the account to be retrieved. | [optional] |
+| **include_balances** | **Boolean** | Include balance information in the response. If &#x60;force_balance_refresh&#x60; is &#x60;true&#x60;, the most up to date balance will be returned. If &#x60;force_balance_refresh&#x60; is &#x60;false&#x60;, the cached balance will be returned. &#x60;balance_updated_at&#x60; in the response will provide the timestamp the balance was last updated. | [optional] |
+| **include_pii** | **Boolean** | Include the account holder&#39;s PII in the response. | [optional] |
 
 ### Return type
 
