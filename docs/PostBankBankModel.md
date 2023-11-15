@@ -10,6 +10,7 @@
 | **features** | **Array&lt;String&gt;** | The bank&#39;s enabled features. |  |
 | **supported_fiat_account_assets** | **Array&lt;String&gt;** | The bank&#39;s list of supported fiat assets. |  |
 | **supported_country_codes** | **Array&lt;String&gt;** | The bank&#39;s list of supported country codes. | [optional] |
+| **routable_accounts** | **String** | Configuration for supporting creating routable bank accounts. | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = CybridApiBank::PostBankBankModel.new(
   supported_trading_symbols: null,
   features: null,
   supported_fiat_account_assets: null,
-  supported_country_codes: null
+  supported_country_codes: null,
+  routable_accounts: null
 )
 ```
 
