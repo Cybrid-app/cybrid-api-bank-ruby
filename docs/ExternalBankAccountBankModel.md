@@ -11,7 +11,8 @@
 | **environment** | **String** | The environment that the external bank account is operating in. | [optional] |
 | **bank_guid** | **String** | The bank identifier. | [optional] |
 | **customer_guid** | **String** | The customer identifier. | [optional] |
-| **created_at** | **Time** | ISO8601 datetime the exchange was created at. | [optional] |
+| **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
+| **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **plaid_institution_id** | **String** | The Plaid institution ID for the account. | [optional] |
 | **plaid_account_mask** | **String** | The account number mask for the account. | [optional] |
 | **plaid_account_name** | **String** | The name for the account. | [optional] |
@@ -35,6 +36,7 @@ instance = CybridApiBank::ExternalBankAccountBankModel.new(
   bank_guid: null,
   customer_guid: null,
   created_at: null,
+  updated_at: null,
   plaid_institution_id: null,
   plaid_account_mask: null,
   plaid_account_name: null,

@@ -26,8 +26,8 @@
 | **reference_transfer_guid** | **String** | The guid of the related transfer. Only present on &#x60;funding_return&#x60; transfers. | [optional] |
 | **source_account** | [**TransferSourceAccountBankModel**](TransferSourceAccountBankModel.md) |  | [optional] |
 | **destination_account** | [**TransferDestinationAccountBankModel**](TransferDestinationAccountBankModel.md) |  | [optional] |
-| **created_at** | **Time** | ISO8601 datetime the bank was created at. | [optional] |
-| **updated_at** | **Time** | ISO8601 datetime the transfer was last updated at. | [optional] |
+| **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
+| **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
 
 ## Example

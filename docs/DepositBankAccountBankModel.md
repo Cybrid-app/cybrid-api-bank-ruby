@@ -8,7 +8,8 @@
 | **bank_guid** | **String** | The address&#39; bank identifier. | [optional] |
 | **customer_guid** | **String** | The address&#39; customer identifier. | [optional] |
 | **account_guid** | **String** | The address&#39; account identifier. | [optional] |
-| **created_at** | **Time** | ISO8601 datetime the address was created at. | [optional] |
+| **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
+| **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **asset** | **String** | The asset the transfer is related to, e.g., USD. | [optional] |
 | **state** | **String** | The state of the address. | [optional] |
 | **unique_memo_id** | **String** | The unique memo identifier for the address. This is used to identify the recipient when sending funds to the account. This value MUST be included in all wire transfers to this account. | [optional] |
@@ -29,6 +30,7 @@ instance = CybridApiBank::DepositBankAccountBankModel.new(
   customer_guid: null,
   account_guid: null,
   created_at: null,
+  updated_at: null,
   asset: null,
   state: null,
   unique_memo_id: null,

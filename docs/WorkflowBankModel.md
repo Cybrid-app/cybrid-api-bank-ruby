@@ -9,7 +9,8 @@
 | **type** | **String** | The type of workflow. | [optional] |
 | **state** | **String** | The state of the workflow. | [optional] |
 | **failure_code** | **String** | The failure code for failed workflows. | [optional] |
-| **created_at** | **Time** | ISO8601 datetime the bank was created at. | [optional] |
+| **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
+| **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = CybridApiBank::WorkflowBankModel.new(
   type: null,
   state: null,
   failure_code: null,
-  created_at: null
+  created_at: null,
+  updated_at: null
 )
 ```
 

@@ -12,7 +12,8 @@
 | **customer_guid** | **String** | The customer identifier. | [optional] |
 | **address** | **String** | The blockchain wallet address for the wallet. | [optional] |
 | **tag** | **String** | The blockchain tag to use when transferring crypto to the wallet. | [optional] |
-| **created_at** | **Time** | ISO8601 datetime the wallet was created at. | [optional] |
+| **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
+| **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **state** | **String** | The state of an external wallet | [optional] |
 | **failure_code** | **String** | The failure code of an external wallet (if any) | [optional] |
 
@@ -31,6 +32,7 @@ instance = CybridApiBank::ExternalWalletBankModel.new(
   address: null,
   tag: null,
   created_at: null,
+  updated_at: null,
   state: null,
   failure_code: null
 )
