@@ -33,7 +33,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::CustomersBankApi.new
-post_customer_bank_model = CybridApiBank::PostCustomerBankModel.new({type: 'individual'}) # PostCustomerBankModel | 
+post_customer_bank_model = CybridApiBank::PostCustomerBankModel.new({type: 'business'}) # PostCustomerBankModel | 
 
 begin
   # Create Customer
