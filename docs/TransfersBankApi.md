@@ -185,7 +185,9 @@ opts = {
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list transfers for.
   account_guid: 'account_guid_example', # String | Comma separated account_guids to list transfers for.
   state: 'state_example', # String | Comma separated states to list transfers for.
-  label: 'label_example' # String | Comma separated labels to list transfers for.
+  label: 'label_example', # String | Comma separated labels to list transfers for.
+  created_at_gte: 'created_at_gte_example', # String | Created at start date inclusive lower bound, ISO8601
+  created_at_lt: 'created_at_lt_example' # String | Created at end date exclusive upper bound, ISO8601.
 }
 
 begin
@@ -228,6 +230,8 @@ end
 | **account_guid** | **String** | Comma separated account_guids to list transfers for. | [optional] |
 | **state** | **String** | Comma separated states to list transfers for. | [optional] |
 | **label** | **String** | Comma separated labels to list transfers for. | [optional] |
+| **created_at_gte** | **String** | Created at start date inclusive lower bound, ISO8601 | [optional] |
+| **created_at_lt** | **String** | Created at end date exclusive upper bound, ISO8601. | [optional] |
 
 ### Return type
 
