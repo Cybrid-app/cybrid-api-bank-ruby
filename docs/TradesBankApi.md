@@ -186,7 +186,9 @@ opts = {
   state: 'state_example', # String | Comma separated states to list trades for.
   label: 'label_example', # String | Comma separated labels to list trades for.
   created_at_gte: 'created_at_gte_example', # String | Created at start date inclusive lower bound, ISO8601.
-  created_at_lt: 'created_at_lt_example' # String | Created at end date exclusive upper bound, ISO8601.
+  created_at_lt: 'created_at_lt_example', # String | Created at end date exclusive upper bound, ISO8601.
+  updated_at_gte: 'updated_at_gte_example', # String | Updated at start date inclusive lower bound, ISO8601.
+  updated_at_lt: 'updated_at_lt_example' # String | Updated at end date exclusive upper bound, ISO8601.
 }
 
 begin
@@ -230,6 +232,8 @@ end
 | **label** | **String** | Comma separated labels to list trades for. | [optional] |
 | **created_at_gte** | **String** | Created at start date inclusive lower bound, ISO8601. | [optional] |
 | **created_at_lt** | **String** | Created at end date exclusive upper bound, ISO8601. | [optional] |
+| **updated_at_gte** | **String** | Updated at start date inclusive lower bound, ISO8601. | [optional] |
+| **updated_at_lt** | **String** | Updated at end date exclusive upper bound, ISO8601. | [optional] |
 
 ### Return type
 
