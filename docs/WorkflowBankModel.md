@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the workflow. | [optional] |
 | **customer_guid** | **String** | The associated customer&#39;s identifier. | [optional] |
-| **type** | **String** | The type of workflow. | [optional] |
-| **state** | **String** | The state of the workflow. | [optional] |
+| **type** | **String** | The type of workflow; one of plaid. | [optional] |
+| **state** | **String** | The state of the workflow; one of storing, completed, or failed. | [optional] |
 | **failure_code** | **String** | The failure code for failed workflows. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |

@@ -7,12 +7,12 @@
 | **guid** | **String** | Auto-generated unique identifier for the bank. |  |
 | **organization_guid** | **String** | The organization&#39;s identifier. |  |
 | **name** | **String** | The bank&#39;s name. |  |
-| **type** | **String** | The bank&#39;s type. |  |
+| **type** | **String** | The bank type; one of sandbox or production. |  |
 | **supported_trading_symbols** | **Array&lt;String&gt;** | The bank&#39;s list of supported trading symbols. | [optional] |
 | **supported_fiat_account_assets** | **Array&lt;String&gt;** | The bank&#39;s list of supported fiat symbols. | [optional] |
 | **supported_country_codes** | **Array&lt;String&gt;** | The bank&#39;s list of supported country codes. | [optional] |
 | **features** | **Array&lt;String&gt;** | The bank&#39;s enabled features. |  |
-| **routable_accounts** | **String** | Configuration for supporting creating routable bank accounts. | [optional] |
+| **routable_accounts** | **String** | Configuration for supporting creating routable bank accounts: one of unsupported, bank, or customer. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. |  |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 

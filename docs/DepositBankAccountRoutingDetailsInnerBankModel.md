@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **routing_number_type** | **String** | The type of routing number. |  |
+| **routing_number_type** | **String** | The type of routing number; one of CPA, ABA, or SWIFT. |  |
 | **routing_number** | **String** | The routing number. |  |
 
 ## Example

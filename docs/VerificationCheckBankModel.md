@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **type** | **String** | The type of verification check. |  |
-| **state** | **String** | The state of the verification check. |  |
+| **type** | **String** | The type of verification check; one of business_watchlists, business_verification, business_tax_id_verification, person_attested, person_tax_id_attested, person_watchlists, person_verification, person_authentication, person_gov_id_verification, or person_tax_id_verification. |  |
+| **state** | **String** | The state of the verification check; one of passed, failed, expired, or invalidated. |  |
 | **failure_codes** | **Array&lt;String&gt;** | The reason codes explaining the outcome. | [optional] |
 
 ## Example

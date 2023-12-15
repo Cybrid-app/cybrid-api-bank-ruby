@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **type** | **String** | The account type. | [optional] |
+| **type** | **String** | The account type; one of trading, fee, fiat, or gas. | [optional] |
 | **guid** | **String** | Auto-generated unique identifier for the account. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
@@ -14,7 +14,7 @@
 | **customer_guid** | **String** | The customer identifier associated with the account. | [optional] |
 | **platform_balance** | **Integer** | The amount of funds that are in the account, in base units of the asset. | [optional] |
 | **platform_available** | **Integer** | The amount of funds that are in the account, in base units of the asset, that are available for use on the platform. | [optional] |
-| **state** | **String** | The account&#39;s state. | [optional] |
+| **state** | **String** | The state of the account; one of storing or created. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the account. | [optional] |
 
 ## Example
