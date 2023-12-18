@@ -12,7 +12,6 @@
 | **supported_fiat_account_assets** | **Array&lt;String&gt;** | The bank&#39;s list of supported fiat symbols. | [optional] |
 | **supported_country_codes** | **Array&lt;String&gt;** | The bank&#39;s list of supported country codes. | [optional] |
 | **features** | **Array&lt;String&gt;** | The bank&#39;s enabled features. |  |
-| **routable_accounts** | **String** | Configuration for supporting creating routable bank accounts: one of unsupported, bank, or customer. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. |  |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 
@@ -30,7 +29,6 @@ instance = CybridApiBank::BankBankModel.new(
   supported_fiat_account_assets: null,
   supported_country_codes: null,
   features: null,
-  routable_accounts: null,
   created_at: null,
   updated_at: null
 )
