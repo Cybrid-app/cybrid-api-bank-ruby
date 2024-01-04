@@ -182,7 +182,8 @@ opts = {
   guid: 'guid_example', # String | Comma separated quote_guids to list quotes for.
   product_type: 'product_type_example', # String | Comma separated product_types to list accounts for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list quotes for.
-  customer_guid: 'customer_guid_example' # String | Comma separated customer_guids to list quotes for.
+  customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list quotes for.
+  side: 'side_example' # String | Comma separated sides to list quotes for.
 }
 
 begin
@@ -222,6 +223,7 @@ end
 | **product_type** | **String** | Comma separated product_types to list accounts for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list quotes for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list quotes for. | [optional] |
+| **side** | **String** | Comma separated sides to list quotes for. | [optional] |
 
 ### Return type
 
