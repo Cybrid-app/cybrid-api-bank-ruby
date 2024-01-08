@@ -6,6 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the transfer account. | [optional] |
 | **type** | **String** | The type of transfer account; one of trading, fiat, external_bank_account, external_wallet, or one_time_address. | [optional] |
+| **bank_guid** | **String** | The account&#39;s identifier. | [optional] |
+| **customer_guid** | **String** | The account&#39;s identifier. | [optional] |
 
 ## Example
 
@@ -14,7 +16,9 @@ require 'cybrid_api_bank_ruby'
 
 instance = CybridApiBank::TransferDestinationAccountBankModel.new(
   guid: null,
-  type: null
+  type: null,
+  bank_guid: null,
+  customer_guid: null
 )
 ```
 
