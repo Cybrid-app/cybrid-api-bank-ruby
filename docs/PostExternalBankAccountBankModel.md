@@ -17,7 +17,7 @@
 | **counterparty_bank_account** | [**PostExternalBankAccountCounterpartyBankAccountBankModel**](PostExternalBankAccountCounterpartyBankAccountBankModel.md) |  | [optional] |
 | **counterparty_name** | [**PostExternalBankAccountCounterpartyNameBankModel**](PostExternalBankAccountCounterpartyNameBankModel.md) |  | [optional] |
 | **counterparty_address** | [**PostExternalBankAccountCounterpartyAddressBankModel**](PostExternalBankAccountCounterpartyAddressBankModel.md) |  | [optional] |
-| **counterparty_email_address** | **String** | The counterparty&#39;s email address on the account. | [optional] |
+| **counterparty_email_address** | **String** | The counterparty&#39;s email address on their checking account. | [optional] |
 
 ## Example
 
