@@ -4,9 +4,82 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**cancel_invoice**](InvoicesBankApi.md#cancel_invoice) | **DELETE** /api/invoices/{invoice_guid} | Cancel Invoice |
 | [**create_invoice**](InvoicesBankApi.md#create_invoice) | **POST** /api/invoices | Create Invoice |
 | [**get_invoice**](InvoicesBankApi.md#get_invoice) | **GET** /api/invoices/{invoice_guid} | Get Invoice |
 | [**list_invoices**](InvoicesBankApi.md#list_invoices) | **GET** /api/invoices | List Invoices |
+
+
+## cancel_invoice
+
+> <InvoiceBankModel> cancel_invoice(invoice_guid)
+
+Cancel Invoice
+
+Cancels an invoice.  Required scope: **invoices:execute**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_bank_ruby'
+# setup authorization
+CybridApiBank.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiBank::InvoicesBankApi.new
+invoice_guid = 'invoice_guid_example' # String | Identifier for the invoice.
+
+begin
+  # Cancel Invoice
+  result = api_instance.cancel_invoice(invoice_guid)
+  p result
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling InvoicesBankApi->cancel_invoice: #{e}"
+end
+```
+
+#### Using the cancel_invoice_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<InvoiceBankModel>, Integer, Hash)> cancel_invoice_with_http_info(invoice_guid)
+
+```ruby
+begin
+  # Cancel Invoice
+  data, status_code, headers = api_instance.cancel_invoice_with_http_info(invoice_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <InvoiceBankModel>
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling InvoicesBankApi->cancel_invoice_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **invoice_guid** | **String** | Identifier for the invoice. |  |
+
+### Return type
+
+[**InvoiceBankModel**](InvoiceBankModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## create_invoice
