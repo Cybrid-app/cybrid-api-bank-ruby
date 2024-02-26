@@ -1,4 +1,4 @@
-# CybridApiBank::CustomerNameBankModel
+# CybridApiBank::CustomerAliasesInnerBankModel
 
 ## Properties
 
@@ -14,7 +14,7 @@
 ```ruby
 require 'cybrid_api_bank_ruby'
 
-instance = CybridApiBank::CustomerNameBankModel.new(
+instance = CybridApiBank::CustomerAliasesInnerBankModel.new(
   first: null,
   middle: null,
   last: null,
