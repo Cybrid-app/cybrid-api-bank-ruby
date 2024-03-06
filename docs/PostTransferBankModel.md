@@ -11,6 +11,7 @@
 | **external_wallet_guid** | **String** | The customer&#39;s external wallet&#39;s identifier. | [optional] |
 | **external_bank_account_guid** | **String** | The customer&#39;s &#39;plaid&#39; or &#39;plaid_processor_token&#39; external bank account&#39;s identifier. | [optional] |
 | **payment_rail** | **String** | The desired payment rail to initiate the transfer for. Valid values are: ach, eft, wire. Valid for funding transfers only. | [optional] |
+| **beneficiary_memo** | **String** | The memo to send to the counterparty. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
 
 ## Example
@@ -26,6 +27,7 @@ instance = CybridApiBank::PostTransferBankModel.new(
   external_wallet_guid: null,
   external_bank_account_guid: null,
   payment_rail: null,
+  beneficiary_memo: null,
   labels: null
 )
 ```
