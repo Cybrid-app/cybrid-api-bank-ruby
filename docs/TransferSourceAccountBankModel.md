@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the transfer account. | [optional] |
-| **type** | **String** | The type of transfer account; one of trading, fiat, external_bank_account, external_wallet, or one_time_address. | [optional] |
+| **type** | **String** | The type of transfer account; one of trading, fiat, external_bank_account, external_wallet, one_time_address, or reserve. | [optional] |
 | **bank_guid** | **String** | The account&#39;s identifier. | [optional] |
 | **customer_guid** | **String** | The account&#39;s identifier. | [optional] |
 
