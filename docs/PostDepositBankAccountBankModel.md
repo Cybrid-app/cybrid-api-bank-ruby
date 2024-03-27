@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **account_guid** | **String** | The trading account guid. |  |
+| **account_guid** | **String** | The fiat account guid. |  |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the address. | [optional] |
 
