@@ -83,7 +83,7 @@ end
 
 ## get_identity_verification
 
-> <IdentityVerificationWithDetailsBankModel> get_identity_verification(identity_verification_guid)
+> <IdentityVerificationWithDetailsBankModel> get_identity_verification(identity_verification_guid, opts)
 
 Get Identity Verification
 
@@ -105,10 +105,13 @@ end
 
 api_instance = CybridApiBank::IdentityVerificationsBankApi.new
 identity_verification_guid = 'identity_verification_guid_example' # String | Identifier for the identity verification.
+opts = {
+  include_pii: true # Boolean | Include PII in the response.
+}
 
 begin
   # Get Identity Verification
-  result = api_instance.get_identity_verification(identity_verification_guid)
+  result = api_instance.get_identity_verification(identity_verification_guid, opts)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling IdentityVerificationsBankApi->get_identity_verification: #{e}"
@@ -119,12 +122,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<IdentityVerificationWithDetailsBankModel>, Integer, Hash)> get_identity_verification_with_http_info(identity_verification_guid)
+> <Array(<IdentityVerificationWithDetailsBankModel>, Integer, Hash)> get_identity_verification_with_http_info(identity_verification_guid, opts)
 
 ```ruby
 begin
   # Get Identity Verification
-  data, status_code, headers = api_instance.get_identity_verification_with_http_info(identity_verification_guid)
+  data, status_code, headers = api_instance.get_identity_verification_with_http_info(identity_verification_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <IdentityVerificationWithDetailsBankModel>
@@ -138,6 +141,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **identity_verification_guid** | **String** | Identifier for the identity verification. |  |
+| **include_pii** | **Boolean** | Include PII in the response. | [optional] |
 
 ### Return type
 
