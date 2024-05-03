@@ -13,7 +13,9 @@
 | **state** | **String** | The identity verification state; one of storing, waiting, expired, or completed. | [optional] |
 | **outcome** | **String** | The identity verification outcome; one of passed or failed. | [optional] |
 | **failure_codes** | **Array&lt;String&gt;** | The reason codes explaining the outcome. | [optional] |
-| **verification_checks** | [**Array&lt;VerificationCheckBankModel&gt;**](VerificationCheckBankModel.md) | The checks associated with the identity verification. | [optional] |
+| **compliance_checks** | [**Array&lt;ComplianceCheckBankModel&gt;**](ComplianceCheckBankModel.md) | The compliance checks associated with the identity verification. | [optional] |
+| **compliance_decisions** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | The compliance decisions associated with the identity verification. | [optional] |
+| **verification_checks** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | Deprecated; use compliance_decisions instead. | [optional] |
 | **persona_inquiry_id** | **String** | The Persona identifier of the backing inquiry. | [optional] |
 | **persona_state** | **String** | The Persona state of the backing inquiry; one of waiting, pending, reviewing, processing, expired, completed, or unknown. | [optional] |
 | **external_bank_account_guid** | **String** | The external bank account&#39;s identifier. | [optional] |
@@ -34,6 +36,8 @@ instance = CybridApiBank::IdentityVerificationWithDetailsBankModel.new(
   state: null,
   outcome: null,
   failure_codes: null,
+  compliance_checks: null,
+  compliance_decisions: null,
   verification_checks: null,
   persona_inquiry_id: null,
   persona_state: null,

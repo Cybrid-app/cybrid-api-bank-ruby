@@ -18,7 +18,8 @@
 | **phone_number** | **String** | The customer&#39;s phone number. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **email_address** | **String** | The customer&#39;s email address. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the customer. | [optional] |
-| **verification_checks** | [**Array&lt;VerificationCheckBankModel&gt;**](VerificationCheckBankModel.md) | The verification checks associated with the customer. | [optional] |
+| **compliance_decisions** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | The compliance decisions associated with the customer. | [optional] |
+| **verification_checks** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | Deprecated; use compliance_decisions instead. | [optional] |
 
 ## Example
 
@@ -40,6 +41,7 @@ instance = CybridApiBank::CustomerBankModel.new(
   phone_number: null,
   email_address: null,
   labels: null,
+  compliance_decisions: null,
   verification_checks: null
 )
 ```

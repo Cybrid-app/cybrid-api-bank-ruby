@@ -1,4 +1,4 @@
-# CybridApiBank::VerificationCheckBankModel
+# CybridApiBank::ComplianceDecisionBankModel
 
 ## Properties
 
@@ -13,7 +13,7 @@
 ```ruby
 require 'cybrid_api_bank_ruby'
 
-instance = CybridApiBank::VerificationCheckBankModel.new(
+instance = CybridApiBank::ComplianceDecisionBankModel.new(
   type: null,
   state: null,
   failure_codes: null

@@ -13,7 +13,8 @@
 | **state** | **String** | The identity verification state; one of storing, waiting, expired, or completed. | [optional] |
 | **outcome** | **String** | The identity verification outcome; one of passed or failed. | [optional] |
 | **failure_codes** | **Array&lt;String&gt;** | The reason codes explaining the outcome. | [optional] |
-| **verification_checks** | [**Array&lt;VerificationCheckBankModel&gt;**](VerificationCheckBankModel.md) | The checks associated with the identity verification. | [optional] |
+| **compliance_decisions** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | The compliance decisions associated with the identity verification. | [optional] |
+| **verification_checks** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | Deprecated; use compliance_decisions instead. | [optional] |
 
 ## Example
 
@@ -30,6 +31,7 @@ instance = CybridApiBank::IdentityVerificationBankModel.new(
   state: null,
   outcome: null,
   failure_codes: null,
+  compliance_decisions: null,
   verification_checks: null
 )
 ```

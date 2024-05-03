@@ -1,4 +1,4 @@
-# CybridApiBank::VerificationCheckTypeBankModel
+# CybridApiBank::ComplianceDecisionTypeBankModel
 
 ## Properties
 
@@ -10,6 +10,6 @@
 ```ruby
 require 'cybrid_api_bank_ruby'
 
-instance = CybridApiBank::VerificationCheckTypeBankModel.new()
+instance = CybridApiBank::ComplianceDecisionTypeBankModel.new()
 ```
 
