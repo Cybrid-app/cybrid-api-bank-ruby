@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the quote. | [optional] |
-| **product_type** | **String** | The type of product the quote is for; one of trading, funding, book_transfer, crypto_transfer, or inter_account. | [optional] |
+| **product_type** | **String** | The type of product the quote is for; one of trading, funding, book_transfer, crypto_transfer, inter_account, or lightning_transfer. | [optional] |
 | **bank_guid** | **String** | The unique identifier for the bank. | [optional] |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **symbol** | **String** | Symbol the quote was requested for. Format is \&quot;asset-counter_asset\&quot; in uppercase. Populated for trade quotes. | [optional] |
@@ -20,6 +20,7 @@
 | **asset** | **String** | The asset code the quote was requested for. Populated for book transfer and funding quotes. | [optional] |
 | **network_fee** | **Integer** | The network fee in base units of network_fee_asset. Only present on &#x60;crypto_transfer&#x60; quotes. | [optional] |
 | **network_fee_asset** | **String** | The asset code of the network fee. | [optional] |
+| **network_address** | **String** | The network address to pay the invoice to. Populated for lightning_transfer quotes. | [optional] |
 
 ## Example
 
@@ -42,7 +43,8 @@ instance = CybridApiBank::QuoteBankModel.new(
   expires_at: null,
   asset: null,
   network_fee: null,
-  network_fee_asset: null
+  network_fee_asset: null,
+  network_address: null
 )
 ```
 
