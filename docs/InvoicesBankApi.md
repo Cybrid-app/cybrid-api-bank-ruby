@@ -256,6 +256,8 @@ opts = {
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list invoices for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list invoices for.
   account_guid: 'account_guid_example', # String | Comma separated account_guids to list invoices for.
+  state: 'state_example', # String | Comma separated states to list invoices for.
+  environment: 'sandbox', # String | 
   label: 'label_example' # String | Comma separated labels to list invoices for.
 }
 
@@ -296,6 +298,8 @@ end
 | **bank_guid** | **String** | Comma separated bank_guids to list invoices for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list invoices for. | [optional] |
 | **account_guid** | **String** | Comma separated account_guids to list invoices for. | [optional] |
+| **state** | **String** | Comma separated states to list invoices for. | [optional] |
+| **environment** | **String** |  | [optional] |
 | **label** | **String** | Comma separated labels to list invoices for. | [optional] |
 
 ### Return type
