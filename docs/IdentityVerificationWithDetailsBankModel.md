@@ -17,7 +17,6 @@
 | **failure_codes** | **Array&lt;String&gt;** | The reason codes explaining the outcome. | [optional] |
 | **compliance_checks** | [**Array&lt;ComplianceCheckBankModel&gt;**](ComplianceCheckBankModel.md) | The compliance checks associated with the identity verification. | [optional] |
 | **compliance_decisions** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | The compliance decisions associated with the identity verification. | [optional] |
-| **verification_checks** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | Deprecated; use compliance_decisions instead. | [optional] |
 | **persona_inquiry_id** | **String** | The Persona identifier of the backing inquiry. | [optional] |
 | **persona_state** | **String** | The Persona state of the backing inquiry; one of waiting, pending, reviewing, processing, expired, completed, or unknown. | [optional] |
 | **pii** | [**IdentityVerificationWithDetailsPiiBankModel**](IdentityVerificationWithDetailsPiiBankModel.md) |  | [optional] |
@@ -41,7 +40,6 @@ instance = CybridApiBank::IdentityVerificationWithDetailsBankModel.new(
   failure_codes: null,
   compliance_checks: null,
   compliance_decisions: null,
-  verification_checks: null,
   persona_inquiry_id: null,
   persona_state: null,
   pii: null

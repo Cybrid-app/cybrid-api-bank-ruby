@@ -17,7 +17,6 @@
 | **date_of_birth** | **Date** | The counterparty&#39;s DOB. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the counterparty. | [optional] |
 | **compliance_decisions** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | The compliance decisions associated with the counterparty. | [optional] |
-| **verification_checks** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | Deprecated; use compliance_decisions instead. | [optional] |
 
 ## Example
 
@@ -37,8 +36,7 @@ instance = CybridApiBank::CounterpartyBankModel.new(
   aliases: null,
   date_of_birth: null,
   labels: null,
-  compliance_decisions: null,
-  verification_checks: null
+  compliance_decisions: null
 )
 ```
 
