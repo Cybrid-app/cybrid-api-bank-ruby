@@ -9,9 +9,9 @@
 | **method** | **String** | The identity verification method; one of business_registration, id_and_selfie, tax_id_and_selfie, attested, attested_ownership, account_ownership, plaid_identity_match, document_submission, or watchlists. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
-| **customer_guid** | **String** | The identity verification&#39;s identifier. | [optional] |
-| **counterparty_guid** | **String** | The identity verification&#39;s identifier. | [optional] |
-| **external_bank_account_guid** | **String** | The identity verification&#39;s identifier. | [optional] |
+| **customer_guid** | **String** | The customer&#39;s identifier. | [optional] |
+| **counterparty_guid** | **String** | The counterparty&#39;s identifier. | [optional] |
+| **external_bank_account_guid** | **String** | The external bank account&#39;s identifier. | [optional] |
 | **state** | **String** | The identity verification state; one of storing, waiting, pending, reviewing, expired, or completed. | [optional] |
 | **outcome** | **String** | The identity verification outcome; one of passed or failed. | [optional] |
 | **failure_codes** | **Array&lt;String&gt;** | The reason codes explaining the outcome. | [optional] |

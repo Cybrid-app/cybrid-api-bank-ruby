@@ -7,6 +7,7 @@
 | **type** | **String** | The type of identity verification. |  |
 | **method** | **String** | The identity verification method. |  |
 | **customer_guid** | **String** | The customer&#39;s identifier. | [optional] |
+| **counterparty_guid** | **String** | The counterparty&#39;s identifier. | [optional] |
 | **country_code** | **String** | The ISO 3166 country 2-Alpha country the customer is being verified in; required when method is set to &#39;id_and_selfie&#39;. If not present, will default to the Bank&#39;s configured country code. | [optional] |
 | **name** | [**PostIdentityVerificationNameBankModel**](PostIdentityVerificationNameBankModel.md) |  | [optional] |
 | **address** | [**PostIdentityVerificationAddressBankModel**](PostIdentityVerificationAddressBankModel.md) |  | [optional] |
@@ -26,6 +27,7 @@ instance = CybridApiBank::PostIdentityVerificationBankModel.new(
   type: null,
   method: null,
   customer_guid: null,
+  counterparty_guid: null,
   country_code: null,
   name: null,
   address: null,
