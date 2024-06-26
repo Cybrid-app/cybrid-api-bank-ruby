@@ -25,7 +25,9 @@
 | **txn_hash** | **String** | The hash of the blockchain transaction | [optional] |
 | **reference_transfer_guid** | **String** | The guid of the related transfer. Only present on &#x60;funding_return&#x60; transfers. | [optional] |
 | **source_account** | [**TransferSourceAccountBankModel**](TransferSourceAccountBankModel.md) |  | [optional] |
+| **source_participants** | [**Array&lt;TransferParticipantBankModel&gt;**](TransferParticipantBankModel.md) | The participants in the source account. | [optional] |
 | **destination_account** | [**TransferDestinationAccountBankModel**](TransferDestinationAccountBankModel.md) |  | [optional] |
+| **destination_participants** | [**Array&lt;TransferParticipantBankModel&gt;**](TransferParticipantBankModel.md) | The participants in the source account. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **transfer_details** | **Object** | The raw details on the transfer from the bank. | [optional] |
@@ -59,7 +61,9 @@ instance = CybridApiBank::TransferBankModel.new(
   txn_hash: null,
   reference_transfer_guid: null,
   source_account: null,
+  source_participants: null,
   destination_account: null,
+  destination_participants: null,
   created_at: null,
   updated_at: null,
   transfer_details: null,
