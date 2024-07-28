@@ -14,6 +14,7 @@
 | **receive_amount** | **Integer** | The amount to be received in base units of the currency: currency is \&quot;asset\&quot; for buy and \&quot;counter_asset\&quot; for sell for trade quotes. | [optional] |
 | **deliver_amount** | **Integer** | The amount to be delivered in base units of the currency: currency is \&quot;counter_asset\&quot; for buy and \&quot;asset\&quot; for sell for trade quotes. | [optional] |
 | **fees** | [**Array&lt;PostFeeBankModel&gt;**](PostFeeBankModel.md) | The custom fees associated with the quote | [optional] |
+| **reference_trade_guid** | **String** | The guid of the related trade. Only present on &#x60;exit&#x60; trades. | [optional] |
 
 ## Example
 
@@ -30,7 +31,8 @@ instance = CybridApiBank::PostQuoteBankModel.new(
   side: null,
   receive_amount: null,
   deliver_amount: null,
-  fees: null
+  fees: null,
+  reference_trade_guid: null
 )
 ```
 

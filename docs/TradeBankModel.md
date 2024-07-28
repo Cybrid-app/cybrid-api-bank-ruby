@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the trade. | [optional] |
-| **trade_type** | **String** | The type of trade; one of platform or liquidation. | [optional] |
+| **trade_type** | **String** | The type of trade; one of platform, liquidation, or exit. | [optional] |
 | **customer_guid** | **String** | The associated customer&#39;s identifier. | [optional] |
 | **quote_guid** | **String** | The associated quote&#39;s identifier. | [optional] |
 | **symbol** | **String** | The trade symbol the pricing is related to. Format is asset-counter_asset, e.g., BTC-USD. | [optional] |
@@ -15,6 +15,7 @@
 | **receive_amount** | **Integer** | The amount to be received in base units of the currency: currency is \&quot;asset\&quot; for buy and \&quot;counter_asset\&quot; for sell. | [optional] |
 | **deliver_amount** | **Integer** | The amount to be delivered in base units of the currency: currency is \&quot;counter_asset\&quot; for buy and \&quot;asset\&quot; for sell. | [optional] |
 | **fee** | **Integer** | The fee associated with the trade. Denominated in \&quot;counter_asset\&quot; base units | [optional] |
+| **reference_trade_guid** | **String** | The guid of the related trade. Only present on &#x60;exit&#x60; trades. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the trade. | [optional] |
@@ -36,6 +37,7 @@ instance = CybridApiBank::TradeBankModel.new(
   receive_amount: null,
   deliver_amount: null,
   fee: null,
+  reference_trade_guid: null,
   created_at: null,
   updated_at: null,
   labels: null

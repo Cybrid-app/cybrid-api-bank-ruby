@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the quote. | [optional] |
-| **product_type** | **String** | The type of product the quote is for; one of trading, funding, book_transfer, crypto_transfer, inter_account, or lightning_transfer. | [optional] |
+| **product_type** | **String** | The type of product the quote is for; one of trading, trading_exit, funding, book_transfer, crypto_transfer, inter_account, or lightning_transfer. | [optional] |
 | **bank_guid** | **String** | The unique identifier for the bank. | [optional] |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **symbol** | **String** | Symbol the quote was requested for. Format is \&quot;asset-counter_asset\&quot; in uppercase. Populated for trade quotes. | [optional] |
