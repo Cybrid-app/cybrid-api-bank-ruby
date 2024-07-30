@@ -184,6 +184,7 @@ opts = {
   page: 56, # Integer | 
   per_page: 56, # Integer | 
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list counterparties for.
+  type: 'type_example', # String | Comma separated counterparty_types to list counterparties for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list counterparties for.
   guid: 'guid_example', # String | Comma separated counterparty_guids to list counterparties for.
   label: 'label_example' # String | Comma separated labels to list counterparties for.
@@ -223,6 +224,7 @@ end
 | **page** | **Integer** |  | [optional] |
 | **per_page** | **Integer** |  | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list counterparties for. | [optional] |
+| **type** | **String** | Comma separated counterparty_types to list counterparties for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list counterparties for. | [optional] |
 | **guid** | **String** | Comma separated counterparty_guids to list counterparties for. | [optional] |
 | **label** | **String** | Comma separated labels to list counterparties for. | [optional] |
