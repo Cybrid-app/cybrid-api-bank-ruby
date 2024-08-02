@@ -180,6 +180,7 @@ api_instance = CybridApiBank::BanksBankApi.new
 opts = {
   page: 56, # Integer | The page index to retrieve.
   per_page: 56, # Integer | The number of entities per page to return.
+  type: 'type_example', # String | Comma separated types to list banks for.
   guid: 'guid_example' # String | Comma separated bank_guids to list banks for.
 }
 
@@ -216,6 +217,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** | The page index to retrieve. | [optional] |
 | **per_page** | **Integer** | The number of entities per page to return. | [optional] |
+| **type** | **String** | Comma separated types to list banks for. | [optional] |
 | **guid** | **String** | Comma separated bank_guids to list banks for. | [optional] |
 
 ### Return type

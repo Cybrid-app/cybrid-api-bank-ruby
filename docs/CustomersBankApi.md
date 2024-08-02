@@ -184,6 +184,7 @@ api_instance = CybridApiBank::CustomersBankApi.new
 opts = {
   page: 56, # Integer | 
   per_page: 56, # Integer | 
+  type: 'type_example', # String | Comma separated types to list customers for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list customers for.
   guid: 'guid_example', # String | Comma separated customer_guids to list customers for.
   label: 'label_example' # String | Comma separated labels to list customers for.
@@ -222,6 +223,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** |  | [optional] |
 | **per_page** | **Integer** |  | [optional] |
+| **type** | **String** | Comma separated types to list customers for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list customers for. | [optional] |
 | **guid** | **String** | Comma separated customer_guids to list customers for. | [optional] |
 | **label** | **String** | Comma separated labels to list customers for. | [optional] |
