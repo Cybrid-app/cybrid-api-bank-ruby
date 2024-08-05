@@ -18,6 +18,7 @@
 | **counterparty_address** | [**DepositBankAccountCounterpartyAddressBankModel**](DepositBankAccountCounterpartyAddressBankModel.md) |  | [optional] |
 | **account_details** | [**Array&lt;DepositBankAccountAccountDetailsInnerBankModel&gt;**](DepositBankAccountAccountDetailsInnerBankModel.md) | The account details for the bank account. | [optional] |
 | **routing_details** | [**Array&lt;DepositBankAccountRoutingDetailsInnerBankModel&gt;**](DepositBankAccountRoutingDetailsInnerBankModel.md) | The account details for the bank account. | [optional] |
+| **parent_deposit_bank_account_guid** | **String** | The unique identifier for the bank-level deposit bank account. This is only set for sub-accounts. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the address. | [optional] |
 
 ## Example
@@ -40,6 +41,7 @@ instance = CybridApiBank::DepositBankAccountBankModel.new(
   counterparty_address: null,
   account_details: null,
   routing_details: null,
+  parent_deposit_bank_account_guid: null,
   labels: null
 )
 ```

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **type** | **String** | The account type. | [optional] |
+| **type** | **String** | The account type. To generate deposit bank accounts with their own unique account number set this to \&quot;main\&quot;. To generate deposit bank accounts with the same account number as the parent deposit bank account set this to \&quot;sub_account\&quot;. This setting will only generate a unique identifier for the deposit bank and will not result in a unique account number being generated. \&quot;sub_account\&quot; is only  available for customer-level deposit bank accounts. | [optional] |
 | **account_guid** | **String** | The fiat account guid. |  |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **parent_deposit_bank_account_guid** | **String** | The unique identifier for the bank-level deposit bank account. This is only required for sub-accounts. | [optional] |
