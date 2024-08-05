@@ -183,7 +183,9 @@ opts = {
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list deposit bank accounts for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list deposit bank accounts for.
   label: 'label_example', # String | Comma separated labels to list deposit bank accounts for.
-  unique_memo_id: 'unique_memo_id_example' # String | Comma separated unique memo ids to list deposit bank accounts for.
+  unique_memo_id: 'unique_memo_id_example', # String | Comma separated unique memo ids to list deposit bank accounts for.
+  type: 'type_example', # String | Comma separated types to list deposit bank accounts for.
+  parent_deposit_bank_account_guid: 'parent_deposit_bank_account_guid_example' # String | Comma separated guids for parent accounts to list deposit bank accounts for.
 }
 
 begin
@@ -224,6 +226,8 @@ end
 | **customer_guid** | **String** | Comma separated customer_guids to list deposit bank accounts for. | [optional] |
 | **label** | **String** | Comma separated labels to list deposit bank accounts for. | [optional] |
 | **unique_memo_id** | **String** | Comma separated unique memo ids to list deposit bank accounts for. | [optional] |
+| **type** | **String** | Comma separated types to list deposit bank accounts for. | [optional] |
+| **parent_deposit_bank_account_guid** | **String** | Comma separated guids for parent accounts to list deposit bank accounts for. | [optional] |
 
 ### Return type
 
