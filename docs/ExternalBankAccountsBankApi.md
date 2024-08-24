@@ -264,8 +264,7 @@ opts = {
   guid: 'guid_example', # String | Comma separated external_bank_account_guids to list external_bank_accounts for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list external_bank_accounts for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list external_bank_accounts for.
-  asset: 'asset_example', # String | Comma separated assets to list external_bank_accounts for.
-  state: 'state_example' # String | Comma separated states to list external_bank_accounts for.
+  asset: 'asset_example' # String | Comma separated assets to list external_bank_accounts for.
 }
 
 begin
@@ -305,7 +304,6 @@ end
 | **bank_guid** | **String** | Comma separated bank_guids to list external_bank_accounts for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list external_bank_accounts for. | [optional] |
 | **asset** | **String** | Comma separated assets to list external_bank_accounts for. | [optional] |
-| **state** | **String** | Comma separated states to list external_bank_accounts for. | [optional] |
 
 ### Return type
 
