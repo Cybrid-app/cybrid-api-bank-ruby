@@ -18,6 +18,7 @@
 | **counterparty_name** | [**PostExternalBankAccountCounterpartyNameBankModel**](PostExternalBankAccountCounterpartyNameBankModel.md) |  | [optional] |
 | **counterparty_address** | [**PostExternalBankAccountCounterpartyAddressBankModel**](PostExternalBankAccountCounterpartyAddressBankModel.md) |  | [optional] |
 | **counterparty_email_address** | **String** | The counterparty&#39;s email address on their checking account. | [optional] |
+| **counterparty_guid** | **String** | The counterparty identifier. | [optional] |
 
 ## Example
 
@@ -38,7 +39,8 @@ instance = CybridApiBank::PostExternalBankAccountBankModel.new(
   counterparty_bank_account: null,
   counterparty_name: null,
   counterparty_address: null,
-  counterparty_email_address: null
+  counterparty_email_address: null,
+  counterparty_guid: null
 )
 ```
 
