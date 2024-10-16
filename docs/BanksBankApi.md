@@ -33,7 +33,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::BanksBankApi.new
-post_bank_bank_model = CybridApiBank::PostBankBankModel.new({name: 'name_example', type: 'sandbox', supported_trading_symbols: ['supported_trading_symbols_example'], features: ['attestation_identity_records'], supported_fiat_account_assets: ['supported_fiat_account_assets_example']}) # PostBankBankModel | 
+post_bank_bank_model = CybridApiBank::PostBankBankModel.new({type: 'sandbox', name: 'name_example', supported_trading_symbols: ['supported_trading_symbols_example'], supported_fiat_account_assets: ['supported_fiat_account_assets_example'], supported_country_codes: ['supported_country_codes_example'], features: ['attestation_identity_records']}) # PostBankBankModel | 
 
 begin
   # Create Bank

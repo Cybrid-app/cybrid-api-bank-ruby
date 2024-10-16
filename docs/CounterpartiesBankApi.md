@@ -32,7 +32,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::CounterpartiesBankApi.new
-post_counterparty_bank_model = CybridApiBank::PostCounterpartyBankModel.new({type: 'business'}) # PostCounterpartyBankModel | 
+post_counterparty_bank_model = CybridApiBank::PostCounterpartyBankModel.new({type: 'business', address: CybridApiBank::PostCounterpartyAddressBankModel.new({street: 'street_example', city: 'city_example', country_code: 'country_code_example'})}) # PostCounterpartyBankModel | 
 
 begin
   # Create Counterparty

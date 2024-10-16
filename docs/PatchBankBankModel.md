@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **name** | **String** | The bank&#39;s name. | [optional] |
-| **supported_trading_symbols** | **Array&lt;String&gt;** | The bank&#39;s list of supported trading symbols. | [optional] |
+| **name** | **String** | The name of the bank. | [optional] |
+| **supported_trading_symbols** | **Array&lt;String&gt;** | The trading symbols supported by the bank. | [optional] |
 
 ## Example
 

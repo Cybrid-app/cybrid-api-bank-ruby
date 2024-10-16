@@ -32,7 +32,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::IdentityVerificationsBankApi.new
-post_identity_verification_bank_model = CybridApiBank::PostIdentityVerificationBankModel.new({type: 'kyc', method: 'attested'}) # PostIdentityVerificationBankModel | 
+post_identity_verification_bank_model = CybridApiBank::PostIdentityVerificationBankModel.new({type: 'kyc'}) # PostIdentityVerificationBankModel | 
 
 begin
   # Create Identity Verification

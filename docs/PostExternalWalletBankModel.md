@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **name** | **String** | The name of the account. |  |
+| **name** | **String** | Name of the external wallet. |  |
 | **customer_guid** | **String** | The customer identifier. | [optional] |
 | **asset** | **String** | The asset code. |  |
 | **address** | **String** | The blockchain wallet address for the wallet. |  |

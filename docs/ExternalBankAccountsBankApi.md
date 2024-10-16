@@ -34,7 +34,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::ExternalBankAccountsBankApi.new
-post_external_bank_account_bank_model = CybridApiBank::PostExternalBankAccountBankModel.new({name: 'name_example', account_kind: 'plaid', asset: 'asset_example'}) # PostExternalBankAccountBankModel | 
+post_external_bank_account_bank_model = CybridApiBank::PostExternalBankAccountBankModel.new({name: 'name_example', account_kind: 'plaid'}) # PostExternalBankAccountBankModel | 
 
 begin
   # Create ExternalBankAccount
