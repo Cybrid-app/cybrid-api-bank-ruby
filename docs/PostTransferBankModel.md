@@ -13,7 +13,6 @@
 | **beneficiary_memo** | **String** | The memo to send to the counterparty. Optional when transfer_type is funding. | [optional] |
 | **source_participants** | [**Array&lt;PostTransferParticipantBankModel&gt;**](PostTransferParticipantBankModel.md) | The source participants for the transfer. Optional when transfer_type is funding, transfer_type is instant_funding, transfer_type is book, transfer_type is crypto, or transfer_type is lightning. | [optional] |
 | **destination_participants** | [**Array&lt;PostTransferParticipantBankModel&gt;**](PostTransferParticipantBankModel.md) | The destination participants for the transfer. Optional when transfer_type is funding, transfer_type is instant_funding, transfer_type is book, transfer_type is crypto, or transfer_type is lightning. | [optional] |
-| **expected_error** | **String** | The optional expected error to simulate transfer failure. Optional when transfer_type is funding, transfer_type is instant_funding, transfer_type is book, transfer_type is crypto, transfer_type is inter_account, or transfer_type is lightning. | [optional] |
 | **bank_fiat_account_guid** | **String** | The identifier for the fiat account to use for the transfer. Required if the bank has multiple fiat accounts. Optional when transfer_type is instant_funding or transfer_type is lightning. | [optional] |
 | **customer_fiat_account_guid** | **String** | The identifier for the fiat account to use for the transfer. Required if the customer has multiple fiat accounts. Optional when transfer_type is instant_funding or transfer_type is lightning. | [optional] |
 | **source_account_guid** | **String** | The source account&#39;s identifier. Required when transfer_type is book or transfer_type is inter_account. | [optional] |
@@ -38,7 +37,6 @@ instance = CybridApiBank::PostTransferBankModel.new(
   beneficiary_memo: null,
   source_participants: null,
   destination_participants: null,
-  expected_error: null,
   bank_fiat_account_guid: null,
   customer_fiat_account_guid: null,
   source_account_guid: null,
