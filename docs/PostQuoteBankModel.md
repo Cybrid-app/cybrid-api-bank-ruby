@@ -14,6 +14,7 @@
 | **fees** | [**Array&lt;PostFeeBankModel&gt;**](PostFeeBankModel.md) | The custom fees associated with the quote Optional when product_type is lightning_transfer, product_type is funding, product_type is trading, product_type is crypto_transfer, or product_type is trading_exit. | [optional] |
 | **side** | **String** | The direction for trade quotes: either &#39;buy&#39; or &#39;sell&#39;. The direction for funding quotes: either &#39;deposit&#39; or &#39;withdrawal&#39;. The direction for crypto transfer quotes: &#39;withdrawal&#39;. Book transfers do not require a side. They are all &#39;deposit&#39;s.  Required when product_type is funding, product_type is trading, or product_type is crypto_transfer. | [optional] |
 | **symbol** | **String** | Symbol the quote is being requested for. Format is \&quot;asset-counter_asset\&quot; in uppercase. See the Symbols API for a complete list of cryptocurrencies supported.  Required when product_type is trading. | [optional] |
+| **destination_accounts** | [**Array&lt;PostQuoteEntryBankModel&gt;**](PostQuoteEntryBankModel.md) | Destination accounts for batch transactions Optional when product_type is crypto_transfer. | [optional] |
 | **reference_trade_guid** | **String** | The guid of the related trade. Only present on &#x60;exit&#x60; trades. Required when product_type is trading_exit. | [optional] |
 | **source_account_guid** | **String** | The source account&#39;s identifier. Required when product_type is inter_account. | [optional] |
 | **destination_account_guid** | **String** | The destination account&#39;s identifier. Required when product_type is inter_account. | [optional] |
@@ -34,6 +35,7 @@ instance = CybridApiBank::PostQuoteBankModel.new(
   fees: null,
   side: null,
   symbol: null,
+  destination_accounts: null,
   reference_trade_guid: null,
   source_account_guid: null,
   destination_account_guid: null

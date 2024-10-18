@@ -33,6 +33,7 @@
 | **transfer_details** | **Object** | The raw details on the transfer from the bank. | [optional] |
 | **payment_rail** | **String** | The rail the payment was done on. One of: ach, eft, wire, rtp | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
+| **entries** | [**Array&lt;TransferEntryBankModel&gt;**](TransferEntryBankModel.md) | Transfer entries associated with the batch transfer | [optional] |
 
 ## Example
 
@@ -68,7 +69,8 @@ instance = CybridApiBank::TransferBankModel.new(
   updated_at: null,
   transfer_details: null,
   payment_rail: null,
-  labels: null
+  labels: null,
+  entries: null
 )
 ```
 

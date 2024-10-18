@@ -17,7 +17,7 @@
 | **customer_fiat_account_guid** | **String** | The identifier for the fiat account to use for the transfer. Required if the customer has multiple fiat accounts. Optional when transfer_type is instant_funding or transfer_type is lightning. | [optional] |
 | **source_account_guid** | **String** | The source account&#39;s identifier. Required when transfer_type is book or transfer_type is inter_account. | [optional] |
 | **destination_account_guid** | **String** | The destination account&#39;s identifier. Required when transfer_type is book or transfer_type is inter_account. | [optional] |
-| **external_wallet_guid** | **String** | The customer&#39;s external wallet&#39;s identifier. Required when transfer_type is crypto. | [optional] |
+| **external_wallet_guid** | **String** | The customer&#39;s external wallet&#39;s identifier. Optional when transfer_type is crypto. | [optional] |
 | **customer_guid** | **String** | The customer&#39;s identifier. Required when transfer_type is lightning. | [optional] |
 | **network_fee_account_guid** | **String** | The network fee account&#39;s identifier. Required for network fee transfers. Must be the identifier for the customer&#39;s or bank&#39;s fiat or trading account. For customer&#39;s to pay the network fees, include the customer&#39;s fiat or trading account guid. For bank&#39;s to pay the network fees, include the bank&#39;s fiat or trading account guid. Required when transfer_type is lightning. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
