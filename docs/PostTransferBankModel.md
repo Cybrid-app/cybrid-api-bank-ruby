@@ -20,6 +20,7 @@
 | **external_wallet_guid** | **String** | The customer&#39;s external wallet&#39;s identifier. Optional when transfer_type is crypto. | [optional] |
 | **customer_guid** | **String** | The customer&#39;s identifier. Required when transfer_type is lightning. | [optional] |
 | **network_fee_account_guid** | **String** | The network fee account&#39;s identifier. Required for network fee transfers. Must be the identifier for the customer&#39;s or bank&#39;s fiat or trading account. For customer&#39;s to pay the network fees, include the customer&#39;s fiat or trading account guid. For bank&#39;s to pay the network fees, include the bank&#39;s fiat or trading account guid. Required when transfer_type is lightning. | [optional] |
+| **expected_behaviours** | **Array&lt;String&gt;** | The optional expected behaviour to simulate. Only applicable for transfers under sandbox banks. The force_review behaviour will force the transfer to be reviewed for funding and instant_funding transfers. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
 
 ## Example
@@ -44,6 +45,7 @@ instance = CybridApiBank::PostTransferBankModel.new(
   external_wallet_guid: null,
   customer_guid: null,
   network_fee_account_guid: null,
+  expected_behaviours: null,
   labels: null
 )
 ```
