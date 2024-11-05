@@ -14,6 +14,7 @@
 | **side** | **String** | The direction of the quote; one of deposit or withdrawal. | [optional] |
 | **state** | **String** | The state of the transfer; one of storing, pending, reviewing, completed, or failed. | [optional] |
 | **failure_code** | **String** | The failure code for failed transfers; one of non_sufficient_funds, refresh_required, party_name_invalid, payment_rail_invalid, compliance_rejection, cancelled, reversed, limit_exceeded, network_fee_too_low, amount_too_low, internal_error, or invalid_address. | [optional] |
+| **return_code** | **String** | The return code for reversed transfers | [optional] |
 | **amount** | **Integer** | The actual amount in base units of the asset. | [optional] |
 | **estimated_amount** | **Integer** | The estimated amount in base units of the asset. | [optional] |
 | **fee** | **Integer** | The fee associated with the transfer. | [optional] |
@@ -23,7 +24,7 @@
 | **network_fee_liability_amount** | **Integer** | The equivalent fiat network fee in base units of network_fee_liability_amount_asset. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
 | **network_fee_liability_amount_asset** | **String** | The fiat asset the network_fee_liability_amount is denominated in. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
 | **txn_hash** | **String** | The hash of the blockchain transaction | [optional] |
-| **reference_transfer_guid** | **String** | The guid of the related transfer. Only present on &#x60;funding_return&#x60; transfers. | [optional] |
+| **reference_transfer_guid** | **String** | The guid of the related transfer. Only present on return type transfers. | [optional] |
 | **source_account** | [**TransferSourceAccountBankModel**](TransferSourceAccountBankModel.md) |  | [optional] |
 | **source_participants** | [**Array&lt;TransferParticipantBankModel&gt;**](TransferParticipantBankModel.md) | The participants in the source account. | [optional] |
 | **destination_account** | [**TransferDestinationAccountBankModel**](TransferDestinationAccountBankModel.md) |  | [optional] |
@@ -51,6 +52,7 @@ instance = CybridApiBank::TransferBankModel.new(
   side: null,
   state: null,
   failure_code: null,
+  return_code: null,
   amount: null,
   estimated_amount: null,
   fee: null,
