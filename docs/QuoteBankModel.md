@@ -22,6 +22,8 @@
 | **network_fee_asset** | **String** | The asset code of the network fee. | [optional] |
 | **network_address** | **String** | The network address to pay the invoice to. Populated for lightning_transfer quotes. | [optional] |
 | **entries** | [**Array&lt;QuoteEntryBankModel&gt;**](QuoteEntryBankModel.md) | The quote entries for a batch transfer quote | [optional] |
+| **trade_guid** | **String** | The unique identifier for the trade. | [optional] |
+| **transfer_guid** | **String** | The unique identifier for the transfer. | [optional] |
 
 ## Example
 
@@ -46,7 +48,9 @@ instance = CybridApiBank::QuoteBankModel.new(
   network_fee: null,
   network_fee_asset: null,
   network_address: null,
-  entries: null
+  entries: null,
+  trade_guid: null,
+  transfer_guid: null
 )
 ```
 
