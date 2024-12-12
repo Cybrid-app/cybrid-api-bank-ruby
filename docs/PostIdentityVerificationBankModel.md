@@ -15,8 +15,8 @@
 | **date_of_birth** | **Date** | The customer&#39;s date of birth. Required when type is kyc and method is attested. | [optional] |
 | **identification_numbers** | [**Array&lt;PostIdentificationNumberBankModel&gt;**](PostIdentificationNumberBankModel.md) | The customer&#39;s identification numbers. Required when type is kyc and method is attested. | [optional] |
 | **external_bank_account_guid** | **String** | The external bank account&#39;s identifier. Required when type is bank_account. | [optional] |
-| **phone_number** | **String** | The customer&#39;s phone number. Optional when type is bank_account and method is attested or type is bank_account and method is attested_ownership. | [optional] |
-| **email_address** | **String** | The customer&#39;s email address. Optional when type is bank_account and method is attested or type is bank_account and method is attested_ownership. | [optional] |
+| **phone_number** | **String** | The customer&#39;s phone number. Optional when type is bank_account and method is attested_ownership. | [optional] |
+| **email_address** | **String** | The customer&#39;s email address. Optional when type is bank_account and method is attested_ownership. | [optional] |
 
 ## Example
 
