@@ -10,6 +10,7 @@
 | **supported_fiat_account_assets** | **Array&lt;String&gt;** | The fiat account assets supported by the bank. |  |
 | **supported_country_codes** | **Array&lt;String&gt;** | The country codes supported by the bank. |  |
 | **features** | **Array&lt;String&gt;** | The features supported by the bank. |  |
+| **cors_allowed_origins** | **Array&lt;String&gt;** | The list of allowed CORS origin URIs. | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = CybridApiBank::PostBankBankModel.new(
   supported_trading_symbols: null,
   supported_fiat_account_assets: null,
   supported_country_codes: null,
-  features: null
+  features: null,
+  cors_allowed_origins: null
 )
 ```
 
