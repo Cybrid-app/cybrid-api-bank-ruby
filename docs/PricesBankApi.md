@@ -31,7 +31,12 @@ end
 
 api_instance = CybridApiBank::PricesBankApi.new
 opts = {
-  symbol: 'symbol_example', # String | Comma separated symbols to list prices for.
+  symbol: 'symbol_example', # String | Comma separated trading symbols to list prices for.
+  trading_symbol: 'trading_symbol_example', # String | Comma separated trading symbols to list prices for.
+  payout_symbol: 'payout_symbol_example', # String | Comma separated payout symbols to list prices for.
+  payout_country_code: 'payout_country_code_example', # String | Comma separated payout country codes to list prices for.
+  payout_participants_type: 'payout_participants_type_example', # String | Comma separated payout participants types to list prices for.
+  payout_route: 'payout_route_example', # String | Comma separated payout routes to list prices for.
   bank_guid: 'bank_guid_example' # String | The bank identifier to retrieve prices for.
 }
 
@@ -66,7 +71,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **symbol** | **String** | Comma separated symbols to list prices for. | [optional] |
+| **symbol** | **String** | Comma separated trading symbols to list prices for. | [optional] |
+| **trading_symbol** | **String** | Comma separated trading symbols to list prices for. | [optional] |
+| **payout_symbol** | **String** | Comma separated payout symbols to list prices for. | [optional] |
+| **payout_country_code** | **String** | Comma separated payout country codes to list prices for. | [optional] |
+| **payout_participants_type** | **String** | Comma separated payout participants types to list prices for. | [optional] |
+| **payout_route** | **String** | Comma separated payout routes to list prices for. | [optional] |
 | **bank_guid** | **String** | The bank identifier to retrieve prices for. | [optional] |
 
 ### Return type
