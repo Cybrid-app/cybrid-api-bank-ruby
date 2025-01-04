@@ -9,6 +9,7 @@
 | **name** | **String** | The bank&#39;s name. |  |
 | **type** | **String** | The bank type; one of sandbox or production. |  |
 | **supported_trading_symbols** | **Array&lt;String&gt;** | The bank&#39;s list of supported trading symbols. | [optional] |
+| **supported_payout_symbols** | [**Array&lt;BankSupportedPayoutSymbolsInnerBankModel&gt;**](BankSupportedPayoutSymbolsInnerBankModel.md) | The bank&#39;s list of supported payout symbols. | [optional] |
 | **supported_fiat_account_assets** | **Array&lt;String&gt;** | The bank&#39;s list of supported fiat symbols. | [optional] |
 | **supported_country_codes** | **Array&lt;String&gt;** | The bank&#39;s list of supported country codes. | [optional] |
 | **features** | **Array&lt;String&gt;** | The bank&#39;s enabled features. |  |
@@ -27,6 +28,7 @@ instance = CybridApiBank::BankBankModel.new(
   name: null,
   type: null,
   supported_trading_symbols: null,
+  supported_payout_symbols: null,
   supported_fiat_account_assets: null,
   supported_country_codes: null,
   features: null,
