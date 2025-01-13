@@ -13,7 +13,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 Get Symbols list
 
-Retrieves a listing of symbols.
+Retrieves a listing of symbols.Required scope: **prices:read**
 
 ### Examples
 
