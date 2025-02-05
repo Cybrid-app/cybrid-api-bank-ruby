@@ -7,7 +7,7 @@
 | **type** | **String** | The type of bank. |  |
 | **name** | **String** | The name of the bank. |  |
 | **supported_trading_symbols** | **Array&lt;String&gt;** | The trading symbols supported by the bank. |  |
-| **supported_payout_symbols** | **Array&lt;Object&gt;** | The payout symbols supported by the bank. This is not yet supported and should be nil or empty. | [optional] |
+| **supported_payout_symbols** | [**Array&lt;PostSupportedPayoutSymbolsBankModel&gt;**](PostSupportedPayoutSymbolsBankModel.md) | The payout symbols supported by the bank. This is not yet supported and should be nil or empty. | [optional] |
 | **supported_fiat_account_assets** | **Array&lt;String&gt;** | The fiat account assets supported by the bank. |  |
 | **supported_country_codes** | **Array&lt;String&gt;** | The country codes supported by the bank. |  |
 | **features** | **Array&lt;String&gt;** | The features supported by the bank. |  |

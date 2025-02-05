@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | The name of the bank. | [optional] |
 | **supported_trading_symbols** | **Array&lt;String&gt;** | The trading symbols supported by the bank. | [optional] |
-| **supported_payout_symbols** | **Array&lt;Object&gt;** | The payout symbols supported by the bank. This is not yet supported and should be nil or empty. | [optional] |
+| **supported_payout_symbols** | [**Array&lt;PostSupportedPayoutSymbolsBankModel&gt;**](PostSupportedPayoutSymbolsBankModel.md) | The payout symbols supported by the bank. This is not yet supported and should be nil or empty. | [optional] |
 | **cors_allowed_origins** | **Array&lt;String&gt;** | The list of allowed CORS origin URIs. | [optional] |
 
 ## Example
