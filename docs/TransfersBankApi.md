@@ -188,10 +188,10 @@ opts = {
   side: 'side_example', # String | Comma separated sides to list transfers for.
   label: 'label_example', # String | Comma separated labels to list transfers for.
   txn_hash: 'txn_hash_example', # String | Comma separated transaction hashes to list transfers for.
-  created_at_gte: 'created_at_gte_example', # String | Created at start date inclusive lower bound, ISO8601
-  created_at_lt: 'created_at_lt_example', # String | Created at end date exclusive upper bound, ISO8601.
-  updated_at_gte: 'updated_at_gte_example', # String | Created at start date inclusive lower bound, ISO8601
-  updated_at_lt: 'updated_at_lt_example' # String | Created at end date exclusive upper bound, ISO8601.
+  created_at_gte: 'created_at_gte_example', # String | Created at start date-time inclusive lower bound, ISO8601
+  created_at_lt: 'created_at_lt_example', # String | Created at end date-time exclusive upper bound, ISO8601.
+  updated_at_gte: 'updated_at_gte_example', # String | Created at start date-time inclusive lower bound, ISO8601
+  updated_at_lt: 'updated_at_lt_example' # String | Created at end date-time exclusive upper bound, ISO8601.
 }
 
 begin
@@ -236,10 +236,10 @@ end
 | **side** | **String** | Comma separated sides to list transfers for. | [optional] |
 | **label** | **String** | Comma separated labels to list transfers for. | [optional] |
 | **txn_hash** | **String** | Comma separated transaction hashes to list transfers for. | [optional] |
-| **created_at_gte** | **String** | Created at start date inclusive lower bound, ISO8601 | [optional] |
-| **created_at_lt** | **String** | Created at end date exclusive upper bound, ISO8601. | [optional] |
-| **updated_at_gte** | **String** | Created at start date inclusive lower bound, ISO8601 | [optional] |
-| **updated_at_lt** | **String** | Created at end date exclusive upper bound, ISO8601. | [optional] |
+| **created_at_gte** | **String** | Created at start date-time inclusive lower bound, ISO8601 | [optional] |
+| **created_at_lt** | **String** | Created at end date-time exclusive upper bound, ISO8601. | [optional] |
+| **updated_at_gte** | **String** | Created at start date-time inclusive lower bound, ISO8601 | [optional] |
+| **updated_at_lt** | **String** | Created at end date-time exclusive upper bound, ISO8601. | [optional] |
 
 ### Return type
 
