@@ -24,7 +24,8 @@ require 'cybrid_api_bank_ruby'
 api_instance = CybridApiBank::AssetsBankApi.new
 opts = {
   page: 56, # Integer | The page index to retrieve.
-  per_page: 56 # Integer | The number of entities per page to return.
+  per_page: 56, # Integer | The number of entities per page to return.
+  code: 'code_example' # String | Comma separated codes to list assets for.
 }
 
 begin
@@ -60,6 +61,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **page** | **Integer** | The page index to retrieve. | [optional] |
 | **per_page** | **Integer** | The number of entities per page to return. | [optional] |
+| **code** | **String** | Comma separated codes to list assets for. | [optional] |
 
 ### Return type
 
