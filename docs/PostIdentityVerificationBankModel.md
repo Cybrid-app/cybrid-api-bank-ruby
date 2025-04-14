@@ -22,7 +22,7 @@
 | **director_customer_guids** | **Array&lt;String&gt;** | The customer guids of the directors of the business Required when type is kyc and method is attested_business_registration. | [optional] |
 | **ultimate_beneficial_owners** | [**Array&lt;PostUltimateBeneficialOwnerBankModel&gt;**](PostUltimateBeneficialOwnerBankModel.md) | The ultimate beneficial owners of the business with 10% or more ownership Required when type is kyc and method is attested_business_registration. | [optional] |
 | **supporting_file_guids** | **Array&lt;String&gt;** | File guids supporting the verification Required when type is kyc and method is attested_business_registration or type is kyc and method is attested_id_and_selfie. | [optional] |
-| **occupation** | **String** | The customer&#39;s occupation. Required when type is kyc and method is attested_id_and_selfie. | [optional] |
+| **occupation** | **String** | The customer&#39;s occupation. Optional when type is kyc and method is attested_id_and_selfie. | [optional] |
 | **external_bank_account_guid** | **String** | The external bank account&#39;s identifier. Required when type is bank_account. | [optional] |
 
 ## Example
