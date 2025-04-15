@@ -7,6 +7,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 | [**create_transfer**](TransfersBankApi.md#create_transfer) | **POST** /api/transfers | Create Transfer |
 | [**get_transfer**](TransfersBankApi.md#get_transfer) | **GET** /api/transfers/{transfer_guid} | Get Transfer |
 | [**list_transfers**](TransfersBankApi.md#list_transfers) | **GET** /api/transfers | Get transfers list |
+| [**update_transfer**](TransfersBankApi.md#update_transfer) | **PATCH** /api/transfers/{transfer_guid} | Patch Transfer |
 
 
 ## create_transfer
@@ -252,5 +253,79 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_transfer
+
+> <TransferBankModel> update_transfer(transfer_guid, patch_transfer_bank_model)
+
+Patch Transfer
+
+Update a transfer.  Required scope: **transfers:write**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_bank_ruby'
+# setup authorization
+CybridApiBank.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiBank::TransfersBankApi.new
+transfer_guid = 'transfer_guid_example' # String | Identifier for the transfer.
+patch_transfer_bank_model = CybridApiBank::PatchTransferBankModel.new # PatchTransferBankModel | 
+
+begin
+  # Patch Transfer
+  result = api_instance.update_transfer(transfer_guid, patch_transfer_bank_model)
+  p result
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling TransfersBankApi->update_transfer: #{e}"
+end
+```
+
+#### Using the update_transfer_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TransferBankModel>, Integer, Hash)> update_transfer_with_http_info(transfer_guid, patch_transfer_bank_model)
+
+```ruby
+begin
+  # Patch Transfer
+  data, status_code, headers = api_instance.update_transfer_with_http_info(transfer_guid, patch_transfer_bank_model)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TransferBankModel>
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling TransfersBankApi->update_transfer_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **transfer_guid** | **String** | Identifier for the transfer. |  |
+| **patch_transfer_bank_model** | [**PatchTransferBankModel**](PatchTransferBankModel.md) |  |  |
+
+### Return type
+
+[**TransferBankModel**](TransferBankModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
