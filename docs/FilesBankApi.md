@@ -83,7 +83,7 @@ end
 
 ## get_file
 
-> <PlatformFileBankModel> get_file(file_guid)
+> <PlatformFileBankModel> get_file(file_guid, opts)
 
 Get File
 
@@ -105,10 +105,13 @@ end
 
 api_instance = CybridApiBank::FilesBankApi.new
 file_guid = 'file_guid_example' # String | Identifier for the file.
+opts = {
+  include_download_url: 'include_download_url_example' # String | Include download information in response.
+}
 
 begin
   # Get File
-  result = api_instance.get_file(file_guid)
+  result = api_instance.get_file(file_guid, opts)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling FilesBankApi->get_file: #{e}"
@@ -119,12 +122,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PlatformFileBankModel>, Integer, Hash)> get_file_with_http_info(file_guid)
+> <Array(<PlatformFileBankModel>, Integer, Hash)> get_file_with_http_info(file_guid, opts)
 
 ```ruby
 begin
   # Get File
-  data, status_code, headers = api_instance.get_file_with_http_info(file_guid)
+  data, status_code, headers = api_instance.get_file_with_http_info(file_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PlatformFileBankModel>
@@ -138,6 +141,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **file_guid** | **String** | Identifier for the file. |  |
+| **include_download_url** | **String** | Include download information in response. | [optional] |
 
 ### Return type
 
