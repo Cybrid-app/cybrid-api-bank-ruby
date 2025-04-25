@@ -9,6 +9,7 @@
 | **amount** | **Integer** | The limit amount for the asset. | [optional] |
 | **interval** | **Integer** | The limit interval in seconds for the asset. | [optional] |
 | **activities** | **Array&lt;String&gt;** | The activities associated with the limit. | [optional] |
+| **sides** | **Array&lt;String&gt;** | The sides associated with the limit. | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = CybridApiBank::ActivityLimitBankModel.new(
   asset: null,
   amount: null,
   interval: null,
-  activities: null
+  activities: null,
+  sides: null
 )
 ```
 
