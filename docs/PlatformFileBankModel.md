@@ -11,6 +11,10 @@
 | **failed_at** | **Time** | The ISO8601 datetime the file failed at. | [optional] |
 | **state** | **String** | The state of the file. One of storing, completed, or failed. | [optional] |
 | **failure_code** | **String** | The failure code for failed files. | [optional] |
+| **upload_url** | **String** | The URL to upload the file to. | [optional] |
+| **upload_expires_at** | **Time** | The ISO8601 datetime the upload URL expires at. | [optional] |
+| **download_url** | **String** | The URL to download the file from. | [optional] |
+| **download_expires_at** | **Time** | The ISO8601 datetime the download URL expires at. | [optional] |
 
 ## Example
 
@@ -24,7 +28,11 @@ instance = CybridApiBank::PlatformFileBankModel.new(
   completed_at: null,
   failed_at: null,
   state: null,
-  failure_code: null
+  failure_code: null,
+  upload_url: null,
+  upload_expires_at: null,
+  download_url: null,
+  download_expires_at: null
 )
 ```
 
