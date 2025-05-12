@@ -21,6 +21,7 @@
 | **persona_state** | **String** | The Persona state of the backing inquiry; one of waiting, pending, reviewing, processing, expired, completed, or unknown. | [optional] |
 | **pii** | [**IdentityVerificationWithDetailsPiiBankModel**](IdentityVerificationWithDetailsPiiBankModel.md) |  | [optional] |
 | **documents** | [**Array&lt;IdentityVerificationDocumentBankModel&gt;**](IdentityVerificationDocumentBankModel.md) | The documents associated with the identity verification. | [optional] |
+| **supporting_files** | [**Array&lt;IdentityVerificationDocumentBankModel&gt;**](IdentityVerificationDocumentBankModel.md) | The supporting documents associated with the attested identity verification. | [optional] |
 
 ## Example
 
@@ -44,7 +45,8 @@ instance = CybridApiBank::IdentityVerificationWithDetailsBankModel.new(
   persona_inquiry_id: null,
   persona_state: null,
   pii: null,
-  documents: null
+  documents: null,
+  supporting_files: null
 )
 ```
 
