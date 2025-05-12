@@ -106,7 +106,7 @@ end
 api_instance = CybridApiBank::FilesBankApi.new
 file_guid = 'file_guid_example' # String | Identifier for the file.
 opts = {
-  include_download_url: 'include_download_url_example' # String | Include download information in response.
+  include_download_url: 'include_download_url_example' # String | Include download information in response. Note, the files:pii:read scope is required if this parameter is set.
 }
 
 begin
@@ -141,7 +141,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **file_guid** | **String** | Identifier for the file. |  |
-| **include_download_url** | **String** | Include download information in response. | [optional] |
+| **include_download_url** | **String** | Include download information in response. Note, the files:pii:read scope is required if this parameter is set. | [optional] |
 
 ### Return type
 
