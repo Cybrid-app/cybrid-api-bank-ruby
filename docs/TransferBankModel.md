@@ -29,6 +29,7 @@
 | **source_participants** | [**Array&lt;TransferParticipantBankModel&gt;**](TransferParticipantBankModel.md) | The participants in the source account. | [optional] |
 | **destination_account** | [**TransferDestinationAccountBankModel**](TransferDestinationAccountBankModel.md) |  | [optional] |
 | **destination_participants** | [**Array&lt;TransferParticipantBankModel&gt;**](TransferParticipantBankModel.md) | The participants in the source account. | [optional] |
+| **deposit_address_guid** | **String** | The guid of the deposit address. Only present on crypto deposits. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **transfer_details** | **Object** | The raw details on the transfer from the bank. | [optional] |
@@ -67,6 +68,7 @@ instance = CybridApiBank::TransferBankModel.new(
   source_participants: null,
   destination_account: null,
   destination_participants: null,
+  deposit_address_guid: null,
   created_at: null,
   updated_at: null,
   transfer_details: null,
