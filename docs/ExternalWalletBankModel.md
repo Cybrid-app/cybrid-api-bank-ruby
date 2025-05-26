@@ -10,6 +10,7 @@
 | **environment** | **String** | The environment that the wallet is configured for; one of sandbox or production. | [optional] |
 | **bank_guid** | **String** | The bank identifier. | [optional] |
 | **customer_guid** | **String** | The customer identifier. | [optional] |
+| **counterparty_guid** | **String** | The counterparty identifier. | [optional] |
 | **address** | **String** | The blockchain wallet address for the wallet. | [optional] |
 | **tag** | **String** | The blockchain tag to use when transferring crypto to the wallet. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
@@ -29,6 +30,7 @@ instance = CybridApiBank::ExternalWalletBankModel.new(
   environment: null,
   bank_guid: null,
   customer_guid: null,
+  counterparty_guid: null,
   address: null,
   tag: null,
   created_at: null,
