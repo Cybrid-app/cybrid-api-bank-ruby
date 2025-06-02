@@ -32,6 +32,8 @@
 | **deposit_address_guid** | **String** | The guid of the deposit address. Only present on crypto deposits. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
+| **hold_started_at** | **Time** | ISO8601 datetime the transfer hold was started at. | [optional] |
+| **hold_duration** | **Integer** | The approximate time (in seconds) that the transfer will be held for. | [optional] |
 | **transfer_details** | **Object** | The raw details on the transfer from the bank. | [optional] |
 | **payment_rail** | **String** | The rail the payment was done on. One of: ach, eft, wire, rtp | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
@@ -71,6 +73,8 @@ instance = CybridApiBank::TransferBankModel.new(
   deposit_address_guid: null,
   created_at: null,
   updated_at: null,
+  hold_started_at: null,
+  hold_duration: null,
   transfer_details: null,
   payment_rail: null,
   labels: null,
