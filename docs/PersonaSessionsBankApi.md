@@ -30,7 +30,7 @@ CybridApiBank.configure do |config|
 end
 
 api_instance = CybridApiBank::PersonaSessionsBankApi.new
-post_persona_session_bank_model = CybridApiBank::PostPersonaSessionBankModel.new({persona_inquiry_id: 'persona_inquiry_id_example', customer_guid: 'customer_guid_example', identity_verification_guid: 'identity_verification_guid_example'}) # PostPersonaSessionBankModel | 
+post_persona_session_bank_model = CybridApiBank::PostPersonaSessionBankModel.new({persona_inquiry_id: 'persona_inquiry_id_example', identity_verification_guid: 'identity_verification_guid_example'}) # PostPersonaSessionBankModel | 
 
 begin
   # Create Persona Session
