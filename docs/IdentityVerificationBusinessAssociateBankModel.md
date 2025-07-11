@@ -9,6 +9,7 @@
 | **customer_guid** | **String** | The business associate&#39;s customer identifier. Available only for attested_business_registration verification method | [optional] |
 | **role** | **String** | The business associate role; one of director or owner. | [optional] |
 | **email_address** | **String** | The business associate email address. Available only for business_registration verification method | [optional] |
+| **state** | **String** | The business associate state; one of completed, waiting, or pending. | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = CybridApiBank::IdentityVerificationBusinessAssociateBankModel.new(
   persona_state: null,
   customer_guid: null,
   role: null,
-  email_address: null
+  email_address: null,
+  state: null
 )
 ```
 
