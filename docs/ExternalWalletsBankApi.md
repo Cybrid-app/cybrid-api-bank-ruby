@@ -256,6 +256,7 @@ opts = {
   guid: 'guid_example', # String | Comma separated external_wallet_guids to list external_wallets for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list external_wallets for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list external_wallets for.
+  counterparty_guid: 'counterparty_guid_example', # String | Comma separated counterparty_guids to list external_wallets for.
   asset: 'asset_example', # String | Comma separated assets to list external_wallets for.
   state: 'state_example' # String | Comma separated states to list external_wallets for.
 }
@@ -297,6 +298,7 @@ end
 | **guid** | **String** | Comma separated external_wallet_guids to list external_wallets for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list external_wallets for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list external_wallets for. | [optional] |
+| **counterparty_guid** | **String** | Comma separated counterparty_guids to list external_wallets for. | [optional] |
 | **asset** | **String** | Comma separated assets to list external_wallets for. | [optional] |
 | **state** | **String** | Comma separated states to list external_wallets for. | [optional] |
 
