@@ -88,7 +88,7 @@ end
 
 Get Customer
 
-Retrieves a customer.  Required scope: **customers:read**
+Retrieves a customer.  Required scope: **customers:read** Optional scope: **customers:pii:read**.
 
 ### Examples
 
@@ -107,7 +107,7 @@ end
 api_instance = CybridApiBank::CustomersBankApi.new
 customer_guid = 'customer_guid_example' # String | Identifier for the customer.
 opts = {
-  include_pii: true # Boolean | Include PII in the response.
+  include_pii: true # Boolean | Include PII in the response (requires **customers:pii:read** scope).
 }
 
 begin
@@ -142,7 +142,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **customer_guid** | **String** | Identifier for the customer. |  |
-| **include_pii** | **Boolean** | Include PII in the response. | [optional] |
+| **include_pii** | **Boolean** | Include PII in the response (requires **customers:pii:read** scope). | [optional] |
 
 ### Return type
 

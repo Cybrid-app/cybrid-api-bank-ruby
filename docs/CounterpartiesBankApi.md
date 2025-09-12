@@ -87,7 +87,7 @@ end
 
 Get Counterparty
 
-Retrieves a counterparty.  Required scope: **counterparties:read**
+Retrieves a counterparty.  Required scope: **counterparties:read** Optional scope: **counterparties:pii:read**.
 
 ### Examples
 
@@ -106,7 +106,7 @@ end
 api_instance = CybridApiBank::CounterpartiesBankApi.new
 counterparty_guid = 'counterparty_guid_example' # String | Identifier for the counterparty.
 opts = {
-  include_pii: true # Boolean | Include PII in the response.
+  include_pii: true # Boolean | Include PII in the response (requires **counterparties:pii:read** scope).
 }
 
 begin
@@ -141,7 +141,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **counterparty_guid** | **String** | Identifier for the counterparty. |  |
-| **include_pii** | **Boolean** | Include PII in the response. | [optional] |
+| **include_pii** | **Boolean** | Include PII in the response (requires **counterparties:pii:read** scope). | [optional] |
 
 ### Return type
 
