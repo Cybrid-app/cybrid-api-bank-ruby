@@ -186,8 +186,10 @@ opts = {
   guid: 'guid_example', # String | Comma separated guids to list identity verifications for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list identity verifications for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list identity verifications for.
+  counterparty_guid: 'counterparty_guid_example', # String | Comma separated counterparty_guids to list identity verifications for.
   state: 'state_example', # String | Comma separated states to list identity verifications for.
-  type: 'type_example' # String | Comma separated types to list identity verifications for.
+  type: 'type_example', # String | Comma separated types to list identity verifications for.
+  method: 'method_example' # String | Comma separated methods to list identity verifications for.
 }
 
 begin
@@ -226,8 +228,10 @@ end
 | **guid** | **String** | Comma separated guids to list identity verifications for. | [optional] |
 | **bank_guid** | **String** | Comma separated bank_guids to list identity verifications for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list identity verifications for. | [optional] |
+| **counterparty_guid** | **String** | Comma separated counterparty_guids to list identity verifications for. | [optional] |
 | **state** | **String** | Comma separated states to list identity verifications for. | [optional] |
 | **type** | **String** | Comma separated types to list identity verifications for. | [optional] |
+| **method** | **String** | Comma separated methods to list identity verifications for. | [optional] |
 
 ### Return type
 
