@@ -23,6 +23,7 @@
 | **pii** | [**IdentityVerificationWithDetailsPiiBankModel**](IdentityVerificationWithDetailsPiiBankModel.md) |  | [optional] |
 | **documents** | [**Array&lt;IdentityVerificationDocumentBankModel&gt;**](IdentityVerificationDocumentBankModel.md) | The documents associated with the identity verification. | [optional] |
 | **supporting_files** | [**Array&lt;IdentityVerificationDocumentBankModel&gt;**](IdentityVerificationDocumentBankModel.md) | The supporting documents associated with the attested identity verification. | [optional] |
+| **options** | [**IdentityVerificationOptionsBankModel**](IdentityVerificationOptionsBankModel.md) |  | [optional] |
 
 ## Example
 
@@ -48,7 +49,8 @@ instance = CybridApiBank::IdentityVerificationWithDetailsBankModel.new(
   business_associates: null,
   pii: null,
   documents: null,
-  supporting_files: null
+  supporting_files: null,
+  options: null
 )
 ```
 

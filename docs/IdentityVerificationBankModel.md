@@ -16,6 +16,7 @@
 | **outcome** | **String** | The identity verification outcome; one of passed or failed. | [optional] |
 | **failure_codes** | **Array&lt;String&gt;** | The reason codes explaining the outcome. | [optional] |
 | **compliance_decisions** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | The compliance decisions associated with the identity verification. | [optional] |
+| **options** | [**IdentityVerificationOptionsBankModel**](IdentityVerificationOptionsBankModel.md) |  | [optional] |
 
 ## Example
 
@@ -34,7 +35,8 @@ instance = CybridApiBank::IdentityVerificationBankModel.new(
   state: null,
   outcome: null,
   failure_codes: null,
-  compliance_decisions: null
+  compliance_decisions: null,
+  options: null
 )
 ```
 
