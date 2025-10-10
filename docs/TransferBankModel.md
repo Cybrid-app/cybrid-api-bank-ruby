@@ -35,6 +35,7 @@
 | **hold_details** | [**TransferHoldDetailsBankModel**](TransferHoldDetailsBankModel.md) |  | [optional] |
 | **transfer_details** | **Object** | The raw details on the transfer from the bank. | [optional] |
 | **payment_rail** | **String** | The rail the payment was done on. One of: ach, eft, wire, rtp | [optional] |
+| **external_id** | **String** | The external identifier for the transfer. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
 | **entries** | [**Array&lt;TransferEntryBankModel&gt;**](TransferEntryBankModel.md) | Transfer entries associated with the batch transfer | [optional] |
 
@@ -75,6 +76,7 @@ instance = CybridApiBank::TransferBankModel.new(
   hold_details: null,
   transfer_details: null,
   payment_rail: null,
+  external_id: null,
   labels: null,
   entries: null
 )
