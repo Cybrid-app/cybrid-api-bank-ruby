@@ -14,7 +14,7 @@ If you're looking for our UI SDK Widgets for Web or Mobile (iOS/Android), genera
 
 ## Getting Started
 
-This is Cybrid's public interactive API documentation, which allows you to fully test our APIs. If you'd like to use a different tool to exercise our APIs, you can download the [Open API 3.0 yaml](https://bank.production.cybrid.app/api/schema/v1/swagger.yaml) for import.
+This is Cybrid's public interactive API documentation, which allows you to fully test our APIs. If you'd like to use a different tool to exercise our APIs, you can download the [Open API 3.0 yaml](<api_platform_bank_swagger_schema_url>) for import.
 
 If you're new to our APIs and the Cybrid Platform, follow the below guides to get set up and familiar with the platform:
 
@@ -38,21 +38,21 @@ Our complete set of APIs allows you to manage resources across three distinct ar
 
 | API                                                              | Description                                                 |
 |------------------------------------------------------------------|-------------------------------------------------------------|
-| [Organization API](https://organization.production.cybrid.app/api/schema/swagger-ui)   | APIs to manage organizations                                |
-| [Bank API](https://bank.production.cybrid.app/api/schema/swagger-ui)                   | APIs to manage banks (and all downstream customer activity) |
-| [Identities API](https://id.production.cybrid.app/api/schema/swagger-ui)                       | APIs to manage organization and bank identities             |
+| [Organization API](<api_platform_organization_swagger_ui_url>)   | APIs to manage organizations                                |
+| [Bank API](<api_platform_bank_swagger_ui_url>)                   | APIs to manage banks (and all downstream customer activity) |
+| [Identities API](<api_idp_swagger_ui_url>)                       | APIs to manage organization and bank identities             |
 
 For questions please contact [Support](mailto:support@cybrid.xyz) at any time for assistance, or contact the [Product Team](mailto:product@cybrid.xyz) for product suggestions.
 
 ## Authenticating with the API
 
-The Cybrid Platform uses OAuth 2.0 Bearer Tokens to authenticate requests to the platform. Credentials to create `Organization` and `Bank` tokens can be generated via the [Cybrid Sandbox](https://id.production.cybrid.app). Access tokens can be generated for a `Customer` as well via the [Cybrid IdP](https://id.production.cybrid.app) as well.
+The Cybrid Platform uses OAuth 2.0 Bearer Tokens to authenticate requests to the platform. Credentials to create `Organization` and `Bank` tokens can be generated via the [Cybrid Sandbox](<api_idp_url>). Access tokens can be generated for a `Customer` as well via the [Cybrid IdP](<api_idp_url>) as well.
 
 An `Organization` access token applies broadly to the whole Organization and all of its `Banks`, whereas, a `Bank` access token is specific to an individual Bank. `Customer` tokens, similarly, are scoped to a specific customer in a bank.
 
 Both `Organization` and `Bank` tokens can be created using the OAuth Client Credential Grant flow. Each Organization and Bank has its own unique `Client ID` and `Secret` that allows for machine-to-machine authentication.
 
-A `Bank` can then generate `Customer` access tokens via API using our [Identities API](https://id.production.cybrid.app/api/schema/swagger-ui).
+A `Bank` can then generate `Customer` access tokens via API using our [Identities API](<api_idp_swagger_ui_url>).
 
 <font color=\"orange\">**⚠️ Never share your Client ID or Secret publicly or in your source code repository.**</font>
 
@@ -62,14 +62,14 @@ The following curl command can be used to quickly generate a `Bearer Token` for 
 
 ```
 # Example request when using Bank credentials
-curl -X POST https://id.production.cybrid.app/oauth/token -d '{
+curl -X POST <api_idp_url>/oauth/token -d '{
     \"grant_type\": \"client_credentials\",
     \"client_id\": \"<Your Client ID>\",
     \"client_secret\": \"<Your Secret>\",
-    \"scope\": \"banks:read banks:write bank_applications:execute accounts:read accounts:execute counterparties:read counterparties:pii:read counterparties:write counterparties:execute customers:read customers:pii:read customers:write customers:execute prices:read quotes:execute quotes:read trades:execute trades:read transfers:execute transfers:read transfers:write external_bank_accounts:read external_bank_accounts:pii:read external_bank_accounts:write external_bank_accounts:execute external_wallets:read external_wallets:execute workflows:read workflows:execute deposit_addresses:read deposit_addresses:execute deposit_bank_accounts:read deposit_bank_accounts:execute invoices:read invoices:write invoices:execute identity_verifications:read identity_verifications:pii:read identity_verifications:write identity_verifications:execute persona_sessions:execute plans:execute plans:read executions:execute executions:read files:read files:pii:read files:execute\"
+    \"scope\": \"<api_platform_bank_scopes>\"
   }' -H \"Content-Type: application/json\"
 
-# When using Organization credentials set `scope` to 'organizations:read organizations:write organization_applications:execute banks:read banks:write banks:execute bank_applications:execute users:read users:write users:execute counterparties:read counterparties:pii:read customers:read customers:pii:read accounts:read prices:read quotes:execute quotes:read trades:execute trades:read transfers:read transfers:write transfers:execute external_bank_accounts:read external_bank_accounts:pii:read external_wallets:read workflows:read deposit_addresses:read deposit_bank_accounts:read invoices:read subscriptions:read subscriptions:write subscriptions:execute subscription_events:read subscription_events:execute identity_verifications:read identity_verifications:pii:read identity_verifications:execute persona_sessions:execute plans:execute plans:read executions:execute executions:read files:read files:pii:read files:execute'
+# When using Organization credentials set `scope` to '<api_platform_organization_scopes>'
 ```
 <font color=\"orange\">**⚠️ Note: The above curl will create a bearer token with full scope access. Delete scopes if you'd like to restrict access.**</font>
 
@@ -99,7 +99,7 @@ The following scopes are available on the platform and can be requested when gen
 
 ## Available Endpoints
 
-The available APIs for the [Identity](https://id.production.cybrid.app/api/schema/swagger-ui), [Organization](https://organization.production.cybrid.app/api/schema/swagger-ui) and [Bank](https://bank.production.cybrid.app/api/schema/swagger-ui) API services are listed below:
+The available APIs for the [Identity](<api_idp_swagger_ui_url>), [Organization](<api_platform_organization_swagger_ui_url>) and [Bank](<api_platform_bank_swagger_ui_url>) API services are listed below:
 
 | API Service  | Model                | API Endpoint Path              | Description                                                                                       |
 |--------------|----------------------|--------------------------------|---------------------------------------------------------------------------------------------------|
@@ -151,8 +151,8 @@ An `Organization` can have multiple `banks`, in either `Sandbox` or `Production`
 
 This SDK is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: v0.125.49
-- Package version: 0.125.49
+- API version: v0.0.0
+- Package version: 0.125.50
 - Build package: org.openapitools.codegen.languages.RubyClientCodegen
 
 ## Installation
@@ -168,16 +168,16 @@ gem build cybrid_api_bank_ruby.gemspec
 Then either install the gem locally:
 
 ```shell
-gem install ./cybrid_api_bank_ruby-0.125.49.gem
+gem install ./cybrid_api_bank_ruby-0.125.50.gem
 ```
 
-(for development, run `gem install --dev ./cybrid_api_bank_ruby-0.125.49.gem` to install the development dependencies)
+(for development, run `gem install --dev ./cybrid_api_bank_ruby-0.125.50.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'cybrid_api_bank_ruby', '~> 0.125.49'
+    gem 'cybrid_api_bank_ruby', '~> 0.125.50'
 
 ### Install from Git
 
@@ -225,7 +225,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://bank.sandbox.cybrid.app*
+All URIs are relative to *http://api-platform-bank.local.cybrid.com:3002*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -250,6 +250,8 @@ Class | Method | HTTP request | Description
 *CybridApiBank::DepositBankAccountsBankApi* | [**create_deposit_bank_account**](docs/DepositBankAccountsBankApi.md#create_deposit_bank_account) | **POST** /api/deposit_bank_accounts | Create Deposit Bank Account
 *CybridApiBank::DepositBankAccountsBankApi* | [**get_deposit_bank_account**](docs/DepositBankAccountsBankApi.md#get_deposit_bank_account) | **GET** /api/deposit_bank_accounts/{deposit_bank_account_guid} | Get Deposit Bank Account
 *CybridApiBank::DepositBankAccountsBankApi* | [**list_deposit_bank_accounts**](docs/DepositBankAccountsBankApi.md#list_deposit_bank_accounts) | **GET** /api/deposit_bank_accounts | List Deposit Bank Accounts
+*CybridApiBank::ExecutionsBankApi* | [**create_execution**](docs/ExecutionsBankApi.md#create_execution) | **POST** /api/executions | Create Execution
+*CybridApiBank::ExecutionsBankApi* | [**get_execution**](docs/ExecutionsBankApi.md#get_execution) | **GET** /api/executions/{execution_guid} | Get Execution
 *CybridApiBank::ExternalBankAccountsBankApi* | [**create_external_bank_account**](docs/ExternalBankAccountsBankApi.md#create_external_bank_account) | **POST** /api/external_bank_accounts | Create ExternalBankAccount
 *CybridApiBank::ExternalBankAccountsBankApi* | [**delete_external_bank_account**](docs/ExternalBankAccountsBankApi.md#delete_external_bank_account) | **DELETE** /api/external_bank_accounts/{external_bank_account_guid} | Delete External Bank Account
 *CybridApiBank::ExternalBankAccountsBankApi* | [**get_external_bank_account**](docs/ExternalBankAccountsBankApi.md#get_external_bank_account) | **GET** /api/external_bank_accounts/{external_bank_account_guid} | Get External Bank Account
@@ -273,6 +275,8 @@ Class | Method | HTTP request | Description
 *CybridApiBank::PaymentInstructionsBankApi* | [**get_payment_instruction**](docs/PaymentInstructionsBankApi.md#get_payment_instruction) | **GET** /api/payment_instructions/{payment_instruction_guid} | Get Payment Instruction
 *CybridApiBank::PaymentInstructionsBankApi* | [**list_payment_instructions**](docs/PaymentInstructionsBankApi.md#list_payment_instructions) | **GET** /api/payment_instructions | List Payment Instructions
 *CybridApiBank::PersonaSessionsBankApi* | [**create_persona_session**](docs/PersonaSessionsBankApi.md#create_persona_session) | **POST** /api/persona_sessions | Create Persona Session
+*CybridApiBank::PlansBankApi* | [**create_plan**](docs/PlansBankApi.md#create_plan) | **POST** /api/plans | Create Plan
+*CybridApiBank::PlansBankApi* | [**get_plan**](docs/PlansBankApi.md#get_plan) | **GET** /api/plans/{plan_guid} | Get Plan
 *CybridApiBank::PricesBankApi* | [**list_prices**](docs/PricesBankApi.md#list_prices) | **GET** /api/prices | Get Price
 *CybridApiBank::QuotesBankApi* | [**create_quote**](docs/QuotesBankApi.md#create_quote) | **POST** /api/quotes | Create Quote
 *CybridApiBank::QuotesBankApi* | [**get_quote**](docs/QuotesBankApi.md#get_quote) | **GET** /api/quotes/{quote_guid} | Get Quote
@@ -292,6 +296,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+ - [CybridApiBank::AccountAssociationBankModel](docs/AccountAssociationBankModel.md)
  - [CybridApiBank::AccountBankModel](docs/AccountBankModel.md)
  - [CybridApiBank::AccountListBankModel](docs/AccountListBankModel.md)
  - [CybridApiBank::AccountStateBankModel](docs/AccountStateBankModel.md)
@@ -339,6 +344,8 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::DepositBankAccountRoutingNumberTypeBankModel](docs/DepositBankAccountRoutingNumberTypeBankModel.md)
  - [CybridApiBank::DepositBankAccountStateBankModel](docs/DepositBankAccountStateBankModel.md)
  - [CybridApiBank::ErrorResponseBankModel](docs/ErrorResponseBankModel.md)
+ - [CybridApiBank::ExecutionBankModel](docs/ExecutionBankModel.md)
+ - [CybridApiBank::ExecutionTravelRuleInfoBankModel](docs/ExecutionTravelRuleInfoBankModel.md)
  - [CybridApiBank::ExternalBankAccountBalancesBankModel](docs/ExternalBankAccountBalancesBankModel.md)
  - [CybridApiBank::ExternalBankAccountBankModel](docs/ExternalBankAccountBankModel.md)
  - [CybridApiBank::ExternalBankAccountKindBankModel](docs/ExternalBankAccountKindBankModel.md)
@@ -351,6 +358,7 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::ExternalWalletEnvironmentBankModel](docs/ExternalWalletEnvironmentBankModel.md)
  - [CybridApiBank::ExternalWalletListBankModel](docs/ExternalWalletListBankModel.md)
  - [CybridApiBank::ExternalWalletStateBankModel](docs/ExternalWalletStateBankModel.md)
+ - [CybridApiBank::FeeAssociationBankModel](docs/FeeAssociationBankModel.md)
  - [CybridApiBank::IdentificationNumberBankModel](docs/IdentificationNumberBankModel.md)
  - [CybridApiBank::IdentityVerificationBankModel](docs/IdentityVerificationBankModel.md)
  - [CybridApiBank::IdentityVerificationBusinessAssociateBankModel](docs/IdentityVerificationBusinessAssociateBankModel.md)
@@ -378,9 +386,12 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::PaymentInstructionBankModel](docs/PaymentInstructionBankModel.md)
  - [CybridApiBank::PaymentInstructionListBankModel](docs/PaymentInstructionListBankModel.md)
  - [CybridApiBank::PersonaSessionBankModel](docs/PersonaSessionBankModel.md)
+ - [CybridApiBank::PlanBankModel](docs/PlanBankModel.md)
+ - [CybridApiBank::PlanTravelRuleInfoBankModel](docs/PlanTravelRuleInfoBankModel.md)
  - [CybridApiBank::PlatformFileBankModel](docs/PlatformFileBankModel.md)
  - [CybridApiBank::PlatformFileListBankModel](docs/PlatformFileListBankModel.md)
  - [CybridApiBank::PostAccountBankModel](docs/PostAccountBankModel.md)
+ - [CybridApiBank::PostBankAccountDetailsBankModel](docs/PostBankAccountDetailsBankModel.md)
  - [CybridApiBank::PostBankBankModel](docs/PostBankBankModel.md)
  - [CybridApiBank::PostCounterpartyAddressBankModel](docs/PostCounterpartyAddressBankModel.md)
  - [CybridApiBank::PostCounterpartyAliasesInnerBankModel](docs/PostCounterpartyAliasesInnerBankModel.md)
@@ -392,9 +403,9 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::PostCustomerNameBankModel](docs/PostCustomerNameBankModel.md)
  - [CybridApiBank::PostDepositAddressBankModel](docs/PostDepositAddressBankModel.md)
  - [CybridApiBank::PostDepositBankAccountBankModel](docs/PostDepositBankAccountBankModel.md)
+ - [CybridApiBank::PostExecutionBankModel](docs/PostExecutionBankModel.md)
  - [CybridApiBank::PostExternalBankAccountBankModel](docs/PostExternalBankAccountBankModel.md)
  - [CybridApiBank::PostExternalBankAccountCounterpartyAddressBankModel](docs/PostExternalBankAccountCounterpartyAddressBankModel.md)
- - [CybridApiBank::PostExternalBankAccountCounterpartyBankAccountBankModel](docs/PostExternalBankAccountCounterpartyBankAccountBankModel.md)
  - [CybridApiBank::PostExternalBankAccountCounterpartyNameBankModel](docs/PostExternalBankAccountCounterpartyNameBankModel.md)
  - [CybridApiBank::PostExternalWalletBankModel](docs/PostExternalWalletBankModel.md)
  - [CybridApiBank::PostFeeBankModel](docs/PostFeeBankModel.md)
@@ -407,6 +418,10 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::PostInvoiceBankModel](docs/PostInvoiceBankModel.md)
  - [CybridApiBank::PostPaymentInstructionBankModel](docs/PostPaymentInstructionBankModel.md)
  - [CybridApiBank::PostPersonaSessionBankModel](docs/PostPersonaSessionBankModel.md)
+ - [CybridApiBank::PostPlanBankModel](docs/PostPlanBankModel.md)
+ - [CybridApiBank::PostPlanDestinationAccountBankModel](docs/PostPlanDestinationAccountBankModel.md)
+ - [CybridApiBank::PostPlanSourceAccountBankModel](docs/PostPlanSourceAccountBankModel.md)
+ - [CybridApiBank::PostPlanTravelRuleInfoBankModel](docs/PostPlanTravelRuleInfoBankModel.md)
  - [CybridApiBank::PostQuoteBankModel](docs/PostQuoteBankModel.md)
  - [CybridApiBank::PostQuoteEntryBankModel](docs/PostQuoteEntryBankModel.md)
  - [CybridApiBank::PostSupportedPayoutSymbolsBankModel](docs/PostSupportedPayoutSymbolsBankModel.md)
@@ -422,6 +437,7 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::QuoteListBankModel](docs/QuoteListBankModel.md)
  - [CybridApiBank::QuoteSideBankModel](docs/QuoteSideBankModel.md)
  - [CybridApiBank::QuoteTypeBankModel](docs/QuoteTypeBankModel.md)
+ - [CybridApiBank::StageBankModel](docs/StageBankModel.md)
  - [CybridApiBank::SymbolPriceBankModel](docs/SymbolPriceBankModel.md)
  - [CybridApiBank::TradeBankModel](docs/TradeBankModel.md)
  - [CybridApiBank::TradeFailureCodeBankModel](docs/TradeFailureCodeBankModel.md)
@@ -442,6 +458,7 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::TransferSourceAccountBankModel](docs/TransferSourceAccountBankModel.md)
  - [CybridApiBank::TransferStateBankModel](docs/TransferStateBankModel.md)
  - [CybridApiBank::TransferTypeBankModel](docs/TransferTypeBankModel.md)
+ - [CybridApiBank::TravelRuleInfoPartyBankModel](docs/TravelRuleInfoPartyBankModel.md)
  - [CybridApiBank::WorkflowBankModel](docs/WorkflowBankModel.md)
  - [CybridApiBank::WorkflowStateBankModel](docs/WorkflowStateBankModel.md)
  - [CybridApiBank::WorkflowTypeBankModel](docs/WorkflowTypeBankModel.md)
