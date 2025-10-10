@@ -1,0 +1,472 @@
+=begin
+#Cybrid Bank API
+
+## Cybrid API documentation  Welcome to Cybrid, an all-in-one crypto platform that enables you to easily **build** and **launch** white-label crypto products or services.  In these documents, you'll find details on how our REST API operates and generally how our platform functions.  If you're looking for our UI SDK Widgets for Web or Mobile (iOS/Android), generated API clients, or demo applications, head over to our [Github repo](https://github.com/Cybrid-app).  💡 We recommend bookmarking the [Cybrid LinkTree](https://linktr.ee/cybridtechnologies) which contains many helpful links to platform resources.  ## Getting Started  This is Cybrid's public interactive API documentation, which allows you to fully test our APIs. If you'd like to use a different tool to exercise our APIs, you can download the [Open API 3.0 yaml](<api_platform_bank_swagger_schema_url>) for import.  If you're new to our APIs and the Cybrid Platform, follow the below guides to get set up and familiar with the platform:  1. [Introduction](https://docs.cybrid.xyz/docs/introduction) 2. [Platform Introduction](https://docs.cybrid.xyz/docs/how-is-cybrid-architected) 3. [Testing with Hosted Web Demo App](https://docs.cybrid.xyz/docs/testing-with-hosted-web-demo-app)  In [Getting Started in the Cybrid Sandbox](https://docs.cybrid.xyz/docs/how-do-i-get-started-with-the-sandbox), we walk you through how to use the [Cybrid Sandbox](https://id.sandbox.cybrid.app/) to create a test bank and generate API keys. In [Getting Ready for Trading](https://kb.cybrid.xyz/getting-ready-for-trading), we walk through creating customers, customer identities, accounts, as well as executing quotes and trades.  ## Working with the Cybrid Platform  There are three primary ways you can interact with the Cybrid platform:  1. Directly via our RESTful API (this documentation) 2. Using our API clients available in a variety of languages ([Angular](https://github.com/Cybrid-app/cybrid-api-bank-angular), [Java](https://github.com/Cybrid-app/cybrid-api-bank-java), [Kotlin](https://github.com/Cybrid-app/cybrid-api-bank-kotlin), [Python](https://github.com/Cybrid-app/cybrid-api-bank-python), [Ruby](https://github.com/Cybrid-app/cybrid-api-bank-ruby), [Swift](https://github.com/Cybrid-app/cybrid-api-bank-swift) or [Typescript](https://github.com/Cybrid-app/cybrid-api-bank-typescript)) 3. Integrating a platform specific SDK ([Web](https://github.com/Cybrid-app/cybrid-sdk-web), [Android](https://github.com/Cybrid-app/cybrid-sdk-android), [iOS](https://github.com/Cybrid-app/cybrid-sdk-ios))  Our complete set of APIs allows you to manage resources across three distinct areas: your `Organization`, your `Banks` and your `Identities`. For most of your testing and interaction you'll be using the `Bank` API, which is where the majority of APIs reside.  *The complete set of APIs can be found on the following pages:*  | API                                                              | Description                                                 | |------------------------------------------------------------------|-------------------------------------------------------------| | [Organization API](<api_platform_organization_swagger_ui_url>)   | APIs to manage organizations                                | | [Bank API](<api_platform_bank_swagger_ui_url>)                   | APIs to manage banks (and all downstream customer activity) | | [Identities API](<api_idp_swagger_ui_url>)                       | APIs to manage organization and bank identities             |  For questions please contact [Support](mailto:support@cybrid.xyz) at any time for assistance, or contact the [Product Team](mailto:product@cybrid.xyz) for product suggestions.  ## Authenticating with the API  The Cybrid Platform uses OAuth 2.0 Bearer Tokens to authenticate requests to the platform. Credentials to create `Organization` and `Bank` tokens can be generated via the [Cybrid Sandbox](<api_idp_url>). Access tokens can be generated for a `Customer` as well via the [Cybrid IdP](<api_idp_url>) as well.  An `Organization` access token applies broadly to the whole Organization and all of its `Banks`, whereas, a `Bank` access token is specific to an individual Bank. `Customer` tokens, similarly, are scoped to a specific customer in a bank.  Both `Organization` and `Bank` tokens can be created using the OAuth Client Credential Grant flow. Each Organization and Bank has its own unique `Client ID` and `Secret` that allows for machine-to-machine authentication.  A `Bank` can then generate `Customer` access tokens via API using our [Identities API](<api_idp_swagger_ui_url>).  <font color=\"orange\">**⚠️ Never share your Client ID or Secret publicly or in your source code repository.**</font>  Your `Client ID` and `Secret` can be exchanged for a time-limited `Bearer Token` by interacting with the Cybrid Identity Provider or through interacting with the **Authorize** button in this document.  The following curl command can be used to quickly generate a `Bearer Token` for use in testing the API or demo applications.  ``` # Example request when using Bank credentials curl -X POST <api_idp_url>/oauth/token -d '{     \"grant_type\": \"client_credentials\",     \"client_id\": \"<Your Client ID>\",     \"client_secret\": \"<Your Secret>\",     \"scope\": \"<api_platform_bank_scopes>\"   }' -H \"Content-Type: application/json\"  # When using Organization credentials set `scope` to '<api_platform_organization_scopes>' ``` <font color=\"orange\">**⚠️ Note: The above curl will create a bearer token with full scope access. Delete scopes if you'd like to restrict access.**</font>  ## Authentication Scopes  The Cybrid platform supports the use of scopes to control the level of access a token is limited to. Scopes do not grant access to resources; instead, they provide limits, in support of the least privilege principal.  The following scopes are available on the platform and can be requested when generating either an Organization, Bank or Customer token. Generally speaking, the _Read_ scope is required to read and list resources, the _Write_ scope is required to update a resource and the _Execute_ scope is required to create a resource.  | Resource              | Read scope (Token Type)                                    | Write scope (Token Type)                      | Execute scope (Token Type)                       | |-----------------------|------------------------------------------------------------|-----------------------------------------------|--------------------------------------------------| | Account               | accounts:read (Organization, Bank, Customer)               |                                               | accounts:execute (Bank, Customer)                | | Bank                  | banks:read (Organization, Bank)                            | banks:write (Organization, Bank)              | banks:execute (Organization)                     | | Customer              | customers:read (Organization, Bank, Customer)              | customers:write (Bank, Customer)              | customers:execute (Bank)                         | | Counterparty          | counterparties:read (Organization, Bank, Customer)         | counterparties:write (Bank, Customer)         | counterparties:execute (Bank)                    | | Deposit Address       | deposit_addresses:read (Organization, Bank, Customer)      | deposit_addresses:write (Bank, Customer)      | deposit_addresses:execute (Bank, Customer)       | | External Bank Account | external_bank_accounts:read (Organization, Bank, Customer) | external_bank_accounts:write (Bank, Customer) | external_bank_accounts:execute (Bank, Customer)  | | External Wallet       | external_wallet:read (Organization, Bank, Customer)        |                                               | external_wallet:execute (Bank, Customer)         | | Organization          | organizations:read (Organization)                          | organizations:write (Organization)            |                                                  | | User                  | users:read (Organization)                                  |                                               | users:execute (Organization)                     | | Price                 | prices:read (Bank, Customer)                               |                                               |                                                  | | Quote                 | quotes:read (Organization, Bank, Customer)                 |                                               | quotes:execute (Organization, Bank, Customer)    | | Trade                 | trades:read (Organization, Bank, Customer)                 |                                               | trades:execute (Organization, Bank, Customer)    | | Transfer              | transfers:read (Organization, Bank, Customer)              |                                               | transfers:execute (Organization, Bank, Customer) | | Workflow              | workflows:read (Organization, Bank, Customer)              |                                               | workflows:execute (Bank, Customer)               | | Invoice               | invoices:read (Organization, Bank, Customer)               | invoices:write (Bank, Customer)               | invoices:execute (Bank, Customer)                |  ## Available Endpoints  The available APIs for the [Identity](<api_idp_swagger_ui_url>), [Organization](<api_platform_organization_swagger_ui_url>) and [Bank](<api_platform_bank_swagger_ui_url>) API services are listed below:  | API Service  | Model                | API Endpoint Path              | Description                                                                                       | |--------------|----------------------|--------------------------------|---------------------------------------------------------------------------------------------------| | Identity     | Bank                 | /api/bank_applications         | Create and list banks                                                                             | | Identity     | CustomerToken        | /api/customer_tokens           | Create customer JWT access tokens                                                                 | | Identity     | Organization         | /api/organization_applications | Create and list organizations                                                                     | | Identity     | Organization         | /api/users                     | Create and list organization users                                                                | | Organization | Organization         | /api/organizations             | APIs to retrieve and update organization name                                                     | | Bank         | Account              | /api/accounts                  | Create and list accounts, which hold a specific asset for a customers                             | | Bank         | Asset                | /api/assets                    | Get a list of assets supported by the platform (ex: BTC, ETH)                                     | | Bank         | Bank                 | /api/banks                     | Create, update and list banks, the parent to customers, accounts, etc                             | | Bank         | Customer             | /api/customers                 | Create and list customers                                                                         | | Bank         | Counterparty         | /api/counterparties            | Create and list counterparties                                                                    | | Bank         | DepositAddress       | /api/deposit_addresses         | Create, get and list deposit addresses                                                            | | Bank         | ExternalBankAccount  | /api/external_bank_accounts    | Create, get and list external bank accounts, which connect customer bank accounts to the platform | | Bank         | ExternalWallet       | /api/external_wallets          | Create, get, list and delete external wallets, which connect customer wallets to the platform     | | Bank         | IdentityVerification | /api/identity_verifications    | Create and list identity verifications, which are performed on customers for KYC                  | | Bank         | Invoice              | /api/invoices                  | Create, get, cancel and list invoices                                                             | | Bank         | PaymentInstruction   | /api/payment_instructions      | Create, get and list payment instructions for invoices                                            | | Bank         | Price                | /api/prices                    | Get the current prices for assets on the platform                                                 | | Bank         | Quote                | /api/quotes                    | Create and list quotes, which are required to execute trades                                      | | Bank         | Symbol               | /api/symbols                   | Get a list of symbols supported for trade (ex: BTC-USD)                                           | | Bank         | Trade                | /api/trades                    | Create and list trades, which buy or sell cryptocurrency                                          | | Bank         | Transfer             | /api/transfers                 | Create, get and list transfers (e.g., funding, book)                                              | | Bank         | Workflow             | /api/workflows                 | Create, get and list workflows                                                                    |  ## Understanding Object Models & Endpoints  **Organizations**  An `Organization` is meant to represent the organization partnering with Cybrid to use our platform.  An `Organization` typically does not directly interact with `customers`. Instead, an Organization has one or more `banks`, which encompass the financial service offerings of the platform.  **Banks**  A `Bank` is owned by an `Organization` and can be thought of as an environment or container for `customers` and product offerings. Banks are created in either `Sandbox` or `Production` mode, where `Sandbox` is the environment that you would test, prototype and build in prior to moving to `Production`.  An `Organization` can have multiple `banks`, in either `Sandbox` or `Production` environments. A `Sandbox Bank` will be backed by stubbed data and process flows. For instance, funding source transfer processes as well as trades will be simulated rather than performed, however asset prices are representative of real-world values. You have an unlimited amount of simulated fiat currency for testing purposes.  **Customers**  `Customers` represent your banking users on the platform. At present, we offer support for `Individuals` as Customers.  `Customers` must be verified (i.e., KYC'd) in our system before they can play any part on the platform, which means they must have an associated and a passing `Identity Verification`. See the Identity Verifications section for more details on how a customer can be verified.  `Customers` must also have an `Account` to be able to transact, in the desired asset class. See the Accounts APIs for more details on setting up accounts for the customer. 
+
+The version of the OpenAPI document: v0.0.0
+Contact: support@cybrid.app
+Generated by: https://openapi-generator.tech
+OpenAPI Generator version: 6.0.0
+
+=end
+
+require 'date'
+require 'time'
+
+module CybridApiBank
+  class PostInternalPayoutSymbolConfigurationBankModel
+    # The payout symbol configuration type.
+    attr_accessor :type
+
+    # The environment the configuration is associated with.
+    attr_accessor :environment
+
+    # The bank identifier that the configuration is associated with.
+    attr_accessor :bank_guid
+
+    # Flag indicating if the symbol is enabled for payout on the platform.
+    attr_accessor :enabled
+
+    # The symbol code of the configuration.
+    attr_accessor :symbol
+
+    # The ISO 3166 2-Alpha country code.
+    attr_accessor :country_code
+
+    # The type of participants the symbol is enabled for.
+    attr_accessor :participants_type
+
+    # The route the symbol is enabled for.
+    attr_accessor :route
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
+
+    # Attribute mapping from ruby-style variable name to JSON key.
+    def self.attribute_map
+      {
+        :'type' => :'type',
+        :'environment' => :'environment',
+        :'bank_guid' => :'bank_guid',
+        :'enabled' => :'enabled',
+        :'symbol' => :'symbol',
+        :'country_code' => :'country_code',
+        :'participants_type' => :'participants_type',
+        :'route' => :'route'
+      }
+    end
+
+    # Returns all the JSON keys this model knows about
+    def self.acceptable_attributes
+      attribute_map.values
+    end
+
+    # Attribute type mapping.
+    def self.openapi_types
+      {
+        :'type' => :'String',
+        :'environment' => :'String',
+        :'bank_guid' => :'String',
+        :'enabled' => :'Boolean',
+        :'symbol' => :'String',
+        :'country_code' => :'String',
+        :'participants_type' => :'String',
+        :'route' => :'String'
+      }
+    end
+
+    # List of attributes with nullable: true
+    def self.openapi_nullable
+      Set.new([
+        :'environment',
+        :'bank_guid',
+      ])
+    end
+
+    # Initializes the object
+    # @param [Hash] attributes Model attributes in the form of hash
+    def initialize(attributes = {})
+      if (!attributes.is_a?(Hash))
+        fail ArgumentError, "The input argument (attributes) must be a hash in `CybridApiBank::PostInternalPayoutSymbolConfigurationBankModel` initialize method"
+      end
+
+      # check to see if the attribute exists and convert string to symbol for hash key
+      attributes = attributes.each_with_object({}) { |(k, v), h|
+        if (!self.class.attribute_map.key?(k.to_sym))
+          fail ArgumentError, "`#{k}` is not a valid attribute in `CybridApiBank::PostInternalPayoutSymbolConfigurationBankModel`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+        end
+        h[k.to_sym] = v
+      }
+
+      if attributes.key?(:'type')
+        self.type = attributes[:'type']
+      end
+
+      if attributes.key?(:'environment')
+        self.environment = attributes[:'environment']
+      end
+
+      if attributes.key?(:'bank_guid')
+        self.bank_guid = attributes[:'bank_guid']
+      end
+
+      if attributes.key?(:'enabled')
+        self.enabled = attributes[:'enabled']
+      end
+
+      if attributes.key?(:'symbol')
+        self.symbol = attributes[:'symbol']
+      end
+
+      if attributes.key?(:'country_code')
+        self.country_code = attributes[:'country_code']
+      end
+
+      if attributes.key?(:'participants_type')
+        self.participants_type = attributes[:'participants_type']
+      end
+
+      if attributes.key?(:'route')
+        self.route = attributes[:'route']
+      end
+    end
+
+    # Show invalid properties with the reasons. Usually used together with valid?
+    # @return Array for valid properties with the reasons
+    def list_invalid_properties
+      invalid_properties = Array.new
+      if @type.nil?
+        invalid_properties.push('invalid value for "type", type cannot be nil.')
+      end
+
+      if !@bank_guid.nil? && @bank_guid.to_s.length > 32
+        invalid_properties.push('invalid value for "bank_guid", the character length must be smaller than or equal to 32.')
+      end
+
+      if !@bank_guid.nil? && @bank_guid.to_s.length < 32
+        invalid_properties.push('invalid value for "bank_guid", the character length must be great than or equal to 32.')
+      end
+
+      if @enabled.nil?
+        invalid_properties.push('invalid value for "enabled", enabled cannot be nil.')
+      end
+
+      if @symbol.nil?
+        invalid_properties.push('invalid value for "symbol", symbol cannot be nil.')
+      end
+
+      if @symbol.to_s.length > 24
+        invalid_properties.push('invalid value for "symbol", the character length must be smaller than or equal to 24.')
+      end
+
+      if @symbol.to_s.length < 1
+        invalid_properties.push('invalid value for "symbol", the character length must be great than or equal to 1.')
+      end
+
+      if @country_code.nil?
+        invalid_properties.push('invalid value for "country_code", country_code cannot be nil.')
+      end
+
+      if @country_code.to_s.length > 2
+        invalid_properties.push('invalid value for "country_code", the character length must be smaller than or equal to 2.')
+      end
+
+      if @country_code.to_s.length < 2
+        invalid_properties.push('invalid value for "country_code", the character length must be great than or equal to 2.')
+      end
+
+      if @participants_type.nil?
+        invalid_properties.push('invalid value for "participants_type", participants_type cannot be nil.')
+      end
+
+      if @route.nil?
+        invalid_properties.push('invalid value for "route", route cannot be nil.')
+      end
+
+      invalid_properties
+    end
+
+    # Check to see if the all the properties in the model are valid
+    # @return true if the model is valid
+    def valid?
+      return false if @type.nil?
+      type_validator = EnumAttributeValidator.new('String', ["platform", "bank"])
+      return false unless type_validator.valid?(@type)
+      environment_validator = EnumAttributeValidator.new('String', ["sandbox", "production"])
+      return false unless environment_validator.valid?(@environment)
+      return false if !@bank_guid.nil? && @bank_guid.to_s.length > 32
+      return false if !@bank_guid.nil? && @bank_guid.to_s.length < 32
+      return false if @enabled.nil?
+      return false if @symbol.nil?
+      return false if @symbol.to_s.length > 24
+      return false if @symbol.to_s.length < 1
+      return false if @country_code.nil?
+      return false if @country_code.to_s.length > 2
+      return false if @country_code.to_s.length < 2
+      return false if @participants_type.nil?
+      participants_type_validator = EnumAttributeValidator.new('String', ["C2C", "C2B", "B2C", "B2B"])
+      return false unless participants_type_validator.valid?(@participants_type)
+      return false if @route.nil?
+      route_validator = EnumAttributeValidator.new('String', ["bank_account", "mobile_wallet"])
+      return false unless route_validator.valid?(@route)
+      true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] type Object to be assigned
+    def type=(type)
+      validator = EnumAttributeValidator.new('String', ["platform", "bank"])
+      unless validator.valid?(type)
+        fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
+      end
+      @type = type
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] environment Object to be assigned
+    def environment=(environment)
+      validator = EnumAttributeValidator.new('String', ["sandbox", "production"])
+      unless validator.valid?(environment)
+        fail ArgumentError, "invalid value for \"environment\", must be one of #{validator.allowable_values}."
+      end
+      @environment = environment
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] bank_guid Value to be assigned
+    def bank_guid=(bank_guid)
+      if !bank_guid.nil? && bank_guid.to_s.length > 32
+        fail ArgumentError, 'invalid value for "bank_guid", the character length must be smaller than or equal to 32.'
+      end
+
+      if !bank_guid.nil? && bank_guid.to_s.length < 32
+        fail ArgumentError, 'invalid value for "bank_guid", the character length must be great than or equal to 32.'
+      end
+
+      @bank_guid = bank_guid
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] symbol Value to be assigned
+    def symbol=(symbol)
+      if symbol.nil?
+        fail ArgumentError, 'symbol cannot be nil'
+      end
+
+      if symbol.to_s.length > 24
+        fail ArgumentError, 'invalid value for "symbol", the character length must be smaller than or equal to 24.'
+      end
+
+      if symbol.to_s.length < 1
+        fail ArgumentError, 'invalid value for "symbol", the character length must be great than or equal to 1.'
+      end
+
+      @symbol = symbol
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] country_code Value to be assigned
+    def country_code=(country_code)
+      if country_code.nil?
+        fail ArgumentError, 'country_code cannot be nil'
+      end
+
+      if country_code.to_s.length > 2
+        fail ArgumentError, 'invalid value for "country_code", the character length must be smaller than or equal to 2.'
+      end
+
+      if country_code.to_s.length < 2
+        fail ArgumentError, 'invalid value for "country_code", the character length must be great than or equal to 2.'
+      end
+
+      @country_code = country_code
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] participants_type Object to be assigned
+    def participants_type=(participants_type)
+      validator = EnumAttributeValidator.new('String', ["C2C", "C2B", "B2C", "B2B"])
+      unless validator.valid?(participants_type)
+        fail ArgumentError, "invalid value for \"participants_type\", must be one of #{validator.allowable_values}."
+      end
+      @participants_type = participants_type
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] route Object to be assigned
+    def route=(route)
+      validator = EnumAttributeValidator.new('String', ["bank_account", "mobile_wallet"])
+      unless validator.valid?(route)
+        fail ArgumentError, "invalid value for \"route\", must be one of #{validator.allowable_values}."
+      end
+      @route = route
+    end
+
+    # Checks equality by comparing each attribute.
+    # @param [Object] Object to be compared
+    def ==(o)
+      return true if self.equal?(o)
+      self.class == o.class &&
+          type == o.type &&
+          environment == o.environment &&
+          bank_guid == o.bank_guid &&
+          enabled == o.enabled &&
+          symbol == o.symbol &&
+          country_code == o.country_code &&
+          participants_type == o.participants_type &&
+          route == o.route
+    end
+
+    # @see the `==` method
+    # @param [Object] Object to be compared
+    def eql?(o)
+      self == o
+    end
+
+    # Calculates hash code according to all attributes.
+    # @return [Integer] Hash code
+    def hash
+      [type, environment, bank_guid, enabled, symbol, country_code, participants_type, route].hash
+    end
+
+    # Builds the object from hash
+    # @param [Hash] attributes Model attributes in the form of hash
+    # @return [Object] Returns the model itself
+    def self.build_from_hash(attributes)
+      new.build_from_hash(attributes)
+    end
+
+    # Builds the object from hash
+    # @param [Hash] attributes Model attributes in the form of hash
+    # @return [Object] Returns the model itself
+    def build_from_hash(attributes)
+      return nil unless attributes.is_a?(Hash)
+      attributes = attributes.transform_keys(&:to_sym)
+      self.class.openapi_types.each_pair do |key, type|
+        if attributes[self.class.attribute_map[key]].nil? && self.class.openapi_nullable.include?(key)
+          self.send("#{key}=", nil)
+        elsif type =~ /\AArray<(.*)>/i
+          # check to ensure the input is an array given that the attribute
+          # is documented as an array but the input is not
+          if attributes[self.class.attribute_map[key]].is_a?(Array)
+            self.send("#{key}=", attributes[self.class.attribute_map[key]].map { |v| _deserialize($1, v) })
+          end
+        elsif !attributes[self.class.attribute_map[key]].nil?
+          self.send("#{key}=", _deserialize(type, attributes[self.class.attribute_map[key]]))
+        end
+      end
+
+      self
+    end
+
+    # Deserializes the data based on type
+    # @param string type Data type
+    # @param string value Value to be deserialized
+    # @return [Object] Deserialized data
+    def _deserialize(type, value)
+      case type.to_sym
+      when :Time
+        Time.parse(value)
+      when :Date
+        Date.parse(value)
+      when :String
+        value.to_s
+      when :Integer
+        value.to_i
+      when :Float
+        value.to_f
+      when :Boolean
+        if value.to_s =~ /\A(true|t|yes|y|1)\z/i
+          true
+        else
+          false
+        end
+      when :Object
+        # generic object (usually a Hash), return directly
+        value
+      when /\AArray<(?<inner_type>.+)>\z/
+        inner_type = Regexp.last_match[:inner_type]
+        value.map { |v| _deserialize(inner_type, v) }
+      when /\AHash<(?<k_type>.+?), (?<v_type>.+)>\z/
+        k_type = Regexp.last_match[:k_type]
+        v_type = Regexp.last_match[:v_type]
+        {}.tap do |hash|
+          value.each do |k, v|
+            hash[_deserialize(k_type, k)] = _deserialize(v_type, v)
+          end
+        end
+      else # model
+        # models (e.g. Pet) or oneOf
+        klass = CybridApiBank.const_get(type)
+        klass.respond_to?(:openapi_one_of) ? klass.build(value) : klass.build_from_hash(value)
+      end
+    end
+
+    # Returns the string representation of the object
+    # @return [String] String presentation of the object
+    def to_s
+      to_hash.to_s
+    end
+
+    # to_body is an alias to to_hash (backward compatibility)
+    # @return [Hash] Returns the object in the form of hash
+    def to_body
+      to_hash
+    end
+
+    # Returns the object in the form of hash
+    # @return [Hash] Returns the object in the form of hash
+    def to_hash
+      hash = {}
+      self.class.attribute_map.each_pair do |attr, param|
+        value = self.send(attr)
+        if value.nil?
+          is_nullable = self.class.openapi_nullable.include?(attr)
+          next if !is_nullable || (is_nullable && !instance_variable_defined?(:"@#{attr}"))
+        end
+
+        hash[param] = _to_hash(value)
+      end
+      hash
+    end
+
+    # Outputs non-array value in the form of hash
+    # For object, use to_hash. Otherwise, just return the value
+    # @param [Object] value Any valid value
+    # @return [Hash] Returns the value in the form of hash
+    def _to_hash(value)
+      if value.is_a?(Array)
+        value.compact.map { |v| _to_hash(v) }
+      elsif value.is_a?(Hash)
+        {}.tap do |hash|
+          value.each { |k, v| hash[k] = _to_hash(v) }
+        end
+      elsif value.respond_to? :to_hash
+        value.to_hash
+      else
+        value
+      end
+    end
+
+  end
+
+end
