@@ -1,6 +1,6 @@
 # CybridApiBank::WorkflowsBankApi
 
-All URIs are relative to *http://api-platform-bank.local.cybrid.com:3002*
+All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |

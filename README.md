@@ -14,7 +14,7 @@ If you're looking for our UI SDK Widgets for Web or Mobile (iOS/Android), genera
 
 ## Getting Started
 
-This is Cybrid's public interactive API documentation, which allows you to fully test our APIs. If you'd like to use a different tool to exercise our APIs, you can download the [Open API 3.0 yaml](<api_platform_bank_swagger_schema_url>) for import.
+This is Cybrid's public interactive API documentation, which allows you to fully test our APIs. If you'd like to use a different tool to exercise our APIs, you can download the [Open API 3.0 yaml](https://bank.production.cybrid.app/api/schema/v1/swagger.yaml) for import.
 
 If you're new to our APIs and the Cybrid Platform, follow the below guides to get set up and familiar with the platform:
 
@@ -38,21 +38,21 @@ Our complete set of APIs allows you to manage resources across three distinct ar
 
 | API                                                              | Description                                                 |
 |------------------------------------------------------------------|-------------------------------------------------------------|
-| [Organization API](<api_platform_organization_swagger_ui_url>)   | APIs to manage organizations                                |
-| [Bank API](<api_platform_bank_swagger_ui_url>)                   | APIs to manage banks (and all downstream customer activity) |
-| [Identities API](<api_idp_swagger_ui_url>)                       | APIs to manage organization and bank identities             |
+| [Organization API](https://organization.production.cybrid.app/api/schema/swagger-ui)   | APIs to manage organizations                                |
+| [Bank API](https://bank.production.cybrid.app/api/schema/swagger-ui)                   | APIs to manage banks (and all downstream customer activity) |
+| [Identities API](https://id.production.cybrid.app/api/schema/swagger-ui)                       | APIs to manage organization and bank identities             |
 
 For questions please contact [Support](mailto:support@cybrid.xyz) at any time for assistance, or contact the [Product Team](mailto:product@cybrid.xyz) for product suggestions.
 
 ## Authenticating with the API
 
-The Cybrid Platform uses OAuth 2.0 Bearer Tokens to authenticate requests to the platform. Credentials to create `Organization` and `Bank` tokens can be generated via the [Cybrid Sandbox](<api_idp_url>). Access tokens can be generated for a `Customer` as well via the [Cybrid IdP](<api_idp_url>) as well.
+The Cybrid Platform uses OAuth 2.0 Bearer Tokens to authenticate requests to the platform. Credentials to create `Organization` and `Bank` tokens can be generated via the [Cybrid Sandbox](https://id.production.cybrid.app). Access tokens can be generated for a `Customer` as well via the [Cybrid IdP](https://id.production.cybrid.app) as well.
 
 An `Organization` access token applies broadly to the whole Organization and all of its `Banks`, whereas, a `Bank` access token is specific to an individual Bank. `Customer` tokens, similarly, are scoped to a specific customer in a bank.
 
 Both `Organization` and `Bank` tokens can be created using the OAuth Client Credential Grant flow. Each Organization and Bank has its own unique `Client ID` and `Secret` that allows for machine-to-machine authentication.
 
-A `Bank` can then generate `Customer` access tokens via API using our [Identities API](<api_idp_swagger_ui_url>).
+A `Bank` can then generate `Customer` access tokens via API using our [Identities API](https://id.production.cybrid.app/api/schema/swagger-ui).
 
 <font color=\"orange\">**⚠️ Never share your Client ID or Secret publicly or in your source code repository.**</font>
 
@@ -62,14 +62,14 @@ The following curl command can be used to quickly generate a `Bearer Token` for 
 
 ```
 # Example request when using Bank credentials
-curl -X POST <api_idp_url>/oauth/token -d '{
+curl -X POST https://id.production.cybrid.app/oauth/token -d '{
     \"grant_type\": \"client_credentials\",
     \"client_id\": \"<Your Client ID>\",
     \"client_secret\": \"<Your Secret>\",
-    \"scope\": \"<api_platform_bank_scopes>\"
+    \"scope\": \"banks:read banks:write bank_applications:execute accounts:read accounts:execute counterparties:read counterparties:pii:read counterparties:write counterparties:execute customers:read customers:pii:read customers:write customers:execute prices:read quotes:execute quotes:read trades:execute trades:read transfers:execute transfers:read transfers:write external_bank_accounts:read external_bank_accounts:pii:read external_bank_accounts:write external_bank_accounts:execute external_wallets:read external_wallets:execute workflows:read workflows:execute deposit_addresses:read deposit_addresses:execute deposit_bank_accounts:read deposit_bank_accounts:execute invoices:read invoices:write invoices:execute identity_verifications:read identity_verifications:pii:read identity_verifications:write identity_verifications:execute persona_sessions:execute plans:execute plans:read executions:execute executions:read files:read files:pii:read files:execute\"
   }' -H \"Content-Type: application/json\"
 
-# When using Organization credentials set `scope` to '<api_platform_organization_scopes>'
+# When using Organization credentials set `scope` to 'organizations:read organizations:write organization_applications:execute banks:read banks:write banks:execute bank_applications:execute users:read users:write users:execute counterparties:read counterparties:pii:read customers:read customers:pii:read accounts:read prices:read quotes:execute quotes:read trades:execute trades:read transfers:read transfers:write transfers:execute external_bank_accounts:read external_bank_accounts:pii:read external_wallets:read workflows:read deposit_addresses:read deposit_bank_accounts:read invoices:read subscriptions:read subscriptions:write subscriptions:execute subscription_events:read subscription_events:execute identity_verifications:read identity_verifications:pii:read identity_verifications:execute persona_sessions:execute plans:execute plans:read executions:execute executions:read files:read files:pii:read files:execute'
 ```
 <font color=\"orange\">**⚠️ Note: The above curl will create a bearer token with full scope access. Delete scopes if you'd like to restrict access.**</font>
 
@@ -99,7 +99,7 @@ The following scopes are available on the platform and can be requested when gen
 
 ## Available Endpoints
 
-The available APIs for the [Identity](<api_idp_swagger_ui_url>), [Organization](<api_platform_organization_swagger_ui_url>) and [Bank](<api_platform_bank_swagger_ui_url>) API services are listed below:
+The available APIs for the [Identity](https://id.production.cybrid.app/api/schema/swagger-ui), [Organization](https://organization.production.cybrid.app/api/schema/swagger-ui) and [Bank](https://bank.production.cybrid.app/api/schema/swagger-ui) API services are listed below:
 
 | API Service  | Model                | API Endpoint Path              | Description                                                                                       |
 |--------------|----------------------|--------------------------------|---------------------------------------------------------------------------------------------------|
@@ -151,8 +151,8 @@ An `Organization` can have multiple `banks`, in either `Sandbox` or `Production`
 
 This SDK is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: v0.0.0
-- Package version: 0.125.50
+- API version: v0.125.59
+- Package version: 0.125.59
 - Build package: org.openapitools.codegen.languages.RubyClientCodegen
 
 ## Installation
@@ -168,16 +168,16 @@ gem build cybrid_api_bank_ruby.gemspec
 Then either install the gem locally:
 
 ```shell
-gem install ./cybrid_api_bank_ruby-0.125.50.gem
+gem install ./cybrid_api_bank_ruby-0.125.59.gem
 ```
 
-(for development, run `gem install --dev ./cybrid_api_bank_ruby-0.125.50.gem` to install the development dependencies)
+(for development, run `gem install --dev ./cybrid_api_bank_ruby-0.125.59.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'cybrid_api_bank_ruby', '~> 0.125.50'
+    gem 'cybrid_api_bank_ruby', '~> 0.125.59'
 
 ### Install from Git
 
@@ -225,7 +225,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://api-platform-bank.local.cybrid.com:3002*
+All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -267,144 +267,6 @@ Class | Method | HTTP request | Description
 *CybridApiBank::IdentityVerificationsBankApi* | [**create_identity_verification**](docs/IdentityVerificationsBankApi.md#create_identity_verification) | **POST** /api/identity_verifications | Create Identity Verification
 *CybridApiBank::IdentityVerificationsBankApi* | [**get_identity_verification**](docs/IdentityVerificationsBankApi.md#get_identity_verification) | **GET** /api/identity_verifications/{identity_verification_guid} | Get Identity Verification
 *CybridApiBank::IdentityVerificationsBankApi* | [**list_identity_verifications**](docs/IdentityVerificationsBankApi.md#list_identity_verifications) | **GET** /api/identity_verifications | List Identity Verifications
-*CybridApiBank::InternalBankApi* | [**internal_claim_exchange_settlement_payment_order**](docs/InternalBankApi.md#internal_claim_exchange_settlement_payment_order) | **POST** /api/internal/exchange_settlement_payment_orders/{guid}/claim | Claim Exchange Settlement Payment Order
-*CybridApiBank::InternalBankApi* | [**internal_claim_expected_payment**](docs/InternalBankApi.md#internal_claim_expected_payment) | **POST** /api/internal/expected_payments/{guid}/claim | Claim Expected Payment
-*CybridApiBank::InternalBankApi* | [**internal_create_account**](docs/InternalBankApi.md#internal_create_account) | **POST** /api/internal/accounts | Create Account
-*CybridApiBank::InternalBankApi* | [**internal_create_activity_limit_configuration**](docs/InternalBankApi.md#internal_create_activity_limit_configuration) | **POST** /api/internal/activity_limit_configurations | Create ActivityLimitConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_activity_report**](docs/InternalBankApi.md#internal_create_activity_report) | **POST** /api/internal/activity_reports | Create Activity Report
-*CybridApiBank::InternalBankApi* | [**internal_create_bank**](docs/InternalBankApi.md#internal_create_bank) | **POST** /api/internal/banks | Create Bank
-*CybridApiBank::InternalBankApi* | [**internal_create_bank_account_service**](docs/InternalBankApi.md#internal_create_bank_account_service) | **POST** /api/internal/bank_account_services | Create BankAccountService
-*CybridApiBank::InternalBankApi* | [**internal_create_compliance_decision**](docs/InternalBankApi.md#internal_create_compliance_decision) | **POST** /api/internal/compliance_decisions | Create Compliance Decision
-*CybridApiBank::InternalBankApi* | [**internal_create_country_code_configuration**](docs/InternalBankApi.md#internal_create_country_code_configuration) | **POST** /api/internal/country_code_configurations | Create CountryCodeConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_crypto_asset_configuration**](docs/InternalBankApi.md#internal_create_crypto_asset_configuration) | **POST** /api/internal/crypto_asset_configurations | Create CryptoAssetConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_cybrid_account**](docs/InternalBankApi.md#internal_create_cybrid_account) | **POST** /api/internal/cybrid_accounts | Create CybridAccount
-*CybridApiBank::InternalBankApi* | [**internal_create_cybrid_gas_account_configuration**](docs/InternalBankApi.md#internal_create_cybrid_gas_account_configuration) | **POST** /api/internal/cybrid_gas_account_configurations | Create CybridGasAccountConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_deposit_bank_account**](docs/InternalBankApi.md#internal_create_deposit_bank_account) | **POST** /api/internal/deposit_bank_accounts | Create Deposit Bank Account
-*CybridApiBank::InternalBankApi* | [**internal_create_exchange**](docs/InternalBankApi.md#internal_create_exchange) | **POST** /api/internal/exchanges | Create Exchange
-*CybridApiBank::InternalBankApi* | [**internal_create_exchange_account**](docs/InternalBankApi.md#internal_create_exchange_account) | **POST** /api/internal/exchange_accounts | Create ExchangeAccount
-*CybridApiBank::InternalBankApi* | [**internal_create_exchange_monitor**](docs/InternalBankApi.md#internal_create_exchange_monitor) | **POST** /api/internal/exchange_monitors | Create ExchangeMonitor
-*CybridApiBank::InternalBankApi* | [**internal_create_exchange_order**](docs/InternalBankApi.md#internal_create_exchange_order) | **POST** /api/internal/exchange_orders | Create ExchangeOrder
-*CybridApiBank::InternalBankApi* | [**internal_create_exchange_settlement**](docs/InternalBankApi.md#internal_create_exchange_settlement) | **POST** /api/internal/exchange_settlements | Create Exchange Settlement
-*CybridApiBank::InternalBankApi* | [**internal_create_exchange_settlement_approval**](docs/InternalBankApi.md#internal_create_exchange_settlement_approval) | **POST** /api/internal/exchange_settlements/{guid}/approval | Create Exchange Settlement Approval
-*CybridApiBank::InternalBankApi* | [**internal_create_exchange_settlement_completion**](docs/InternalBankApi.md#internal_create_exchange_settlement_completion) | **POST** /api/internal/exchange_settlements/{guid}/completion | Create Exchange Settlement Completion
-*CybridApiBank::InternalBankApi* | [**internal_create_exchange_settlement_configuration**](docs/InternalBankApi.md#internal_create_exchange_settlement_configuration) | **POST** /api/internal/exchange_settlement_configurations | Create ExchangeSettlementConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_exchange_settlement_payment_order**](docs/InternalBankApi.md#internal_create_exchange_settlement_payment_order) | **POST** /api/internal/exchange_settlement_payment_orders | Create Exchange Settlement Payment Order
-*CybridApiBank::InternalBankApi* | [**internal_create_expected_payment**](docs/InternalBankApi.md#internal_create_expected_payment) | **POST** /api/internal/expected_payments | Create Expected Payment
-*CybridApiBank::InternalBankApi* | [**internal_create_external_bank_account**](docs/InternalBankApi.md#internal_create_external_bank_account) | **POST** /api/internal/external_bank_accounts | Create ExternalBankAccount
-*CybridApiBank::InternalBankApi* | [**internal_create_external_wallet**](docs/InternalBankApi.md#internal_create_external_wallet) | **POST** /api/internal/external_wallets | Create ExternalWallet
-*CybridApiBank::InternalBankApi* | [**internal_create_fee**](docs/InternalBankApi.md#internal_create_fee) | **POST** /api/internal/fees | Create Fee
-*CybridApiBank::InternalBankApi* | [**internal_create_fee_configuration**](docs/InternalBankApi.md#internal_create_fee_configuration) | **POST** /api/internal/fee_configurations | Create FeeConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_fiat_asset_configuration**](docs/InternalBankApi.md#internal_create_fiat_asset_configuration) | **POST** /api/internal/fiat_asset_configurations | Create FiatAssetConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_file**](docs/InternalBankApi.md#internal_create_file) | **POST** /api/internal/files | Create File
-*CybridApiBank::InternalBankApi* | [**internal_create_internal_bank_account**](docs/InternalBankApi.md#internal_create_internal_bank_account) | **POST** /api/internal/internal_bank_accounts | Create InternalBankAccount
-*CybridApiBank::InternalBankApi* | [**internal_create_internal_bank_account_configuration**](docs/InternalBankApi.md#internal_create_internal_bank_account_configuration) | **POST** /api/internal/internal_bank_account_configurations | Create InternalBankAccountConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_internal_wallet**](docs/InternalBankApi.md#internal_create_internal_wallet) | **POST** /api/internal/internal_wallets | Create InternalWallet
-*CybridApiBank::InternalBankApi* | [**internal_create_internal_wallet_configuration**](docs/InternalBankApi.md#internal_create_internal_wallet_configuration) | **POST** /api/internal/internal_wallet_configurations | Create InternalWalletConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_payout_symbol_configuration**](docs/InternalBankApi.md#internal_create_payout_symbol_configuration) | **POST** /api/internal/payout_symbol_configurations | Create PayoutSymbolConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_quote**](docs/InternalBankApi.md#internal_create_quote) | **POST** /api/internal/quotes | Create InternalQuote
-*CybridApiBank::InternalBankApi* | [**internal_create_reconciliation**](docs/InternalBankApi.md#internal_create_reconciliation) | **POST** /api/internal/reconciliations | Create Reconciliation
-*CybridApiBank::InternalBankApi* | [**internal_create_stage**](docs/InternalBankApi.md#internal_create_stage) | **POST** /api/internal/stages | Create Stage
-*CybridApiBank::InternalBankApi* | [**internal_create_trade**](docs/InternalBankApi.md#internal_create_trade) | **POST** /api/internal/trades | Create Internal Trade
-*CybridApiBank::InternalBankApi* | [**internal_create_trading_symbol_configuration**](docs/InternalBankApi.md#internal_create_trading_symbol_configuration) | **POST** /api/internal/trading_symbol_configurations | Create TradingSymbolConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_transaction_monitor**](docs/InternalBankApi.md#internal_create_transaction_monitor) | **POST** /api/internal/transaction_monitors | Create TransactionMonitor
-*CybridApiBank::InternalBankApi* | [**internal_create_transfer**](docs/InternalBankApi.md#internal_create_transfer) | **POST** /api/internal/transfers | Create Transfer
-*CybridApiBank::InternalBankApi* | [**internal_create_transfer_rail_configuration**](docs/InternalBankApi.md#internal_create_transfer_rail_configuration) | **POST** /api/internal/transfer_rail_configurations | Create TransferRailConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_create_transfer_screening**](docs/InternalBankApi.md#internal_create_transfer_screening) | **POST** /api/internal/transfer_screenings | Create TransferScreening
-*CybridApiBank::InternalBankApi* | [**internal_create_wallet_service**](docs/InternalBankApi.md#internal_create_wallet_service) | **POST** /api/internal/wallet_services | Create WalletService
-*CybridApiBank::InternalBankApi* | [**internal_crypto_funding_deposit_transfer**](docs/InternalBankApi.md#internal_crypto_funding_deposit_transfer) | **POST** /api/internal/crypto_funding_deposit_transfers | Create Crypto Funding Deposit Transfer
-*CybridApiBank::InternalBankApi* | [**internal_delete_activity_limit_configuration**](docs/InternalBankApi.md#internal_delete_activity_limit_configuration) | **DELETE** /api/internal/activity_limit_configurations/{guid} | Delete ActivityLimitConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_delete_external_bank_account**](docs/InternalBankApi.md#internal_delete_external_bank_account) | **DELETE** /api/internal/external_bank_accounts/{external_bank_account_guid} | Delete External Bank Account
-*CybridApiBank::InternalBankApi* | [**internal_funding_deposit_transfer**](docs/InternalBankApi.md#internal_funding_deposit_transfer) | **POST** /api/internal/funding_deposit_transfers | Create Funding Deposit Transfer
-*CybridApiBank::InternalBankApi* | [**internal_get_bank**](docs/InternalBankApi.md#internal_get_bank) | **GET** /api/internal/banks/{bank_guid} | Get Bank
-*CybridApiBank::InternalBankApi* | [**internal_get_bank_account_service**](docs/InternalBankApi.md#internal_get_bank_account_service) | **GET** /api/internal/bank_account_services/{bank_account_service_guid} | Get BankAccountService
-*CybridApiBank::InternalBankApi* | [**internal_get_customer**](docs/InternalBankApi.md#internal_get_customer) | **GET** /api/internal/customers/{customer_guid} | Get Customer
-*CybridApiBank::InternalBankApi* | [**internal_get_cybrid_account**](docs/InternalBankApi.md#internal_get_cybrid_account) | **GET** /api/internal/cybrid_accounts/{account_guid} | Get CybridAccount
-*CybridApiBank::InternalBankApi* | [**internal_get_exchange**](docs/InternalBankApi.md#internal_get_exchange) | **GET** /api/internal/exchanges/{exchange_guid} | Get Exchange
-*CybridApiBank::InternalBankApi* | [**internal_get_exchange_account**](docs/InternalBankApi.md#internal_get_exchange_account) | **GET** /api/internal/exchange_accounts/{account_guid} | Get ExchangeAccount
-*CybridApiBank::InternalBankApi* | [**internal_get_exchange_settlement**](docs/InternalBankApi.md#internal_get_exchange_settlement) | **GET** /api/internal/exchange_settlements/{guid} | Get Exchange Settlement
-*CybridApiBank::InternalBankApi* | [**internal_get_exchange_settlement_obligation**](docs/InternalBankApi.md#internal_get_exchange_settlement_obligation) | **GET** /api/internal/exchange_settlement_obligations/{guid} | Get Exchange Settlement Obligation
-*CybridApiBank::InternalBankApi* | [**internal_get_exchange_settlement_payment_order**](docs/InternalBankApi.md#internal_get_exchange_settlement_payment_order) | **GET** /api/internal/exchange_settlement_payment_orders/{guid} | Get Exchange Settlement Payment Order
-*CybridApiBank::InternalBankApi* | [**internal_get_execution**](docs/InternalBankApi.md#internal_get_execution) | **GET** /api/internal/executions/{execution_guid} | Get Execution
-*CybridApiBank::InternalBankApi* | [**internal_get_expected_payment**](docs/InternalBankApi.md#internal_get_expected_payment) | **GET** /api/internal/expected_payments/{guid} | Get Expected Payment
-*CybridApiBank::InternalBankApi* | [**internal_get_external_bank_account**](docs/InternalBankApi.md#internal_get_external_bank_account) | **GET** /api/internal/external_bank_accounts/{external_bank_account_guid} | Get ExternalBankAccount
-*CybridApiBank::InternalBankApi* | [**internal_get_external_wallet**](docs/InternalBankApi.md#internal_get_external_wallet) | **GET** /api/internal/external_wallets/{external_wallet_guid} | Get ExternalWallet
-*CybridApiBank::InternalBankApi* | [**internal_get_external_wallet_screening**](docs/InternalBankApi.md#internal_get_external_wallet_screening) | **GET** /api/internal/external_wallet_screenings/{external_wallet_screening_guid} | Get ExternalWalletScreening
-*CybridApiBank::InternalBankApi* | [**internal_get_file**](docs/InternalBankApi.md#internal_get_file) | **GET** /api/internal/files/{file_guid} | Get File
-*CybridApiBank::InternalBankApi* | [**internal_get_internal_bank_account**](docs/InternalBankApi.md#internal_get_internal_bank_account) | **GET** /api/internal/internal_bank_accounts/{internal_bank_account_guid} | Get InternalBankAccount
-*CybridApiBank::InternalBankApi* | [**internal_get_internal_wallet**](docs/InternalBankApi.md#internal_get_internal_wallet) | **GET** /api/internal/internal_wallets/{internal_wallet_guid} | Get InternalWallet
-*CybridApiBank::InternalBankApi* | [**internal_get_invoice**](docs/InternalBankApi.md#internal_get_invoice) | **GET** /api/internal/invoices/{invoice_guid} | Get Invoice
-*CybridApiBank::InternalBankApi* | [**internal_get_plan**](docs/InternalBankApi.md#internal_get_plan) | **GET** /api/internal/plans/{plan_guid} | Get Plan
-*CybridApiBank::InternalBankApi* | [**internal_get_quote**](docs/InternalBankApi.md#internal_get_quote) | **GET** /api/internal/quotes/{quote_guid} | Get Internal Quote
-*CybridApiBank::InternalBankApi* | [**internal_get_reconciliation**](docs/InternalBankApi.md#internal_get_reconciliation) | **GET** /api/internal/reconciliations/{guid} | Get Reconciliation
-*CybridApiBank::InternalBankApi* | [**internal_get_trade**](docs/InternalBankApi.md#internal_get_trade) | **GET** /api/internal/trades/{trade_guid} | Get Internal Trade
-*CybridApiBank::InternalBankApi* | [**internal_get_transfer**](docs/InternalBankApi.md#internal_get_transfer) | **GET** /api/internal/transfers/{guid} | Get Transfer
-*CybridApiBank::InternalBankApi* | [**internal_get_transfer_screening**](docs/InternalBankApi.md#internal_get_transfer_screening) | **GET** /api/internal/transfer_screenings/{transfer_screening_guid} | Get TransferScreening
-*CybridApiBank::InternalBankApi* | [**internal_get_wallet_service**](docs/InternalBankApi.md#internal_get_wallet_service) | **GET** /api/internal/wallet_services/{wallet_service_guid} | Get WalletService
-*CybridApiBank::InternalBankApi* | [**internal_list_accounts**](docs/InternalBankApi.md#internal_list_accounts) | **GET** /api/internal/accounts | List Accounts
-*CybridApiBank::InternalBankApi* | [**internal_list_activity_limit_configurations**](docs/InternalBankApi.md#internal_list_activity_limit_configurations) | **GET** /api/internal/activity_limit_configurations | List ActivityLimitConfigurations
-*CybridApiBank::InternalBankApi* | [**internal_list_bank_account_services**](docs/InternalBankApi.md#internal_list_bank_account_services) | **GET** /api/internal/bank_account_services | List BankAccountServices
-*CybridApiBank::InternalBankApi* | [**internal_list_banks**](docs/InternalBankApi.md#internal_list_banks) | **GET** /api/internal/banks | List Banks
-*CybridApiBank::InternalBankApi* | [**internal_list_crypto_asset_configurations**](docs/InternalBankApi.md#internal_list_crypto_asset_configurations) | **GET** /api/internal/crypto_asset_configurations | List CryptoAssetConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_list_customers**](docs/InternalBankApi.md#internal_list_customers) | **GET** /api/internal/customers | List Customers
-*CybridApiBank::InternalBankApi* | [**internal_list_cybrid_accounts**](docs/InternalBankApi.md#internal_list_cybrid_accounts) | **GET** /api/internal/cybrid_accounts | List CybridAccounts
-*CybridApiBank::InternalBankApi* | [**internal_list_deposit_bank_accounts**](docs/InternalBankApi.md#internal_list_deposit_bank_accounts) | **GET** /api/internal/deposit_bank_accounts | List Deposit Bank Accounts
-*CybridApiBank::InternalBankApi* | [**internal_list_exchange_orders**](docs/InternalBankApi.md#internal_list_exchange_orders) | **GET** /api/internal/exchange_orders | List ExchangeOrder
-*CybridApiBank::InternalBankApi* | [**internal_list_exchange_settlement_configurations**](docs/InternalBankApi.md#internal_list_exchange_settlement_configurations) | **GET** /api/internal/exchange_settlement_configurations | List ExchangeSettlementConfigurations
-*CybridApiBank::InternalBankApi* | [**internal_list_exchange_settlement_payment_orders**](docs/InternalBankApi.md#internal_list_exchange_settlement_payment_orders) | **GET** /api/internal/exchange_settlement_payment_orders | List Exchange Settlement Payment Orders
-*CybridApiBank::InternalBankApi* | [**internal_list_exchanges**](docs/InternalBankApi.md#internal_list_exchanges) | **GET** /api/internal/exchanges | List Exchanges
-*CybridApiBank::InternalBankApi* | [**internal_list_expected_payments**](docs/InternalBankApi.md#internal_list_expected_payments) | **GET** /api/internal/expected_payments | List Expected Payments
-*CybridApiBank::InternalBankApi* | [**internal_list_external_bank_accounts**](docs/InternalBankApi.md#internal_list_external_bank_accounts) | **GET** /api/internal/external_bank_accounts | List ExternalBankAccounts
-*CybridApiBank::InternalBankApi* | [**internal_list_external_wallets**](docs/InternalBankApi.md#internal_list_external_wallets) | **GET** /api/internal/external_wallets | List ExternalWallets
-*CybridApiBank::InternalBankApi* | [**internal_list_fee_configurations**](docs/InternalBankApi.md#internal_list_fee_configurations) | **GET** /api/internal/fee_configurations | List FeeConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_list_fees**](docs/InternalBankApi.md#internal_list_fees) | **GET** /api/internal/fees | List Fees
-*CybridApiBank::InternalBankApi* | [**internal_list_internal_bank_accounts**](docs/InternalBankApi.md#internal_list_internal_bank_accounts) | **GET** /api/internal/internal_bank_accounts | List InternalBankAccounts
-*CybridApiBank::InternalBankApi* | [**internal_list_internal_wallets**](docs/InternalBankApi.md#internal_list_internal_wallets) | **GET** /api/internal/internal_wallets | List InternalWallets
-*CybridApiBank::InternalBankApi* | [**internal_list_invoices**](docs/InternalBankApi.md#internal_list_invoices) | **GET** /api/internal/invoices | List Invoices
-*CybridApiBank::InternalBankApi* | [**internal_list_reconciliations**](docs/InternalBankApi.md#internal_list_reconciliations) | **GET** /api/internal/reconciliations | List Reconciliations
-*CybridApiBank::InternalBankApi* | [**internal_list_trades**](docs/InternalBankApi.md#internal_list_trades) | **GET** /api/internal/trades | List Trades
-*CybridApiBank::InternalBankApi* | [**internal_list_trading_symbol_configurations**](docs/InternalBankApi.md#internal_list_trading_symbol_configurations) | **GET** /api/internal/trading_symbol_configurations | List TradingSymbolConfigurations
-*CybridApiBank::InternalBankApi* | [**internal_list_transactions**](docs/InternalBankApi.md#internal_list_transactions) | **GET** /api/internal/transactions | List Transactions
-*CybridApiBank::InternalBankApi* | [**internal_list_transfers**](docs/InternalBankApi.md#internal_list_transfers) | **GET** /api/internal/transfers | List Transfers
-*CybridApiBank::InternalBankApi* | [**internal_list_wallet_services**](docs/InternalBankApi.md#internal_list_wallet_services) | **GET** /api/internal/wallet_services | List WalletServices
-*CybridApiBank::InternalBankApi* | [**internal_patch_account**](docs/InternalBankApi.md#internal_patch_account) | **PATCH** /api/internal/accounts/{account_guid} | Patch Account
-*CybridApiBank::InternalBankApi* | [**internal_patch_activity_limit_configuration**](docs/InternalBankApi.md#internal_patch_activity_limit_configuration) | **PATCH** /api/internal/activity_limit_configurations/{guid} | Patch ActivityLimitConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_patch_bank**](docs/InternalBankApi.md#internal_patch_bank) | **PATCH** /api/internal/banks/{bank_guid} | Patch Bank
-*CybridApiBank::InternalBankApi* | [**internal_patch_bank_account_service**](docs/InternalBankApi.md#internal_patch_bank_account_service) | **PATCH** /api/internal/bank_account_services/{guid} | Patch Internal BankAccount
-*CybridApiBank::InternalBankApi* | [**internal_patch_business_detail**](docs/InternalBankApi.md#internal_patch_business_detail) | **PATCH** /api/internal/business_details/{guid} | Patch Business Details
-*CybridApiBank::InternalBankApi* | [**internal_patch_counterparty**](docs/InternalBankApi.md#internal_patch_counterparty) | **PATCH** /api/internal/counterparties/{counterparty_guid} | Patch Counterparty
-*CybridApiBank::InternalBankApi* | [**internal_patch_crypto_asset_configuration**](docs/InternalBankApi.md#internal_patch_crypto_asset_configuration) | **PATCH** /api/internal/crypto_asset_configurations/{guid} | Patch CryptoAssetConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_patch_customer**](docs/InternalBankApi.md#internal_patch_customer) | **PATCH** /api/internal/customers/{customer_guid} | Patch Customer
-*CybridApiBank::InternalBankApi* | [**internal_patch_cybrid_account**](docs/InternalBankApi.md#internal_patch_cybrid_account) | **PATCH** /api/internal/cybrid_accounts/{guid} | Patch Cybrid Account
-*CybridApiBank::InternalBankApi* | [**internal_patch_deposit_address**](docs/InternalBankApi.md#internal_patch_deposit_address) | **PATCH** /api/internal/deposit_addresses/{guid} | Patch Deposit Address
-*CybridApiBank::InternalBankApi* | [**internal_patch_deposit_bank_account**](docs/InternalBankApi.md#internal_patch_deposit_bank_account) | **PATCH** /api/internal/deposit_bank_accounts/{deposit_bank_account_guid} | Patch DepositBankAccount
-*CybridApiBank::InternalBankApi* | [**internal_patch_exchange_account**](docs/InternalBankApi.md#internal_patch_exchange_account) | **PATCH** /api/internal/exchange_accounts/{guid} | Patch Exchange Account
-*CybridApiBank::InternalBankApi* | [**internal_patch_exchange_order**](docs/InternalBankApi.md#internal_patch_exchange_order) | **PATCH** /api/internal/exchange_orders/{guid} | Patch ExchangeOrder
-*CybridApiBank::InternalBankApi* | [**internal_patch_exchange_settlement**](docs/InternalBankApi.md#internal_patch_exchange_settlement) | **PATCH** /api/internal/exchange_settlements/{exchange_settlement_guid} | Patch Exchange Settlement
-*CybridApiBank::InternalBankApi* | [**internal_patch_external_bank_account**](docs/InternalBankApi.md#internal_patch_external_bank_account) | **PATCH** /api/internal/external_bank_accounts/{external_bank_account_guid} | Patch ExternalBankAccount
-*CybridApiBank::InternalBankApi* | [**internal_patch_external_wallet**](docs/InternalBankApi.md#internal_patch_external_wallet) | **PATCH** /api/internal/external_wallets/{external_wallet_guid} | Patch ExternalWallet
-*CybridApiBank::InternalBankApi* | [**internal_patch_external_wallet_screening**](docs/InternalBankApi.md#internal_patch_external_wallet_screening) | **PATCH** /api/internal/external_wallet_screenings/{external_wallet_screening_guid} | Patch External Wallet Screening
-*CybridApiBank::InternalBankApi* | [**internal_patch_fee**](docs/InternalBankApi.md#internal_patch_fee) | **PATCH** /api/internal/fees/{guid} | Patch Fee
-*CybridApiBank::InternalBankApi* | [**internal_patch_files**](docs/InternalBankApi.md#internal_patch_files) | **PATCH** /api/internal/files/{file_guid} | Patch Files
-*CybridApiBank::InternalBankApi* | [**internal_patch_identity_verification**](docs/InternalBankApi.md#internal_patch_identity_verification) | **PATCH** /api/internal/identity_verifications/{identity_verification_guid} | Patch Identity Verification
-*CybridApiBank::InternalBankApi* | [**internal_patch_internal_bank_account**](docs/InternalBankApi.md#internal_patch_internal_bank_account) | **PATCH** /api/internal/internal_bank_accounts/{guid} | Patch Internal Bank Account
-*CybridApiBank::InternalBankApi* | [**internal_patch_internal_wallet**](docs/InternalBankApi.md#internal_patch_internal_wallet) | **PATCH** /api/internal/internal_wallets/{guid} | Patch Internal Wallet
-*CybridApiBank::InternalBankApi* | [**internal_patch_internal_wallet_group**](docs/InternalBankApi.md#internal_patch_internal_wallet_group) | **PATCH** /api/internal/internal_wallet_groups/{guid} | Patch Internal Wallet
-*CybridApiBank::InternalBankApi* | [**internal_patch_invoice**](docs/InternalBankApi.md#internal_patch_invoice) | **PATCH** /api/internal/invoices/{invoice_guid} | Patch Invoice
-*CybridApiBank::InternalBankApi* | [**internal_patch_payment_instruction**](docs/InternalBankApi.md#internal_patch_payment_instruction) | **PATCH** /api/internal/payment_instructions/{guid} | Patch Payment Instruction
-*CybridApiBank::InternalBankApi* | [**internal_patch_person_detail**](docs/InternalBankApi.md#internal_patch_person_detail) | **PATCH** /api/internal/person_details/{guid} | Patch Person Details
-*CybridApiBank::InternalBankApi* | [**internal_patch_trade**](docs/InternalBankApi.md#internal_patch_trade) | **PATCH** /api/internal/trades/{trade_guid} | Patch Trade
-*CybridApiBank::InternalBankApi* | [**internal_patch_trading_symbol_configuration**](docs/InternalBankApi.md#internal_patch_trading_symbol_configuration) | **PATCH** /api/internal/trading_symbol_configurations/{guid} | Patch TradingSymbolConfiguration
-*CybridApiBank::InternalBankApi* | [**internal_patch_transfer**](docs/InternalBankApi.md#internal_patch_transfer) | **PATCH** /api/internal/transfers/{transfer_guid} | Patch Transfer
-*CybridApiBank::InternalBankApi* | [**internal_patch_transfer_screening**](docs/InternalBankApi.md#internal_patch_transfer_screening) | **PATCH** /api/internal/transfer_screenings/{transfer_screening_guid} | Patch External Wallet Screening
-*CybridApiBank::InternalBankApi* | [**internal_patch_wallet_service**](docs/InternalBankApi.md#internal_patch_wallet_service) | **PATCH** /api/internal/wallet_services/{guid} | Patch Internal Wallet
-*CybridApiBank::InternalBankApi* | [**internal_patch_workflow**](docs/InternalBankApi.md#internal_patch_workflow) | **PATCH** /api/internal/workflows/{workflow_guid} | Patch Workflow
-*CybridApiBank::InternalBankApi* | [**internal_signal_external_wallet_screening**](docs/InternalBankApi.md#internal_signal_external_wallet_screening) | **POST** /api/internal/external_wallet_screenings/{external_wallet_screening_guid}/signal | Signal External Wallet Screening
-*CybridApiBank::InternalBankApi* | [**internal_signal_identity_verification**](docs/InternalBankApi.md#internal_signal_identity_verification) | **POST** /api/internal/identity_verifications/{identity_verification_guid}/signal | Signal Identity Verification
-*CybridApiBank::InternalBankApi* | [**internal_signal_invoice**](docs/InternalBankApi.md#internal_signal_invoice) | **POST** /api/internal/invoices/{invoice_guid}/signal | Signal Invoice
-*CybridApiBank::InternalBankApi* | [**internal_signal_transfer**](docs/InternalBankApi.md#internal_signal_transfer) | **POST** /api/internal/transfers/{transfer_guid}/signal | Signal Transfer
-*CybridApiBank::InternalBankApi* | [**patch_internal_execution**](docs/InternalBankApi.md#patch_internal_execution) | **PATCH** /api/internal/executions/{execution_guid} | Patch Execution
-*CybridApiBank::InternalBankApi* | [**patch_internal_plan**](docs/InternalBankApi.md#patch_internal_plan) | **PATCH** /api/internal/plans/{plan_guid} | Patch Plan
-*CybridApiBank::InternalBankApi* | [**patch_internal_stage**](docs/InternalBankApi.md#patch_internal_stage) | **PATCH** /api/internal/stages/{stage_guid} | Patch Stage
 *CybridApiBank::InvoicesBankApi* | [**cancel_invoice**](docs/InvoicesBankApi.md#cancel_invoice) | **DELETE** /api/invoices/{invoice_guid} | Cancel Invoice
 *CybridApiBank::InvoicesBankApi* | [**create_invoice**](docs/InvoicesBankApi.md#create_invoice) | **POST** /api/invoices | Create Invoice
 *CybridApiBank::InvoicesBankApi* | [**get_invoice**](docs/InvoicesBankApi.md#get_invoice) | **GET** /api/invoices/{invoice_guid} | Get Invoice
@@ -514,135 +376,11 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::IdentityVerificationWithDetailsPiiAliasesInnerBankModel](docs/IdentityVerificationWithDetailsPiiAliasesInnerBankModel.md)
  - [CybridApiBank::IdentityVerificationWithDetailsPiiBankModel](docs/IdentityVerificationWithDetailsPiiBankModel.md)
  - [CybridApiBank::IdentityVerificationWithDetailsPiiNameBankModel](docs/IdentityVerificationWithDetailsPiiNameBankModel.md)
- - [CybridApiBank::InternalActivityLimitBankModel](docs/InternalActivityLimitBankModel.md)
- - [CybridApiBank::InternalActivityLimitConfigurationBankModel](docs/InternalActivityLimitConfigurationBankModel.md)
- - [CybridApiBank::InternalActivityLimitConfigurationListBankModel](docs/InternalActivityLimitConfigurationListBankModel.md)
- - [CybridApiBank::InternalActivityReportBankModel](docs/InternalActivityReportBankModel.md)
- - [CybridApiBank::InternalActivityReportItemBankModel](docs/InternalActivityReportItemBankModel.md)
- - [CybridApiBank::InternalBankAccountServiceBankModel](docs/InternalBankAccountServiceBankModel.md)
- - [CybridApiBank::InternalBankAccountServiceListBankModel](docs/InternalBankAccountServiceListBankModel.md)
- - [CybridApiBank::InternalBankBankModel](docs/InternalBankBankModel.md)
- - [CybridApiBank::InternalBankListBankModel](docs/InternalBankListBankModel.md)
- - [CybridApiBank::InternalBusinessDetailBankModel](docs/InternalBusinessDetailBankModel.md)
- - [CybridApiBank::InternalComplianceDecisionBankModel](docs/InternalComplianceDecisionBankModel.md)
- - [CybridApiBank::InternalCountryCodeConfigurationBankModel](docs/InternalCountryCodeConfigurationBankModel.md)
- - [CybridApiBank::InternalCreateExchangeSettlementApproval202ResponseBankModel](docs/InternalCreateExchangeSettlementApproval202ResponseBankModel.md)
- - [CybridApiBank::InternalCryptoAssetConfigurationBankModel](docs/InternalCryptoAssetConfigurationBankModel.md)
- - [CybridApiBank::InternalCryptoAssetConfigurationListBankModel](docs/InternalCryptoAssetConfigurationListBankModel.md)
- - [CybridApiBank::InternalCryptoFundingDepositTransferBankModel](docs/InternalCryptoFundingDepositTransferBankModel.md)
- - [CybridApiBank::InternalCybridAccountBankModel](docs/InternalCybridAccountBankModel.md)
- - [CybridApiBank::InternalCybridAccountListBankModel](docs/InternalCybridAccountListBankModel.md)
- - [CybridApiBank::InternalCybridGasAccountConfigurationBankModel](docs/InternalCybridGasAccountConfigurationBankModel.md)
- - [CybridApiBank::InternalExchangeAccountBankModel](docs/InternalExchangeAccountBankModel.md)
- - [CybridApiBank::InternalExchangeBankModel](docs/InternalExchangeBankModel.md)
- - [CybridApiBank::InternalExchangeListBankModel](docs/InternalExchangeListBankModel.md)
- - [CybridApiBank::InternalExchangeMonitorBankModel](docs/InternalExchangeMonitorBankModel.md)
- - [CybridApiBank::InternalExchangeOrderBankModel](docs/InternalExchangeOrderBankModel.md)
- - [CybridApiBank::InternalExchangeOrderListBankModel](docs/InternalExchangeOrderListBankModel.md)
- - [CybridApiBank::InternalExchangeSettlementBankModel](docs/InternalExchangeSettlementBankModel.md)
- - [CybridApiBank::InternalExchangeSettlementConfigurationBankModel](docs/InternalExchangeSettlementConfigurationBankModel.md)
- - [CybridApiBank::InternalExchangeSettlementConfigurationListBankModel](docs/InternalExchangeSettlementConfigurationListBankModel.md)
- - [CybridApiBank::InternalExchangeSettlementObligationBankModel](docs/InternalExchangeSettlementObligationBankModel.md)
- - [CybridApiBank::InternalExchangeSettlementOrderAmountsInnerBankModel](docs/InternalExchangeSettlementOrderAmountsInnerBankModel.md)
- - [CybridApiBank::InternalExchangeSettlementPaymentOrderBankModel](docs/InternalExchangeSettlementPaymentOrderBankModel.md)
- - [CybridApiBank::InternalExchangeSettlementPaymentOrderListBankModel](docs/InternalExchangeSettlementPaymentOrderListBankModel.md)
- - [CybridApiBank::InternalExchangeSettlementTradeAmountsInnerBankModel](docs/InternalExchangeSettlementTradeAmountsInnerBankModel.md)
- - [CybridApiBank::InternalExecutionBankModel](docs/InternalExecutionBankModel.md)
- - [CybridApiBank::InternalExpectedPaymentBankModel](docs/InternalExpectedPaymentBankModel.md)
- - [CybridApiBank::InternalExpectedPaymentListBankModel](docs/InternalExpectedPaymentListBankModel.md)
- - [CybridApiBank::InternalExternalBankAccountBankModel](docs/InternalExternalBankAccountBankModel.md)
- - [CybridApiBank::InternalExternalBankAccountListBankModel](docs/InternalExternalBankAccountListBankModel.md)
- - [CybridApiBank::InternalExternalBankAccountPiiInnerBankModel](docs/InternalExternalBankAccountPiiInnerBankModel.md)
- - [CybridApiBank::InternalExternalWalletBankModel](docs/InternalExternalWalletBankModel.md)
- - [CybridApiBank::InternalExternalWalletListBankModel](docs/InternalExternalWalletListBankModel.md)
- - [CybridApiBank::InternalExternalWalletScreeningBankModel](docs/InternalExternalWalletScreeningBankModel.md)
- - [CybridApiBank::InternalFeeAssociationBankModel](docs/InternalFeeAssociationBankModel.md)
- - [CybridApiBank::InternalFeeBankModel](docs/InternalFeeBankModel.md)
- - [CybridApiBank::InternalFeeChargeBankModel](docs/InternalFeeChargeBankModel.md)
- - [CybridApiBank::InternalFeeChargeListBankModel](docs/InternalFeeChargeListBankModel.md)
- - [CybridApiBank::InternalFeeConfigurationBankModel](docs/InternalFeeConfigurationBankModel.md)
- - [CybridApiBank::InternalFeeConfigurationListBankModel](docs/InternalFeeConfigurationListBankModel.md)
- - [CybridApiBank::InternalFiatAssetConfigurationBankModel](docs/InternalFiatAssetConfigurationBankModel.md)
- - [CybridApiBank::InternalFundingDepositTransferBankModel](docs/InternalFundingDepositTransferBankModel.md)
- - [CybridApiBank::InternalInternalBankAccountBankModel](docs/InternalInternalBankAccountBankModel.md)
- - [CybridApiBank::InternalInternalBankAccountConfigurationBankModel](docs/InternalInternalBankAccountConfigurationBankModel.md)
- - [CybridApiBank::InternalInternalBankAccountListBankModel](docs/InternalInternalBankAccountListBankModel.md)
- - [CybridApiBank::InternalInternalInvoiceListBankModel](docs/InternalInternalInvoiceListBankModel.md)
- - [CybridApiBank::InternalInternalWalletBankModel](docs/InternalInternalWalletBankModel.md)
- - [CybridApiBank::InternalInternalWalletConfigurationBankModel](docs/InternalInternalWalletConfigurationBankModel.md)
- - [CybridApiBank::InternalInternalWalletGroupBankModel](docs/InternalInternalWalletGroupBankModel.md)
- - [CybridApiBank::InternalInternalWalletListBankModel](docs/InternalInternalWalletListBankModel.md)
- - [CybridApiBank::InternalInvoiceBankModel](docs/InternalInvoiceBankModel.md)
- - [CybridApiBank::InternalPayoutSymbolConfigurationBankModel](docs/InternalPayoutSymbolConfigurationBankModel.md)
- - [CybridApiBank::InternalPersonDetailBankModel](docs/InternalPersonDetailBankModel.md)
- - [CybridApiBank::InternalPlanBankModel](docs/InternalPlanBankModel.md)
- - [CybridApiBank::InternalPostAccountBankModel](docs/InternalPostAccountBankModel.md)
- - [CybridApiBank::InternalPostDepositBankAccountBankModel](docs/InternalPostDepositBankAccountBankModel.md)
- - [CybridApiBank::InternalPostFeeConfigurationBankModel](docs/InternalPostFeeConfigurationBankModel.md)
- - [CybridApiBank::InternalPostQuoteBankModel](docs/InternalPostQuoteBankModel.md)
- - [CybridApiBank::InternalQuoteBankModel](docs/InternalQuoteBankModel.md)
- - [CybridApiBank::InternalReconciliationBankModel](docs/InternalReconciliationBankModel.md)
- - [CybridApiBank::InternalReconciliationListBankModel](docs/InternalReconciliationListBankModel.md)
- - [CybridApiBank::InternalStageBankModel](docs/InternalStageBankModel.md)
- - [CybridApiBank::InternalTradeBankModel](docs/InternalTradeBankModel.md)
- - [CybridApiBank::InternalTradingSymbolConfigurationBankModel](docs/InternalTradingSymbolConfigurationBankModel.md)
- - [CybridApiBank::InternalTradingSymbolConfigurationListBankModel](docs/InternalTradingSymbolConfigurationListBankModel.md)
- - [CybridApiBank::InternalTransactionBankModel](docs/InternalTransactionBankModel.md)
- - [CybridApiBank::InternalTransactionMonitorBankModel](docs/InternalTransactionMonitorBankModel.md)
- - [CybridApiBank::InternalTransactionsListBankModel](docs/InternalTransactionsListBankModel.md)
- - [CybridApiBank::InternalTransactionsListPageInfoBankModel](docs/InternalTransactionsListPageInfoBankModel.md)
- - [CybridApiBank::InternalTransferAssociationBankModel](docs/InternalTransferAssociationBankModel.md)
- - [CybridApiBank::InternalTransferBankModel](docs/InternalTransferBankModel.md)
- - [CybridApiBank::InternalTransferDestinationAccountBankModel](docs/InternalTransferDestinationAccountBankModel.md)
- - [CybridApiBank::InternalTransferListBankModel](docs/InternalTransferListBankModel.md)
- - [CybridApiBank::InternalTransferRailConfigurationBankModel](docs/InternalTransferRailConfigurationBankModel.md)
- - [CybridApiBank::InternalTransferScreeningBankModel](docs/InternalTransferScreeningBankModel.md)
- - [CybridApiBank::InternalTransferSourceAccountBankModel](docs/InternalTransferSourceAccountBankModel.md)
- - [CybridApiBank::InternalWalletServiceBankModel](docs/InternalWalletServiceBankModel.md)
- - [CybridApiBank::InternalWalletServiceListBankModel](docs/InternalWalletServiceListBankModel.md)
  - [CybridApiBank::InvoiceBankModel](docs/InvoiceBankModel.md)
  - [CybridApiBank::InvoiceListBankModel](docs/InvoiceListBankModel.md)
- - [CybridApiBank::ParamInternalActivityLimitBankModel](docs/ParamInternalActivityLimitBankModel.md)
  - [CybridApiBank::PatchBankBankModel](docs/PatchBankBankModel.md)
  - [CybridApiBank::PatchCustomerBankModel](docs/PatchCustomerBankModel.md)
  - [CybridApiBank::PatchExternalBankAccountBankModel](docs/PatchExternalBankAccountBankModel.md)
- - [CybridApiBank::PatchInternalAccountAssociationBankModel](docs/PatchInternalAccountAssociationBankModel.md)
- - [CybridApiBank::PatchInternalAccountBankModel](docs/PatchInternalAccountBankModel.md)
- - [CybridApiBank::PatchInternalActivityLimitConfigurationBankModel](docs/PatchInternalActivityLimitConfigurationBankModel.md)
- - [CybridApiBank::PatchInternalBankAccountServiceBankModel](docs/PatchInternalBankAccountServiceBankModel.md)
- - [CybridApiBank::PatchInternalBankBankModel](docs/PatchInternalBankBankModel.md)
- - [CybridApiBank::PatchInternalBusinessDetailBankModel](docs/PatchInternalBusinessDetailBankModel.md)
- - [CybridApiBank::PatchInternalCounterpartyBankModel](docs/PatchInternalCounterpartyBankModel.md)
- - [CybridApiBank::PatchInternalCryptoAssetConfigurationBankModel](docs/PatchInternalCryptoAssetConfigurationBankModel.md)
- - [CybridApiBank::PatchInternalCustomerBankModel](docs/PatchInternalCustomerBankModel.md)
- - [CybridApiBank::PatchInternalCybridAccountBankModel](docs/PatchInternalCybridAccountBankModel.md)
- - [CybridApiBank::PatchInternalDepositAddressBankModel](docs/PatchInternalDepositAddressBankModel.md)
- - [CybridApiBank::PatchInternalDepositBankAccountBankModel](docs/PatchInternalDepositBankAccountBankModel.md)
- - [CybridApiBank::PatchInternalExchangeAccountBankModel](docs/PatchInternalExchangeAccountBankModel.md)
- - [CybridApiBank::PatchInternalExchangeOrderBankModel](docs/PatchInternalExchangeOrderBankModel.md)
- - [CybridApiBank::PatchInternalExchangeSettlementBankModel](docs/PatchInternalExchangeSettlementBankModel.md)
- - [CybridApiBank::PatchInternalExecutionBankModel](docs/PatchInternalExecutionBankModel.md)
- - [CybridApiBank::PatchInternalExternalBankAccountBankModel](docs/PatchInternalExternalBankAccountBankModel.md)
- - [CybridApiBank::PatchInternalExternalWalletBankModel](docs/PatchInternalExternalWalletBankModel.md)
- - [CybridApiBank::PatchInternalExternalWalletScreeningBankModel](docs/PatchInternalExternalWalletScreeningBankModel.md)
- - [CybridApiBank::PatchInternalFeeAssociationBankModel](docs/PatchInternalFeeAssociationBankModel.md)
- - [CybridApiBank::PatchInternalFeeChargeBankModel](docs/PatchInternalFeeChargeBankModel.md)
- - [CybridApiBank::PatchInternalFileBankModel](docs/PatchInternalFileBankModel.md)
- - [CybridApiBank::PatchInternalIdentityVerificationBankModel](docs/PatchInternalIdentityVerificationBankModel.md)
- - [CybridApiBank::PatchInternalInternalBankAccountBankModel](docs/PatchInternalInternalBankAccountBankModel.md)
- - [CybridApiBank::PatchInternalInternalWalletBankModel](docs/PatchInternalInternalWalletBankModel.md)
- - [CybridApiBank::PatchInternalInternalWalletGroupBankModel](docs/PatchInternalInternalWalletGroupBankModel.md)
- - [CybridApiBank::PatchInternalInvoiceBankModel](docs/PatchInternalInvoiceBankModel.md)
- - [CybridApiBank::PatchInternalPaymentInstructionBankModel](docs/PatchInternalPaymentInstructionBankModel.md)
- - [CybridApiBank::PatchInternalPersonDetailBankModel](docs/PatchInternalPersonDetailBankModel.md)
- - [CybridApiBank::PatchInternalPlanBankModel](docs/PatchInternalPlanBankModel.md)
- - [CybridApiBank::PatchInternalStageBankModel](docs/PatchInternalStageBankModel.md)
- - [CybridApiBank::PatchInternalTradeBankModel](docs/PatchInternalTradeBankModel.md)
- - [CybridApiBank::PatchInternalTradingSymbolConfigurationBankModel](docs/PatchInternalTradingSymbolConfigurationBankModel.md)
- - [CybridApiBank::PatchInternalTransferBankModel](docs/PatchInternalTransferBankModel.md)
- - [CybridApiBank::PatchInternalTransferScreeningBankModel](docs/PatchInternalTransferScreeningBankModel.md)
- - [CybridApiBank::PatchInternalWalletServiceBankModel](docs/PatchInternalWalletServiceBankModel.md)
- - [CybridApiBank::PatchInternalWorkflowBankModel](docs/PatchInternalWorkflowBankModel.md)
  - [CybridApiBank::PatchTransferBankModel](docs/PatchTransferBankModel.md)
  - [CybridApiBank::PatchTransferParticipantBankModel](docs/PatchTransferParticipantBankModel.md)
  - [CybridApiBank::PaymentInstructionBankModel](docs/PaymentInstructionBankModel.md)
@@ -677,53 +415,6 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::PostIdentityVerificationAliasesInnerBankModel](docs/PostIdentityVerificationAliasesInnerBankModel.md)
  - [CybridApiBank::PostIdentityVerificationBankModel](docs/PostIdentityVerificationBankModel.md)
  - [CybridApiBank::PostIdentityVerificationNameBankModel](docs/PostIdentityVerificationNameBankModel.md)
- - [CybridApiBank::PostInternalAccountAssociationBankModel](docs/PostInternalAccountAssociationBankModel.md)
- - [CybridApiBank::PostInternalActivityLimitConfigurationBankModel](docs/PostInternalActivityLimitConfigurationBankModel.md)
- - [CybridApiBank::PostInternalActivityReportBankModel](docs/PostInternalActivityReportBankModel.md)
- - [CybridApiBank::PostInternalBankAccountServiceBankModel](docs/PostInternalBankAccountServiceBankModel.md)
- - [CybridApiBank::PostInternalBankBankModel](docs/PostInternalBankBankModel.md)
- - [CybridApiBank::PostInternalClaimExchangeSettlementPaymentOrderBankModel](docs/PostInternalClaimExchangeSettlementPaymentOrderBankModel.md)
- - [CybridApiBank::PostInternalClaimExpectedPaymentBankModel](docs/PostInternalClaimExpectedPaymentBankModel.md)
- - [CybridApiBank::PostInternalComplianceDecisionBankModel](docs/PostInternalComplianceDecisionBankModel.md)
- - [CybridApiBank::PostInternalCountryCodeConfigurationBankModel](docs/PostInternalCountryCodeConfigurationBankModel.md)
- - [CybridApiBank::PostInternalCryptoAssetConfigurationBankModel](docs/PostInternalCryptoAssetConfigurationBankModel.md)
- - [CybridApiBank::PostInternalCryptoFundingDepositTransferBankModel](docs/PostInternalCryptoFundingDepositTransferBankModel.md)
- - [CybridApiBank::PostInternalCybridAccountBankModel](docs/PostInternalCybridAccountBankModel.md)
- - [CybridApiBank::PostInternalCybridGasAccountConfigurationBankModel](docs/PostInternalCybridGasAccountConfigurationBankModel.md)
- - [CybridApiBank::PostInternalExchangeAccountBankModel](docs/PostInternalExchangeAccountBankModel.md)
- - [CybridApiBank::PostInternalExchangeBankModel](docs/PostInternalExchangeBankModel.md)
- - [CybridApiBank::PostInternalExchangeMonitorBankModel](docs/PostInternalExchangeMonitorBankModel.md)
- - [CybridApiBank::PostInternalExchangeOrderBankModel](docs/PostInternalExchangeOrderBankModel.md)
- - [CybridApiBank::PostInternalExchangeSettlementBankModel](docs/PostInternalExchangeSettlementBankModel.md)
- - [CybridApiBank::PostInternalExchangeSettlementConfigurationBankModel](docs/PostInternalExchangeSettlementConfigurationBankModel.md)
- - [CybridApiBank::PostInternalExchangeSettlementPaymentOrderBankModel](docs/PostInternalExchangeSettlementPaymentOrderBankModel.md)
- - [CybridApiBank::PostInternalExpectedPaymentBankModel](docs/PostInternalExpectedPaymentBankModel.md)
- - [CybridApiBank::PostInternalExternalBankAccountBankModel](docs/PostInternalExternalBankAccountBankModel.md)
- - [CybridApiBank::PostInternalExternalBankAccountCounterpartyAddressBankModel](docs/PostInternalExternalBankAccountCounterpartyAddressBankModel.md)
- - [CybridApiBank::PostInternalExternalBankAccountCounterpartyBankAccountBankModel](docs/PostInternalExternalBankAccountCounterpartyBankAccountBankModel.md)
- - [CybridApiBank::PostInternalExternalBankAccountCounterpartyNameBankModel](docs/PostInternalExternalBankAccountCounterpartyNameBankModel.md)
- - [CybridApiBank::PostInternalExternalWalletBankModel](docs/PostInternalExternalWalletBankModel.md)
- - [CybridApiBank::PostInternalFeeAssociationBankModel](docs/PostInternalFeeAssociationBankModel.md)
- - [CybridApiBank::PostInternalFeeChargeBankModel](docs/PostInternalFeeChargeBankModel.md)
- - [CybridApiBank::PostInternalFiatAssetConfigurationBankModel](docs/PostInternalFiatAssetConfigurationBankModel.md)
- - [CybridApiBank::PostInternalFundingDepositTransferBankModel](docs/PostInternalFundingDepositTransferBankModel.md)
- - [CybridApiBank::PostInternalInternalBankAccountBankModel](docs/PostInternalInternalBankAccountBankModel.md)
- - [CybridApiBank::PostInternalInternalBankAccountConfigurationBankModel](docs/PostInternalInternalBankAccountConfigurationBankModel.md)
- - [CybridApiBank::PostInternalInternalBankAccountRoutingDetailBankModel](docs/PostInternalInternalBankAccountRoutingDetailBankModel.md)
- - [CybridApiBank::PostInternalInternalWalletBankModel](docs/PostInternalInternalWalletBankModel.md)
- - [CybridApiBank::PostInternalInternalWalletConfigurationBankModel](docs/PostInternalInternalWalletConfigurationBankModel.md)
- - [CybridApiBank::PostInternalInternalWalletRoutingDetailBankModel](docs/PostInternalInternalWalletRoutingDetailBankModel.md)
- - [CybridApiBank::PostInternalPayoutSymbolConfigurationBankModel](docs/PostInternalPayoutSymbolConfigurationBankModel.md)
- - [CybridApiBank::PostInternalReconciliationBankModel](docs/PostInternalReconciliationBankModel.md)
- - [CybridApiBank::PostInternalStageBankModel](docs/PostInternalStageBankModel.md)
- - [CybridApiBank::PostInternalSystemTransactionBankModel](docs/PostInternalSystemTransactionBankModel.md)
- - [CybridApiBank::PostInternalTradeBankModel](docs/PostInternalTradeBankModel.md)
- - [CybridApiBank::PostInternalTradingSymbolConfigurationBankModel](docs/PostInternalTradingSymbolConfigurationBankModel.md)
- - [CybridApiBank::PostInternalTransactionMonitorBankModel](docs/PostInternalTransactionMonitorBankModel.md)
- - [CybridApiBank::PostInternalTransferBankModel](docs/PostInternalTransferBankModel.md)
- - [CybridApiBank::PostInternalTransferRailConfigurationBankModel](docs/PostInternalTransferRailConfigurationBankModel.md)
- - [CybridApiBank::PostInternalTransferScreeningBankModel](docs/PostInternalTransferScreeningBankModel.md)
- - [CybridApiBank::PostInternalWalletServiceBankModel](docs/PostInternalWalletServiceBankModel.md)
  - [CybridApiBank::PostInvoiceBankModel](docs/PostInvoiceBankModel.md)
  - [CybridApiBank::PostPaymentInstructionBankModel](docs/PostPaymentInstructionBankModel.md)
  - [CybridApiBank::PostPersonaSessionBankModel](docs/PostPersonaSessionBankModel.md)
@@ -733,10 +424,6 @@ Class | Method | HTTP request | Description
  - [CybridApiBank::PostPlanTravelRuleInfoBankModel](docs/PostPlanTravelRuleInfoBankModel.md)
  - [CybridApiBank::PostQuoteBankModel](docs/PostQuoteBankModel.md)
  - [CybridApiBank::PostQuoteEntryBankModel](docs/PostQuoteEntryBankModel.md)
- - [CybridApiBank::PostSignalInternalExternalWalletScreeningBankModel](docs/PostSignalInternalExternalWalletScreeningBankModel.md)
- - [CybridApiBank::PostSignalInternalIdentityVerificationBankAccountHolderAddressBankModel](docs/PostSignalInternalIdentityVerificationBankAccountHolderAddressBankModel.md)
- - [CybridApiBank::PostSignalInternalIdentityVerificationBankAccountHolderNameBankModel](docs/PostSignalInternalIdentityVerificationBankAccountHolderNameBankModel.md)
- - [CybridApiBank::PostSignalInternalIdentityVerificationBankModel](docs/PostSignalInternalIdentityVerificationBankModel.md)
  - [CybridApiBank::PostSupportedPayoutSymbolsBankModel](docs/PostSupportedPayoutSymbolsBankModel.md)
  - [CybridApiBank::PostTradeBankModel](docs/PostTradeBankModel.md)
  - [CybridApiBank::PostTransferBankModel](docs/PostTransferBankModel.md)
