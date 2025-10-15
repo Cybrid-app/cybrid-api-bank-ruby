@@ -14,7 +14,7 @@ If you're looking for our UI SDK Widgets for Web or Mobile (iOS/Android), genera
 
 ## Getting Started
 
-This is Cybrid's public interactive API documentation, which allows you to fully test our APIs. If you'd like to use a different tool to exercise our APIs, you can download the [Open API 3.0 yaml](<api_platform_bank_swagger_schema_url>) for import.
+This is Cybrid's public interactive API documentation, which allows you to fully test our APIs. If you'd like to use a different tool to exercise our APIs, you can download the [Open API 3.0 yaml](https://bank.production.cybrid.app/api/schema/v1/swagger.yaml) for import.
 
 If you're new to our APIs and the Cybrid Platform, follow the below guides to get set up and familiar with the platform:
 
@@ -38,21 +38,21 @@ Our complete set of APIs allows you to manage resources across three distinct ar
 
 | API                                                              | Description                                                 |
 |------------------------------------------------------------------|-------------------------------------------------------------|
-| [Organization API](<api_platform_organization_swagger_ui_url>)   | APIs to manage organizations                                |
-| [Bank API](<api_platform_bank_swagger_ui_url>)                   | APIs to manage banks (and all downstream customer activity) |
-| [Identities API](<api_idp_swagger_ui_url>)                       | APIs to manage organization and bank identities             |
+| [Organization API](https://organization.production.cybrid.app/api/schema/swagger-ui)   | APIs to manage organizations                                |
+| [Bank API](https://bank.production.cybrid.app/api/schema/swagger-ui)                   | APIs to manage banks (and all downstream customer activity) |
+| [Identities API](https://id.production.cybrid.app/api/schema/swagger-ui)                       | APIs to manage organization and bank identities             |
 
 For questions please contact [Support](mailto:support@cybrid.xyz) at any time for assistance, or contact the [Product Team](mailto:product@cybrid.xyz) for product suggestions.
 
 ## Authenticating with the API
 
-The Cybrid Platform uses OAuth 2.0 Bearer Tokens to authenticate requests to the platform. Credentials to create `Organization` and `Bank` tokens can be generated via the [Cybrid Sandbox](<api_idp_url>). Access tokens can be generated for a `Customer` as well via the [Cybrid IdP](<api_idp_url>) as well.
+The Cybrid Platform uses OAuth 2.0 Bearer Tokens to authenticate requests to the platform. Credentials to create `Organization` and `Bank` tokens can be generated via the [Cybrid Sandbox](https://id.production.cybrid.app). Access tokens can be generated for a `Customer` as well via the [Cybrid IdP](https://id.production.cybrid.app) as well.
 
 An `Organization` access token applies broadly to the whole Organization and all of its `Banks`, whereas, a `Bank` access token is specific to an individual Bank. `Customer` tokens, similarly, are scoped to a specific customer in a bank.
 
 Both `Organization` and `Bank` tokens can be created using the OAuth Client Credential Grant flow. Each Organization and Bank has its own unique `Client ID` and `Secret` that allows for machine-to-machine authentication.
 
-A `Bank` can then generate `Customer` access tokens via API using our [Identities API](<api_idp_swagger_ui_url>).
+A `Bank` can then generate `Customer` access tokens via API using our [Identities API](https://id.production.cybrid.app/api/schema/swagger-ui).
 
 <font color=\"orange\">**⚠️ Never share your Client ID or Secret publicly or in your source code repository.**</font>
 
@@ -62,14 +62,14 @@ The following curl command can be used to quickly generate a `Bearer Token` for 
 
 ```
 # Example request when using Bank credentials
-curl -X POST <api_idp_url>/oauth/token -d '{
+curl -X POST https://id.production.cybrid.app/oauth/token -d '{
     \"grant_type\": \"client_credentials\",
     \"client_id\": \"<Your Client ID>\",
     \"client_secret\": \"<Your Secret>\",
-    \"scope\": \"<api_platform_bank_scopes>\"
+    \"scope\": \"banks:read banks:write bank_applications:execute accounts:read accounts:execute counterparties:read counterparties:pii:read counterparties:write counterparties:execute customers:read customers:pii:read customers:write customers:execute prices:read quotes:execute quotes:read trades:execute trades:read transfers:execute transfers:read transfers:write external_bank_accounts:read external_bank_accounts:pii:read external_bank_accounts:write external_bank_accounts:execute external_wallets:read external_wallets:execute workflows:read workflows:execute deposit_addresses:read deposit_addresses:execute deposit_bank_accounts:read deposit_bank_accounts:execute invoices:read invoices:write invoices:execute identity_verifications:read identity_verifications:pii:read identity_verifications:write identity_verifications:execute persona_sessions:execute plans:execute plans:read executions:execute executions:read files:read files:pii:read files:execute\"
   }' -H \"Content-Type: application/json\"
 
-# When using Organization credentials set `scope` to '<api_platform_organization_scopes>'
+# When using Organization credentials set `scope` to 'organizations:read organizations:write organization_applications:execute banks:read banks:write banks:execute bank_applications:execute users:read users:write users:execute counterparties:read counterparties:pii:read customers:read customers:pii:read accounts:read prices:read quotes:execute quotes:read trades:execute trades:read transfers:read transfers:write transfers:execute external_bank_accounts:read external_bank_accounts:pii:read external_wallets:read workflows:read deposit_addresses:read deposit_bank_accounts:read invoices:read subscriptions:read subscriptions:write subscriptions:execute subscription_events:read subscription_events:execute identity_verifications:read identity_verifications:pii:read identity_verifications:execute persona_sessions:execute plans:execute plans:read executions:execute executions:read files:read files:pii:read files:execute'
 ```
 <font color=\"orange\">**⚠️ Note: The above curl will create a bearer token with full scope access. Delete scopes if you'd like to restrict access.**</font>
 
@@ -99,7 +99,7 @@ The following scopes are available on the platform and can be requested when gen
 
 ## Available Endpoints
 
-The available APIs for the [Identity](<api_idp_swagger_ui_url>), [Organization](<api_platform_organization_swagger_ui_url>) and [Bank](<api_platform_bank_swagger_ui_url>) API services are listed below:
+The available APIs for the [Identity](https://id.production.cybrid.app/api/schema/swagger-ui), [Organization](https://organization.production.cybrid.app/api/schema/swagger-ui) and [Bank](https://bank.production.cybrid.app/api/schema/swagger-ui) API services are listed below:
 
 | API Service  | Model                | API Endpoint Path              | Description                                                                                       |
 |--------------|----------------------|--------------------------------|---------------------------------------------------------------------------------------------------|
@@ -151,8 +151,8 @@ An `Organization` can have multiple `banks`, in either `Sandbox` or `Production`
 
 This SDK is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: v0.0.0
-- Package version: 0.125.50
+- API version: v0.125.59
+- Package version: 0.125.59
 - Build package: org.openapitools.codegen.languages.RubyClientCodegen
 
 ## Installation
@@ -168,16 +168,16 @@ gem build cybrid_api_bank_ruby.gemspec
 Then either install the gem locally:
 
 ```shell
-gem install ./cybrid_api_bank_ruby-0.125.50.gem
+gem install ./cybrid_api_bank_ruby-0.125.59.gem
 ```
 
-(for development, run `gem install --dev ./cybrid_api_bank_ruby-0.125.50.gem` to install the development dependencies)
+(for development, run `gem install --dev ./cybrid_api_bank_ruby-0.125.59.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'cybrid_api_bank_ruby', '~> 0.125.50'
+    gem 'cybrid_api_bank_ruby', '~> 0.125.59'
 
 ### Install from Git
 
@@ -225,7 +225,7 @@ end
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://api-platform-bank.local.cybrid.com:3002*
+All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
