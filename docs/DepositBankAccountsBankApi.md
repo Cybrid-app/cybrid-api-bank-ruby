@@ -159,7 +159,7 @@ end
 
 List Deposit Bank Accounts
 
-Retrieves a list of deposit bank accounts.  Required scope: **deposit_bank_accounts:read**
+Retrieves a list of deposit bank accounts. Records are sorted by creation date in descending order.  Required scope: **deposit_bank_accounts:read**
 
 ### Examples
 

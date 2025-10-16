@@ -163,7 +163,7 @@ end
 
 List Identity Verifications
 
-Retrieves a list of identity verifications.  Required scope: **identity_verifications:read**
+Retrieves a list of identity verifications. Records are sorted by creation date in descending order.  Required scope: **identity_verifications:read**
 
 ### Examples
 

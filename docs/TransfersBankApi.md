@@ -160,7 +160,7 @@ end
 
 Get transfers list
 
-Retrieves a listing of transfers.  Required scope: **transfers:read**
+Retrieves a listing of transfers. Records are sorted by creation date in descending order.  Required scope: **transfers:read**
 
 ### Examples
 

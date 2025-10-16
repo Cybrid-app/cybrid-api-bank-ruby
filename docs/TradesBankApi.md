@@ -159,7 +159,7 @@ end
 
 Get trades list
 
-Retrieves a listing of trades.  Required scope: **trades:read**
+Retrieves a listing of trades. Records are sorted by creation date in descending order.  Required scope: **trades:read**
 
 ### Examples
 

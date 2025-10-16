@@ -232,7 +232,7 @@ end
 
 Get external wallets list
 
-Retrieves a listing of external wallets.  Required scope: **external_wallets:read**
+Retrieves a listing of external wallets. Records are sorted by creation date in descending order.  Required scope: **external_wallets:read**
 
 ### Examples
 
