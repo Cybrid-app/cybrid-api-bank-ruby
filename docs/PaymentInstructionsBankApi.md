@@ -159,7 +159,7 @@ end
 
 List Payment Instructions
 
-Retrieves a list of payment instructions.  Required scope: **invoices:read**
+Retrieves a list of payment instructions. Records are sorted by creation date in descending order.  Required scope: **invoices:read**
 
 ### Examples
 

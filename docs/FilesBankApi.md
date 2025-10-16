@@ -163,7 +163,7 @@ end
 
 List Files
 
-Retrieves a list of files.  Required scope: **files:read**
+Retrieves a list of files. Records are sorted by creation date in descending order.  Required scope: **files:read**
 
 ### Examples
 
