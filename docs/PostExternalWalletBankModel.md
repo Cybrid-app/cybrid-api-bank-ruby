@@ -10,6 +10,7 @@
 | **asset** | **String** | The asset code. |  |
 | **address** | **String** | The blockchain wallet address for the wallet. |  |
 | **tag** | **String** | The blockchain tag to use when transferring crypto to the wallet. | [optional] |
+| **expected_behaviours** | **Array&lt;String&gt;** | The optional expected behaviour to simulate. Only applicable wallets under sandbox banks. | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = CybridApiBank::PostExternalWalletBankModel.new(
   counterparty_guid: null,
   asset: null,
   address: null,
-  tag: null
+  tag: null,
+  expected_behaviours: null
 )
 ```
 
