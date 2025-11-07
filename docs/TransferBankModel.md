@@ -23,7 +23,8 @@
 | **network_fee_asset** | **String** | The asset code of the network fee. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
 | **network_fee_liability_amount** | **Integer** | The equivalent fiat network fee in base units of network_fee_liability_amount_asset. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
 | **network_fee_liability_amount_asset** | **String** | The fiat asset the network_fee_liability_amount is denominated in. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
-| **txn_hash** | **String** | The hash of the blockchain transaction | [optional] |
+| **txn_hash** | **String** | The hash of the blockchain transaction (deprecated: use identifiers array) | [optional] |
+| **identifiers** | [**Array&lt;TransferIdentifiersInnerBankModel&gt;**](TransferIdentifiersInnerBankModel.md) | Array of identifiers associated with this transfer (transaction hash, wire reference numbers) | [optional] |
 | **reference_transfer_guid** | **String** | The guid of the related transfer. Only present on return type transfers. | [optional] |
 | **source_account** | [**TransferSourceAccountBankModel**](TransferSourceAccountBankModel.md) |  | [optional] |
 | **source_participants** | [**Array&lt;TransferParticipantBankModel&gt;**](TransferParticipantBankModel.md) | The participants in the source account. | [optional] |
@@ -65,6 +66,7 @@ instance = CybridApiBank::TransferBankModel.new(
   network_fee_liability_amount: null,
   network_fee_liability_amount_asset: null,
   txn_hash: null,
+  identifiers: null,
   reference_transfer_guid: null,
   source_account: null,
   source_participants: null,
