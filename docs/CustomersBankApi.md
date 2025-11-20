@@ -164,7 +164,7 @@ end
 
 Get customers list
 
-Retrieves a listing of customers. Records are sorted by creation date in descending order.  Required scope: **customers:read**
+Retrieves a listing of customers. Records are sorted by creation date in descending order.  Required scope: **customers:read** Optional scope: **customers:pii:read**.
 
 ### Examples
 
@@ -187,7 +187,8 @@ opts = {
   type: 'type_example', # String | Comma separated types to list customers for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list customers for.
   guid: 'guid_example', # String | Comma separated customer_guids to list customers for.
-  label: 'label_example' # String | Comma separated labels to list customers for.
+  label: 'label_example', # String | Comma separated labels to list customers for.
+  include_pii: true # Boolean | Include PII in the response (requires **customers:pii:read** scope).
 }
 
 begin
@@ -227,6 +228,7 @@ end
 | **bank_guid** | **String** | Comma separated bank_guids to list customers for. | [optional] |
 | **guid** | **String** | Comma separated customer_guids to list customers for. | [optional] |
 | **label** | **String** | Comma separated labels to list customers for. | [optional] |
+| **include_pii** | **Boolean** | Include PII in the response (requires **customers:pii:read** scope). | [optional] |
 
 ### Return type
 
