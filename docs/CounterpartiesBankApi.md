@@ -163,7 +163,7 @@ end
 
 Get counterparties list
 
-Retrieves a listing of counterparties. Records are sorted by creation date in descending order.  Required scope: **counterparties:read**
+Retrieves a listing of counterparties. Records are sorted by creation date in descending order.  Required scope: **counterparties:read** Optional scope: **counterparties:pii:read**.
 
 ### Examples
 
@@ -187,7 +187,8 @@ opts = {
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list counterparties for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list counterparties for.
   guid: 'guid_example', # String | Comma separated counterparty_guids to list counterparties for.
-  label: 'label_example' # String | Comma separated labels to list counterparties for.
+  label: 'label_example', # String | Comma separated labels to list counterparties for.
+  include_pii: true # Boolean | Include PII in the response (requires **counterparties:pii:read** scope).
 }
 
 begin
@@ -228,6 +229,7 @@ end
 | **customer_guid** | **String** | Comma separated customer_guids to list counterparties for. | [optional] |
 | **guid** | **String** | Comma separated counterparty_guids to list counterparties for. | [optional] |
 | **label** | **String** | Comma separated labels to list counterparties for. | [optional] |
+| **include_pii** | **Boolean** | Include PII in the response (requires **counterparties:pii:read** scope). | [optional] |
 
 ### Return type
 
