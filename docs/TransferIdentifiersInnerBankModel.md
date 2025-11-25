@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **type** | **String** | Type of identifier (txn_hash, imad, omad) | [optional] |
+| **type** | **String** | Type of identifier (txn_hash, imad, omad, gateway_url) | [optional] |
 | **value** | **String** | The identifier value | [optional] |
 
 ## Example
