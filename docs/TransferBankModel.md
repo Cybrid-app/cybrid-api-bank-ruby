@@ -13,7 +13,7 @@
 | **asset** | **String** | The asset the transfer is related to, e.g., USD. | [optional] |
 | **side** | **String** | The direction of the quote; one of deposit or withdrawal. | [optional] |
 | **state** | **String** | The state of the transfer; one of storing, pending, holding, reviewing, completed, or failed. | [optional] |
-| **failure_code** | **String** | The failure code for failed transfers; one of non_sufficient_funds, refresh_required, party_name_invalid, payment_rail_invalid, compliance_rejection, cancelled, reversed, limit_exceeded, network_fee_too_low, amount_too_low, internal_error, invalid_address, invalid_destination, customer_action_required, or external_vendor_error. | [optional] |
+| **failure_code** | **String** | The failure code for failed transfers; one of non_sufficient_funds, refresh_required, party_name_invalid, payment_rail_invalid, compliance_rejection, cancelled, reversed, limit_exceeded, network_fee_too_low, amount_too_low, internal_error, invalid_address, invalid_destination, customer_action_required, external_vendor_error, or payment_request_expired. | [optional] |
 | **return_code** | **String** | The return code for reversed transfers | [optional] |
 | **amount** | **Integer** | The actual amount in base units of the asset. | [optional] |
 | **estimated_amount** | **Integer** | The estimated amount in base units of the asset. | [optional] |
@@ -35,7 +35,7 @@
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **hold_details** | [**TransferHoldDetailsBankModel**](TransferHoldDetailsBankModel.md) |  | [optional] |
 | **transfer_details** | **Object** | The raw details on the transfer from the bank. | [optional] |
-| **payment_rail** | **String** | The rail the payment was done on. One of: ach, eft, wire, rtp | [optional] |
+| **payment_rail** | **String** | The rail the payment was done on. One of: ach, eft, wire, rtp, etransfer | [optional] |
 | **external_id** | **String** | The external identifier for the transfer. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
 | **entries** | [**Array&lt;TransferEntryBankModel&gt;**](TransferEntryBankModel.md) | Transfer entries associated with the batch transfer | [optional] |
