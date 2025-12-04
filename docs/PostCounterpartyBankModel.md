@@ -10,6 +10,8 @@
 | **name** | [**PostCounterpartyNameBankModel**](PostCounterpartyNameBankModel.md) |  | [optional] |
 | **aliases** | [**Array&lt;PostCounterpartyAliasesInnerBankModel&gt;**](PostCounterpartyAliasesInnerBankModel.md) | The aliases of the counterparty. Optional when type is business. | [optional] |
 | **date_of_birth** | **Date** | The counterparty&#39;s date of birth. Optional when type is individual. | [optional] |
+| **email_address** | **String** | The counterparty&#39;s email address. | [optional] |
+| **identification_numbers** | [**Array&lt;PostIdentificationNumberBankModel&gt;**](PostIdentificationNumberBankModel.md) | The counterparty&#39;s identification numbers. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the counterparty. | [optional] |
 
 ## Example
@@ -24,6 +26,8 @@ instance = CybridApiBank::PostCounterpartyBankModel.new(
   name: null,
   aliases: null,
   date_of_birth: null,
+  email_address: null,
+  identification_numbers: null,
   labels: null
 )
 ```
