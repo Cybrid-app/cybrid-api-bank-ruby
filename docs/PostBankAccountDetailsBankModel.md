@@ -9,6 +9,7 @@
 | **account_identifier** | **String** | The account number or unique identifier for the account. |  |
 | **account_identifier_type** | **String** | The type of account identifier. | [optional] |
 | **payment_rail** | **String** | The payment rail used for the account. |  |
+| **account_type** | **String** | The type of account. Required when payment_rail is PSE. | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = CybridApiBank::PostBankAccountDetailsBankModel.new(
   bank_code: null,
   account_identifier: null,
   account_identifier_type: null,
-  payment_rail: null
+  payment_rail: null,
+  account_type: null
 )
 ```
 
