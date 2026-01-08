@@ -18,6 +18,7 @@
 | **stages** | [**Array&lt;StageBankModel&gt;**](StageBankModel.md) | The stages of the plan. |  |
 | **fees** | [**Array&lt;FeeAssociationBankModel&gt;**](FeeAssociationBankModel.md) | The fees associated with the plan. |  |
 | **travel_rule_info** | [**PlanTravelRuleInfoBankModel**](PlanTravelRuleInfoBankModel.md) |  |  |
+| **purpose_of_transaction** | **String** | The purpose of transaction for the plan. | [optional] |
 
 ## Example
 
@@ -38,7 +39,8 @@ instance = CybridApiBank::PlanBankModel.new(
   destination_account: null,
   stages: null,
   fees: null,
-  travel_rule_info: null
+  travel_rule_info: null,
+  purpose_of_transaction: null
 )
 ```
 
