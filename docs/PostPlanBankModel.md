@@ -10,6 +10,7 @@
 | **source_account** | [**PostPlanSourceAccountBankModel**](PostPlanSourceAccountBankModel.md) |  |  |
 | **destination_account** | [**PostPlanDestinationAccountBankModel**](PostPlanDestinationAccountBankModel.md) |  |  |
 | **travel_rule_info** | [**PostPlanTravelRuleInfoBankModel**](PostPlanTravelRuleInfoBankModel.md) |  | [optional] |
+| **purpose_of_transaction** | **String** | The purpose of transaction for the plan. | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = CybridApiBank::PostPlanBankModel.new(
   customer_guid: null,
   source_account: null,
   destination_account: null,
-  travel_rule_info: null
+  travel_rule_info: null,
+  purpose_of_transaction: null
 )
 ```
 
