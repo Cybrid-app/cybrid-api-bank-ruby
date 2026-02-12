@@ -9,6 +9,7 @@
 | **filename** | **String** | The name of the file. |  |
 | **content_type** | **String** | The content type of the file. |  |
 | **data** | **String** | Base64 encoded file content | [optional] |
+| **metadata** | [**PostFileMetadataBankModel**](PostFileMetadataBankModel.md) |  | [optional] |
 
 ## Example
 
@@ -20,7 +21,8 @@ instance = CybridApiBank::PostFileBankModel.new(
   customer_guid: null,
   filename: null,
   content_type: null,
-  data: null
+  data: null,
+  metadata: null
 )
 ```
 
