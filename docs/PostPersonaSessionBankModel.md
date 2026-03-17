@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **persona_inquiry_id** | **String** | The unique identifier for the Persona inquiry. |  |
-| **identity_verification_guid** | **String** | The unique identifier for the identity verification. |  |
+| **persona_inquiry_id** | **String** | The ID of the Persona inquiry to create a session for |  |
+| **identity_verification_guid** | **String** | The GUID of the identity verification associated with the session |  |
 
 ## Example
 
