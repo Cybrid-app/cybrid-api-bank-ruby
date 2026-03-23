@@ -14,7 +14,8 @@
 | **failure_code** | **String** | The failure code for failed trades; one of non_sufficient_funds, unsupported, limit_exceeded, expired_quote, market_volatility, not_filled, daily_limit_exceeded, weekly_limit_exceeded, or monthly_limit_exceeded. | [optional] |
 | **receive_amount** | **Integer** | The amount to be received in base units of the currency: currency is \&quot;asset\&quot; for buy and \&quot;counter_asset\&quot; for sell. | [optional] |
 | **deliver_amount** | **Integer** | The amount to be delivered in base units of the currency: currency is \&quot;counter_asset\&quot; for buy and \&quot;asset\&quot; for sell. | [optional] |
-| **fee** | **Integer** | The fee associated with the trade. Denominated in \&quot;counter_asset\&quot; base units | [optional] |
+| **fee** | **Integer** | The fee associated with the trade. Denominated in \&quot;counter_asset\&quot; base units. Represents the sum of the bank and platform fees. | [optional] |
+| **fee_details** | [**Array&lt;FeeDetailBankModel&gt;**](FeeDetailBankModel.md) | The fees associated with the trade. | [optional] |
 | **reference_trade_guid** | **String** | The guid of the related trade. Only present on &#x60;exit&#x60; trades. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
@@ -37,6 +38,7 @@ instance = CybridApiBank::TradeBankModel.new(
   receive_amount: null,
   deliver_amount: null,
   fee: null,
+  fee_details: null,
   reference_trade_guid: null,
   created_at: null,
   updated_at: null,
