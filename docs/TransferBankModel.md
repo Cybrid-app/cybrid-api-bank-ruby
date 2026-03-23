@@ -17,7 +17,8 @@
 | **return_code** | **String** | The return code for reversed transfers | [optional] |
 | **amount** | **Integer** | The actual amount in base units of the asset. | [optional] |
 | **estimated_amount** | **Integer** | The estimated amount in base units of the asset. | [optional] |
-| **fee** | **Integer** | The fee associated with the transfer. | [optional] |
+| **fee** | **Integer** | The fee associated with the transfer. Represents the sum of the bank and platform fees. | [optional] |
+| **fee_details** | [**Array&lt;FeeDetailBankModel&gt;**](FeeDetailBankModel.md) | The fees associated with the transfer. | [optional] |
 | **estimated_network_fee** | **Integer** | The estimated network fee in base units of network_fee_asset. Only present on &#x60;crypto&#x60; transfers. | [optional] |
 | **network_fee** | **Integer** | The actual network fee in base units of network_fee_asset. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
 | **network_fee_asset** | **String** | The asset code of the network fee. Only present on &#x60;crypto&#x60; transfers that have successfully completed. | [optional] |
@@ -60,6 +61,7 @@ instance = CybridApiBank::TransferBankModel.new(
   amount: null,
   estimated_amount: null,
   fee: null,
+  fee_details: null,
   estimated_network_fee: null,
   network_fee: null,
   network_fee_asset: null,
