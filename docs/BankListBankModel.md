@@ -7,7 +7,7 @@
 | **total** | **Integer** | The total number of records available. |  |
 | **page** | **Integer** | The page index to retrieve. |  |
 | **per_page** | **Integer** | The number of entities per page to return. |  |
-| **objects** | [**Array&lt;BankBankModel&gt;**](BankBankModel.md) | Array of bank entities |  |
+| **objects** | [**Array&lt;BankBankModel&gt;**](BankBankModel.md) |  |  |
 
 ## Example
 

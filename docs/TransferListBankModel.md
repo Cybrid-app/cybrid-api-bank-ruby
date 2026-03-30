@@ -7,7 +7,7 @@
 | **total** | **Integer** | The total number of records available. |  |
 | **page** | **Integer** | The page index to retrieve. |  |
 | **per_page** | **Integer** | The number of entities per page to return. |  |
-| **objects** | [**Array&lt;TransferBankModel&gt;**](TransferBankModel.md) | Array of trade entities |  |
+| **objects** | [**Array&lt;TransferBankModel&gt;**](TransferBankModel.md) |  |  |
 
 ## Example
 

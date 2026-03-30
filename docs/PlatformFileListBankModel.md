@@ -7,7 +7,7 @@
 | **total** | **Integer** | The total number of records available. |  |
 | **page** | **Integer** | The page index to retrieve. |  |
 | **per_page** | **Integer** | The number of entities per page to return. |  |
-| **objects** | [**Array&lt;PlatformFileBankModel&gt;**](PlatformFileBankModel.md) | Array of file entities |  |
+| **objects** | [**Array&lt;PlatformFileBankModel&gt;**](PlatformFileBankModel.md) |  |  |
 
 ## Example
 
