@@ -7,7 +7,7 @@
 | **total** | **Integer** | The total number of records available. |  |
 | **page** | **Integer** | The page index to retrieve. |  |
 | **per_page** | **Integer** | The number of entities per page to return. |  |
-| **objects** | [**Array&lt;ExternalWalletBankModel&gt;**](ExternalWalletBankModel.md) | Array of external wallet entities |  |
+| **objects** | [**Array&lt;ExternalWalletBankModel&gt;**](ExternalWalletBankModel.md) |  |  |
 
 ## Example
 
