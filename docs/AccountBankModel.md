@@ -13,6 +13,7 @@
 | **bank_guid** | **String** | The bank identifier associated with the account. | [optional] |
 | **customer_guid** | **String** | The customer identifier associated with the account. | [optional] |
 | **platform_balance** | **Integer** | The amount of funds that are in the account, in base units of the asset. | [optional] |
+| **minimum_balance_funding_pull** | **Integer** | The minimum balance for no-hold ACH pulls, in base units of the account asset. Only returned for reserve accounts. | [optional] |
 | **platform_available** | **Integer** | The amount of funds that are in the account, in base units of the asset, that are available for use on the platform. | [optional] |
 | **state** | **String** | The state of the account; one of storing or created. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the account. | [optional] |
@@ -32,6 +33,7 @@ instance = CybridApiBank::AccountBankModel.new(
   bank_guid: null,
   customer_guid: null,
   platform_balance: null,
+  minimum_balance_funding_pull: null,
   platform_available: null,
   state: null,
   labels: null
