@@ -11,6 +11,8 @@
 | **send_as_deposit_bank_account_guid** | **String** | The deposit bank account&#39;s identifier. Only valid for withdrawals. The deposit bank account must be owned by the customer or bank initiating the transfer. Optional when transfer_type is funding. | [optional] |
 | **payment_rail** | **String** | The desired payment rail to initiate the transfer for. Optional when transfer_type is funding. | [optional] |
 | **beneficiary_memo** | **String** | The memo to send to the counterparty. Optional when transfer_type is funding. | [optional] |
+| **security_question** | **String** | The security question to send with an Interac E-Transfer withdrawal. Only accepted for e-transfer rail withdrawals; must be paired with security_answer. Optional when transfer_type is funding. | [optional] |
+| **security_answer** | **String** | The security answer the recipient must provide to claim an Interac E-Transfer. Only accepted for e-transfer rail withdrawals; must be paired with security_question. Optional when transfer_type is funding. | [optional] |
 | **source_participants** | [**Array&lt;PostTransferParticipantBankModel&gt;**](PostTransferParticipantBankModel.md) | The source participants for the transfer. Required when transfer_type is funding, transfer_type is instant_funding, transfer_type is book, transfer_type is crypto, or transfer_type is lightning. | [optional] |
 | **destination_participants** | [**Array&lt;PostTransferParticipantBankModel&gt;**](PostTransferParticipantBankModel.md) | The destination participants for the transfer. Required when transfer_type is funding, transfer_type is instant_funding, transfer_type is book, transfer_type is crypto, or transfer_type is lightning. | [optional] |
 | **bank_fiat_account_guid** | **String** | The identifier for the fiat account to use for the transfer. Required if the bank has multiple fiat accounts. Optional when transfer_type is instant_funding or transfer_type is lightning. | [optional] |
@@ -36,6 +38,8 @@ instance = CybridApiBank::PostTransferBankModel.new(
   send_as_deposit_bank_account_guid: null,
   payment_rail: null,
   beneficiary_memo: null,
+  security_question: null,
+  security_answer: null,
   source_participants: null,
   destination_participants: null,
   bank_fiat_account_guid: null,
