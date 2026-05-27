@@ -20,6 +20,7 @@
 | **travel_rule_info** | [**PlanTravelRuleInfoBankModel**](PlanTravelRuleInfoBankModel.md) |  |  |
 | **purpose_of_transaction** | **String** | The purpose of transaction for the plan. | [optional] |
 | **supporting_documents** | [**Array&lt;SupportingDocumentBankModel&gt;**](SupportingDocumentBankModel.md) | Supporting documents attached to the plan. | [optional] |
+| **labels** | **Array&lt;String&gt;** | The labels associated with the plan. | [optional] |
 
 ## Example
 
@@ -42,7 +43,8 @@ instance = CybridApiBank::PlanBankModel.new(
   fees: null,
   travel_rule_info: null,
   purpose_of_transaction: null,
-  supporting_documents: null
+  supporting_documents: null,
+  labels: null
 )
 ```
 
