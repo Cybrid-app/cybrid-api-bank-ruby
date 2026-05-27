@@ -189,7 +189,8 @@ opts = {
   created_at_gte: 'created_at_gte_example', # String | Created at start date-time inclusive lower bound, ISO8601.
   created_at_lt: 'created_at_lt_example', # String | Created at end date-time exclusive upper bound, ISO8601.
   updated_at_gte: 'updated_at_gte_example', # String | Updated at start date-time inclusive lower bound, ISO8601.
-  updated_at_lt: 'updated_at_lt_example' # String | Updated at end date-time exclusive upper bound, ISO8601.
+  updated_at_lt: 'updated_at_lt_example', # String | Updated at end date-time exclusive upper bound, ISO8601.
+  label: 'label_example' # String | Comma separated labels to list plans for.
 }
 
 begin
@@ -236,6 +237,7 @@ end
 | **created_at_lt** | **String** | Created at end date-time exclusive upper bound, ISO8601. | [optional] |
 | **updated_at_gte** | **String** | Updated at start date-time inclusive lower bound, ISO8601. | [optional] |
 | **updated_at_lt** | **String** | Updated at end date-time exclusive upper bound, ISO8601. | [optional] |
+| **label** | **String** | Comma separated labels to list plans for. | [optional] |
 
 ### Return type
 
