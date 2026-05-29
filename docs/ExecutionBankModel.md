@@ -11,7 +11,7 @@
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. |  |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. |  |
-| **state** | **String** | The state of the execution; one of storing, executing, completed, or failed. |  |
+| **state** | **String** | The state of the execution; one of storing, executing, completed, failed, or reviewing. |  |
 | **failure_code** | **String** | The failure code for failed executions. | [optional] |
 | **source_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **destination_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
