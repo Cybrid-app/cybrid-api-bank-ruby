@@ -17,6 +17,7 @@
 | **destination_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **stages** | [**Array&lt;StageBankModel&gt;**](StageBankModel.md) | The stages of the execution. |  |
 | **fees** | [**Array&lt;FeeAssociationBankModel&gt;**](FeeAssociationBankModel.md) | The fees associated with the execution. |  |
+| **holds** | [**Array&lt;HoldDetailBankModel&gt;**](HoldDetailBankModel.md) | The holds placed on the execution. | [optional] |
 | **travel_rule_info** | [**ExecutionTravelRuleInfoBankModel**](ExecutionTravelRuleInfoBankModel.md) |  |  |
 | **purpose_of_transaction** | **String** | The purpose of transaction for the execution. | [optional] |
 
@@ -39,6 +40,7 @@ instance = CybridApiBank::ExecutionBankModel.new(
   destination_account: null,
   stages: null,
   fees: null,
+  holds: null,
   travel_rule_info: null,
   purpose_of_transaction: null
 )
