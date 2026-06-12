@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the document. |  |
-| **type** | **String** | The kind of supporting document; one of invoice. |  |
+| **type** | **String** | The kind of supporting document; one of invoice, purchase_order, delivery_slip, contract, bill_of_lading, or others. |  |
 | **files** | [**Array&lt;SupportingDocumentFileBankModel&gt;**](SupportingDocumentFileBankModel.md) | The files backing this document. |  |
 
 ## Example
