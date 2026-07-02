@@ -4,10 +4,85 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**cancel_transfer**](TransfersBankApi.md#cancel_transfer) | **DELETE** /api/transfers/{transfer_guid} | Cancel Transfer |
 | [**create_transfer**](TransfersBankApi.md#create_transfer) | **POST** /api/transfers | Create Transfer |
 | [**get_transfer**](TransfersBankApi.md#get_transfer) | **GET** /api/transfers/{transfer_guid} | Get Transfer |
 | [**list_transfers**](TransfersBankApi.md#list_transfers) | **GET** /api/transfers | Get transfers list |
 | [**update_transfer**](TransfersBankApi.md#update_transfer) | **PATCH** /api/transfers/{transfer_guid} | Patch Transfer |
+
+
+## cancel_transfer
+
+> <TransferBankModel> cancel_transfer(transfer_guid, accept_version)
+
+Cancel Transfer
+
+Initiates cancellation of an eligible funding transfer.  Required scope: **transfers:execute**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_bank_ruby'
+# setup authorization
+CybridApiBank.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiBank::TransfersBankApi.new
+transfer_guid = 'transfer_guid_example' # String | Identifier for the transfer.
+accept_version = 'accept_version_example' # String | API version; must be 2026-04-01 or later for this operation.
+
+begin
+  # Cancel Transfer
+  result = api_instance.cancel_transfer(transfer_guid, accept_version)
+  p result
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling TransfersBankApi->cancel_transfer: #{e}"
+end
+```
+
+#### Using the cancel_transfer_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<TransferBankModel>, Integer, Hash)> cancel_transfer_with_http_info(transfer_guid, accept_version)
+
+```ruby
+begin
+  # Cancel Transfer
+  data, status_code, headers = api_instance.cancel_transfer_with_http_info(transfer_guid, accept_version)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <TransferBankModel>
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling TransfersBankApi->cancel_transfer_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **transfer_guid** | **String** | Identifier for the transfer. |  |
+| **accept_version** | **String** | API version; must be 2026-04-01 or later for this operation. |  |
+
+### Return type
+
+[**TransferBankModel**](TransferBankModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## create_transfer
