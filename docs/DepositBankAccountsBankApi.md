@@ -185,6 +185,7 @@ opts = {
   label: 'label_example', # String | Comma separated labels to list deposit bank accounts for.
   unique_memo_id: 'unique_memo_id_example', # String | Comma separated unique memo ids to list deposit bank accounts for.
   type: 'type_example', # String | Comma separated types to list deposit bank accounts for.
+  state: 'state_example', # String | Comma separated states to list deposit bank accounts for.
   parent_deposit_bank_account_guid: 'parent_deposit_bank_account_guid_example' # String | Comma separated guids for parent accounts to list deposit bank accounts for.
 }
 
@@ -227,6 +228,7 @@ end
 | **label** | **String** | Comma separated labels to list deposit bank accounts for. | [optional] |
 | **unique_memo_id** | **String** | Comma separated unique memo ids to list deposit bank accounts for. | [optional] |
 | **type** | **String** | Comma separated types to list deposit bank accounts for. | [optional] |
+| **state** | **String** | Comma separated states to list deposit bank accounts for. | [optional] |
 | **parent_deposit_bank_account_guid** | **String** | Comma separated guids for parent accounts to list deposit bank accounts for. | [optional] |
 
 ### Return type

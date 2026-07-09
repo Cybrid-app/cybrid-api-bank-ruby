@@ -13,8 +13,8 @@
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **deleted_at** | **Time** | ISO8601 datetime the record was last deleted at. | [optional] |
 | **asset** | **String** | The asset the transfer is related to, e.g., USD. | [optional] |
-| **state** | **String** | The state of the address; one of storing or created. | [optional] |
-| **unique_memo_id** | **String** | The unique memo identifier for the address. This is used to identify the recipient when sending funds to the account. This value MUST be included in all wire transfers to this account. | [optional] |
+| **state** | **String** | The state of the deposit bank account; one of storing, created, deleting, or deleted. | [optional] |
+| **unique_memo_id** | **String** | The unique memo identifier for the deposit bank account. This is used to identify the recipient when sending funds to the account. This value MUST be included in all wire transfers to this account. | [optional] |
 | **counterparty_name** | **String** | The name of the account holder. | [optional] |
 | **counterparty_address** | [**DepositBankAccountCounterpartyAddressBankModel**](DepositBankAccountCounterpartyAddressBankModel.md) |  | [optional] |
 | **account_details** | [**Array&lt;DepositBankAccountAccountDetailsInnerBankModel&gt;**](DepositBankAccountAccountDetailsInnerBankModel.md) | The account details for the bank account. | [optional] |
