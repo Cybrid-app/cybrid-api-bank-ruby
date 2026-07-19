@@ -5,6 +5,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_deposit_bank_account**](DepositBankAccountsBankApi.md#create_deposit_bank_account) | **POST** /api/deposit_bank_accounts | Create Deposit Bank Account |
+| [**delete_deposit_bank_account**](DepositBankAccountsBankApi.md#delete_deposit_bank_account) | **DELETE** /api/deposit_bank_accounts/{deposit_bank_account_guid} | Delete Deposit Bank Account |
 | [**get_deposit_bank_account**](DepositBankAccountsBankApi.md#get_deposit_bank_account) | **GET** /api/deposit_bank_accounts/{deposit_bank_account_guid} | Get Deposit Bank Account |
 | [**list_deposit_bank_accounts**](DepositBankAccountsBankApi.md#list_deposit_bank_accounts) | **GET** /api/deposit_bank_accounts | List Deposit Bank Accounts |
 
@@ -78,6 +79,78 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_deposit_bank_account
+
+> <DepositBankAccountBankModel> delete_deposit_bank_account(deposit_bank_account_guid)
+
+Delete Deposit Bank Account
+
+Deletes a deposit bank account.  ## State  | State | Description | |-------|-------------| | deleting | The Platform is deleting the deposit bank account and closing the associated provider account | | deleted | The Platform has deleted the deposit bank account |    Required scope: **deposit_bank_accounts:execute**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_bank_ruby'
+# setup authorization
+CybridApiBank.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiBank::DepositBankAccountsBankApi.new
+deposit_bank_account_guid = 'deposit_bank_account_guid_example' # String | Identifier for the deposit bank account.
+
+begin
+  # Delete Deposit Bank Account
+  result = api_instance.delete_deposit_bank_account(deposit_bank_account_guid)
+  p result
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling DepositBankAccountsBankApi->delete_deposit_bank_account: #{e}"
+end
+```
+
+#### Using the delete_deposit_bank_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DepositBankAccountBankModel>, Integer, Hash)> delete_deposit_bank_account_with_http_info(deposit_bank_account_guid)
+
+```ruby
+begin
+  # Delete Deposit Bank Account
+  data, status_code, headers = api_instance.delete_deposit_bank_account_with_http_info(deposit_bank_account_guid)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DepositBankAccountBankModel>
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling DepositBankAccountsBankApi->delete_deposit_bank_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deposit_bank_account_guid** | **String** | Identifier for the deposit bank account. |  |
+
+### Return type
+
+[**DepositBankAccountBankModel**](DepositBankAccountBankModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
