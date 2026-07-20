@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | The unique identifier for the stage. |  |
-| **type** | **String** | The type of stage; one of payout, deposit, or trade. |  |
+| **type** | **String** | The type of stage; one of payout, deposit, withdrawal, trade, deposit_return, loss_recovery, or withdrawal_return. |  |
 | **state** | **String** | The state of the stage; one of storing, planning, planned, executing, completed, or failed. |  |
 | **failure_code** | **String** | The failure code for failed stages. | [optional] |
 | **identifiers** | [**Array&lt;StageIdentifierBankModel&gt;**](StageIdentifierBankModel.md) | Provider-issued identifiers associated with this stage. Always present, possibly empty. |  |
@@ -15,6 +15,8 @@
 | **source_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **destination_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **fees** | [**Array&lt;FeeAssociationBankModel&gt;**](FeeAssociationBankModel.md) | The fees associated with the stage. |  |
+| **deposit_return_details** | [**ReturnDetailsBankModel**](ReturnDetailsBankModel.md) |  | [optional] |
+| **withdrawal_return_details** | [**ReturnDetailsBankModel**](ReturnDetailsBankModel.md) |  | [optional] |
 
 ## Example
 
@@ -32,7 +34,9 @@ instance = CybridApiBank::StageBankModel.new(
   updated_at: null,
   source_account: null,
   destination_account: null,
-  fees: null
+  fees: null,
+  deposit_return_details: null,
+  withdrawal_return_details: null
 )
 ```
 

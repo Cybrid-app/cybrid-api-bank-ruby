@@ -5,12 +5,12 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the entity. |  |
-| **type** | **String** | The type of product the plan is for; one of remittance. |  |
+| **type** | **String** | The type of product the plan is for; one of remittance, deposit_return, or withdrawal_return. |  |
 | **bank_guid** | **String** | The unique identifier for the bank. | [optional] |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. |  |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. |  |
-| **expires_at** | **Time** | ISO8601 datetime the plan will expire at. |  |
+| **expires_at** | **Time** | ISO8601 datetime the plan will expire at. Null for return plans, which do not expire. |  |
 | **state** | **String** | The state of the plan; one of storing, planning, completed, or failed. |  |
 | **failure_code** | **String** | The failure code for failed plans. | [optional] |
 | **source_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
