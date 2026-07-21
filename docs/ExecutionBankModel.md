@@ -21,6 +21,7 @@
 | **travel_rule_info** | [**ExecutionTravelRuleInfoBankModel**](ExecutionTravelRuleInfoBankModel.md) |  |  |
 | **purpose_of_transaction** | **String** | The purpose of transaction for the execution. | [optional] |
 | **references** | [**Array&lt;PlanReferenceBankModel&gt;**](PlanReferenceBankModel.md) | Objects this return execution references (the returned execution and stage). Optional when type is deposit_return or type is withdrawal_return. | [optional] |
+| **labels** | **Array&lt;String&gt;** | The labels associated with the execution. | [optional] |
 
 ## Example
 
@@ -44,7 +45,8 @@ instance = CybridApiBank::ExecutionBankModel.new(
   holds: null,
   travel_rule_info: null,
   purpose_of_transaction: null,
-  references: null
+  references: null,
+  labels: null
 )
 ```
 
