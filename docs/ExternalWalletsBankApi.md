@@ -8,6 +8,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 | [**delete_external_wallet**](ExternalWalletsBankApi.md#delete_external_wallet) | **DELETE** /api/external_wallets/{external_wallet_guid} | Delete External Wallet |
 | [**get_external_wallet**](ExternalWalletsBankApi.md#get_external_wallet) | **GET** /api/external_wallets/{external_wallet_guid} | Get External Wallet |
 | [**list_external_wallets**](ExternalWalletsBankApi.md#list_external_wallets) | **GET** /api/external_wallets | Get external wallets list |
+| [**update_external_wallet**](ExternalWalletsBankApi.md#update_external_wallet) | **PATCH** /api/external_wallets/{external_wallet_guid} | Patch External Wallet |
 
 
 ## create_external_wallet
@@ -313,5 +314,79 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_external_wallet
+
+> <ExternalWalletBankModel> update_external_wallet(external_wallet_guid, patch_external_wallet_bank_model)
+
+Patch External Wallet
+
+Updates an external_wallet.  Required scope: **external_wallets:write**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_bank_ruby'
+# setup authorization
+CybridApiBank.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiBank::ExternalWalletsBankApi.new
+external_wallet_guid = 'external_wallet_guid_example' # String | Identifier for the external_wallet.
+patch_external_wallet_bank_model = CybridApiBank::PatchExternalWalletBankModel.new # PatchExternalWalletBankModel | 
+
+begin
+  # Patch External Wallet
+  result = api_instance.update_external_wallet(external_wallet_guid, patch_external_wallet_bank_model)
+  p result
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling ExternalWalletsBankApi->update_external_wallet: #{e}"
+end
+```
+
+#### Using the update_external_wallet_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<ExternalWalletBankModel>, Integer, Hash)> update_external_wallet_with_http_info(external_wallet_guid, patch_external_wallet_bank_model)
+
+```ruby
+begin
+  # Patch External Wallet
+  data, status_code, headers = api_instance.update_external_wallet_with_http_info(external_wallet_guid, patch_external_wallet_bank_model)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <ExternalWalletBankModel>
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling ExternalWalletsBankApi->update_external_wallet_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **external_wallet_guid** | **String** | Identifier for the external_wallet. |  |
+| **patch_external_wallet_bank_model** | [**PatchExternalWalletBankModel**](PatchExternalWalletBankModel.md) |  |  |
+
+### Return type
+
+[**ExternalWalletBankModel**](ExternalWalletBankModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
