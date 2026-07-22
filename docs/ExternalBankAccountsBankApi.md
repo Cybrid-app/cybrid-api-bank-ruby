@@ -347,7 +347,7 @@ end
 
 api_instance = CybridApiBank::ExternalBankAccountsBankApi.new
 external_bank_account_guid = 'external_bank_account_guid_example' # String | Identifier for the external bank account.
-patch_external_bank_account_bank_model = CybridApiBank::PatchExternalBankAccountBankModel.new({state: 'completed'}) # PatchExternalBankAccountBankModel | 
+patch_external_bank_account_bank_model = CybridApiBank::PatchExternalBankAccountBankModel.new # PatchExternalBankAccountBankModel | 
 
 begin
   # Patch ExternalBankAccount
