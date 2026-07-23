@@ -7,6 +7,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 | [**create_account**](AccountsBankApi.md#create_account) | **POST** /api/accounts | Create Account |
 | [**get_account**](AccountsBankApi.md#get_account) | **GET** /api/accounts/{account_guid} | Get Account |
 | [**list_accounts**](AccountsBankApi.md#list_accounts) | **GET** /api/accounts | List Accounts |
+| [**update_account**](AccountsBankApi.md#update_account) | **PATCH** /api/accounts/{account_guid} | Patch Account |
 
 
 ## create_account
@@ -83,7 +84,7 @@ end
 
 ## get_account
 
-> <AccountBankModel> get_account(account_guid)
+> <AccountBankModel> get_account(account_guid, opts)
 
 Get Account
 
@@ -105,10 +106,13 @@ end
 
 api_instance = CybridApiBank::AccountsBankApi.new
 account_guid = 'account_guid_example' # String | Identifier for the account.
+opts = {
+  include_balances: true # Boolean | Whether to include account balances in the response.
+}
 
 begin
   # Get Account
-  result = api_instance.get_account(account_guid)
+  result = api_instance.get_account(account_guid, opts)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling AccountsBankApi->get_account: #{e}"
@@ -119,12 +123,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AccountBankModel>, Integer, Hash)> get_account_with_http_info(account_guid)
+> <Array(<AccountBankModel>, Integer, Hash)> get_account_with_http_info(account_guid, opts)
 
 ```ruby
 begin
   # Get Account
-  data, status_code, headers = api_instance.get_account_with_http_info(account_guid)
+  data, status_code, headers = api_instance.get_account_with_http_info(account_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AccountBankModel>
@@ -138,6 +142,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **account_guid** | **String** | Identifier for the account. |  |
+| **include_balances** | **Boolean** | Whether to include account balances in the response. | [optional] |
 
 ### Return type
 
@@ -184,7 +189,8 @@ opts = {
   type: 'type_example', # String | Comma separated account_types to list accounts for.
   bank_guid: 'bank_guid_example', # String | Comma separated bank_guids to list accounts for.
   customer_guid: 'customer_guid_example', # String | Comma separated customer_guids to list accounts for.
-  label: 'label_example' # String | Comma separated labels to list accounts for.
+  label: 'label_example', # String | Comma separated labels to list accounts for.
+  include_balances: true # Boolean | Whether to include account balances in the response.
 }
 
 begin
@@ -226,6 +232,7 @@ end
 | **bank_guid** | **String** | Comma separated bank_guids to list accounts for. | [optional] |
 | **customer_guid** | **String** | Comma separated customer_guids to list accounts for. | [optional] |
 | **label** | **String** | Comma separated labels to list accounts for. | [optional] |
+| **include_balances** | **Boolean** | Whether to include account balances in the response. | [optional] |
 
 ### Return type
 
@@ -238,5 +245,79 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_account
+
+> <AccountBankModel> update_account(account_guid, patch_account_bank_model)
+
+Patch Account
+
+Updates an account.  Required scope: **accounts:write**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_bank_ruby'
+# setup authorization
+CybridApiBank.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiBank::AccountsBankApi.new
+account_guid = 'account_guid_example' # String | Identifier for the account.
+patch_account_bank_model = CybridApiBank::PatchAccountBankModel.new # PatchAccountBankModel | 
+
+begin
+  # Patch Account
+  result = api_instance.update_account(account_guid, patch_account_bank_model)
+  p result
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling AccountsBankApi->update_account: #{e}"
+end
+```
+
+#### Using the update_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<AccountBankModel>, Integer, Hash)> update_account_with_http_info(account_guid, patch_account_bank_model)
+
+```ruby
+begin
+  # Patch Account
+  data, status_code, headers = api_instance.update_account_with_http_info(account_guid, patch_account_bank_model)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <AccountBankModel>
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling AccountsBankApi->update_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **account_guid** | **String** | Identifier for the account. |  |
+| **patch_account_bank_model** | [**PatchAccountBankModel**](PatchAccountBankModel.md) |  |  |
+
+### Return type
+
+[**AccountBankModel**](AccountBankModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
