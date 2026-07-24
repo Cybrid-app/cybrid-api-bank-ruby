@@ -10,6 +10,7 @@
 | **payment_rail** | **String** | The payment rail used for the account. |  |
 | **bank_code_type** | **String** | The type of bank code. Required when payment_rail is EFT, payment_rail is ACH, payment_rail is RTP, payment_rail is FEDNOW, payment_rail is WIRE, payment_rail is SPEI, payment_rail is PIX, payment_rail is COELSA, payment_rail is PSE, payment_rail is ETRANSFER, payment_rail is IFSC, payment_rail is SBP, payment_rail is BEFTN, payment_rail is NGBANK, payment_rail is LBTR, payment_rail is SEPA, payment_rail is KEBANK, payment_rail is HKBANK, payment_rail is CNBANK, payment_rail is FPS, or payment_rail is UNSPECIFIED. | [optional] |
 | **account_type** | **String** | The type of account. Required when payment_rail is PSE or payment_rail is LBTR. Optional when payment_rail is ACH. | [optional] |
+| **account_designation** | **String** | Account designation for India IFSC accounts (NRE or NRO). Defaults to NRE when omitted. Optional when payment_rail is IFSC. | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = CybridApiBank::PostBankAccountDetailsBankModel.new(
   account_identifier_type: null,
   payment_rail: null,
   bank_code_type: null,
-  account_type: null
+  account_type: null,
+  account_designation: null
 )
 ```
 
