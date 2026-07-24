@@ -4,6 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
+| **name** | **String** | The name of the deposit bank account. | [optional] |
 | **type** | **String** | The account type. To generate deposit bank accounts with their own unique account number set this to \&quot;main\&quot;. To generate deposit bank accounts with the same account number as the parent deposit bank account set this to \&quot;sub_account\&quot;. This setting will only generate a unique identifier for the deposit bank and will not result in a unique account number being generated. \&quot;sub_account\&quot; is only  available for customer-level deposit bank accounts. |  |
 | **account_guid** | **String** | The fiat or reserve account guid. |  |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
@@ -16,6 +17,7 @@
 require 'cybrid_api_bank_ruby'
 
 instance = CybridApiBank::PostDepositBankAccountBankModel.new(
+  name: null,
   type: null,
   account_guid: null,
   customer_guid: null,

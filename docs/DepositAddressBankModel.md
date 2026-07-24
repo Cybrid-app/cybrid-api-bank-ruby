@@ -5,6 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the identity verification. | [optional] |
+| **name** | **String** | The name of the deposit address. | [optional] |
 | **bank_guid** | **String** | The address&#39; bank identifier. | [optional] |
 | **customer_guid** | **String** | The address&#39; customer identifier. | [optional] |
 | **account_guid** | **String** | The address&#39; account identifier. | [optional] |
@@ -24,6 +25,7 @@ require 'cybrid_api_bank_ruby'
 
 instance = CybridApiBank::DepositAddressBankModel.new(
   guid: null,
+  name: null,
   bank_guid: null,
   customer_guid: null,
   account_guid: null,

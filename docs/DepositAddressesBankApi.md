@@ -7,6 +7,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 | [**create_deposit_address**](DepositAddressesBankApi.md#create_deposit_address) | **POST** /api/deposit_addresses | Create Deposit Address |
 | [**get_deposit_address**](DepositAddressesBankApi.md#get_deposit_address) | **GET** /api/deposit_addresses/{deposit_address_guid} | Get Deposit Address |
 | [**list_deposit_addresses**](DepositAddressesBankApi.md#list_deposit_addresses) | **GET** /api/deposit_addresses | List Deposit Addresses |
+| [**update_deposit_address**](DepositAddressesBankApi.md#update_deposit_address) | **PATCH** /api/deposit_addresses/{deposit_address_guid} | Patch Deposit Address |
 
 
 ## create_deposit_address
@@ -234,5 +235,79 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_deposit_address
+
+> <DepositAddressBankModel> update_deposit_address(deposit_address_guid, patch_deposit_address_bank_model)
+
+Patch Deposit Address
+
+Updates a deposit address.  Required scope: **deposit_addresses:write**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_bank_ruby'
+# setup authorization
+CybridApiBank.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiBank::DepositAddressesBankApi.new
+deposit_address_guid = 'deposit_address_guid_example' # String | Identifier for the deposit address.
+patch_deposit_address_bank_model = CybridApiBank::PatchDepositAddressBankModel.new # PatchDepositAddressBankModel | 
+
+begin
+  # Patch Deposit Address
+  result = api_instance.update_deposit_address(deposit_address_guid, patch_deposit_address_bank_model)
+  p result
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling DepositAddressesBankApi->update_deposit_address: #{e}"
+end
+```
+
+#### Using the update_deposit_address_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DepositAddressBankModel>, Integer, Hash)> update_deposit_address_with_http_info(deposit_address_guid, patch_deposit_address_bank_model)
+
+```ruby
+begin
+  # Patch Deposit Address
+  data, status_code, headers = api_instance.update_deposit_address_with_http_info(deposit_address_guid, patch_deposit_address_bank_model)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DepositAddressBankModel>
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling DepositAddressesBankApi->update_deposit_address_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deposit_address_guid** | **String** | Identifier for the deposit address. |  |
+| **patch_deposit_address_bank_model** | [**PatchDepositAddressBankModel**](PatchDepositAddressBankModel.md) |  |  |
+
+### Return type
+
+[**DepositAddressBankModel**](DepositAddressBankModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

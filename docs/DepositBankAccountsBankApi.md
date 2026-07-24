@@ -8,6 +8,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 | [**delete_deposit_bank_account**](DepositBankAccountsBankApi.md#delete_deposit_bank_account) | **DELETE** /api/deposit_bank_accounts/{deposit_bank_account_guid} | Delete Deposit Bank Account |
 | [**get_deposit_bank_account**](DepositBankAccountsBankApi.md#get_deposit_bank_account) | **GET** /api/deposit_bank_accounts/{deposit_bank_account_guid} | Get Deposit Bank Account |
 | [**list_deposit_bank_accounts**](DepositBankAccountsBankApi.md#list_deposit_bank_accounts) | **GET** /api/deposit_bank_accounts | List Deposit Bank Accounts |
+| [**update_deposit_bank_account**](DepositBankAccountsBankApi.md#update_deposit_bank_account) | **PATCH** /api/deposit_bank_accounts/{deposit_bank_account_guid} | Patch Deposit Bank Account |
 
 
 ## create_deposit_bank_account
@@ -315,5 +316,79 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_deposit_bank_account
+
+> <DepositBankAccountBankModel> update_deposit_bank_account(deposit_bank_account_guid, patch_deposit_bank_account_bank_model)
+
+Patch Deposit Bank Account
+
+Updates a deposit bank account.  Required scope: **deposit_bank_accounts:write**
+
+### Examples
+
+```ruby
+require 'time'
+require 'cybrid_api_bank_ruby'
+# setup authorization
+CybridApiBank.configure do |config|
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
+
+api_instance = CybridApiBank::DepositBankAccountsBankApi.new
+deposit_bank_account_guid = 'deposit_bank_account_guid_example' # String | Identifier for the deposit bank account.
+patch_deposit_bank_account_bank_model = CybridApiBank::PatchDepositBankAccountBankModel.new # PatchDepositBankAccountBankModel | 
+
+begin
+  # Patch Deposit Bank Account
+  result = api_instance.update_deposit_bank_account(deposit_bank_account_guid, patch_deposit_bank_account_bank_model)
+  p result
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling DepositBankAccountsBankApi->update_deposit_bank_account: #{e}"
+end
+```
+
+#### Using the update_deposit_bank_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DepositBankAccountBankModel>, Integer, Hash)> update_deposit_bank_account_with_http_info(deposit_bank_account_guid, patch_deposit_bank_account_bank_model)
+
+```ruby
+begin
+  # Patch Deposit Bank Account
+  data, status_code, headers = api_instance.update_deposit_bank_account_with_http_info(deposit_bank_account_guid, patch_deposit_bank_account_bank_model)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DepositBankAccountBankModel>
+rescue CybridApiBank::ApiError => e
+  puts "Error when calling DepositBankAccountsBankApi->update_deposit_bank_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **deposit_bank_account_guid** | **String** | Identifier for the deposit bank account. |  |
+| **patch_deposit_bank_account_bank_model** | [**PatchDepositBankAccountBankModel**](PatchDepositBankAccountBankModel.md) |  |  |
+
+### Return type
+
+[**DepositBankAccountBankModel**](DepositBankAccountBankModel.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
