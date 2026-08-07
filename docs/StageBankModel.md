@@ -15,6 +15,7 @@
 | **source_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **destination_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **fees** | [**Array&lt;FeeAssociationBankModel&gt;**](FeeAssociationBankModel.md) | The fees associated with the stage. |  |
+| **effective_rate** | [**EffectiveRateBankModel**](EffectiveRateBankModel.md) |  | [optional] |
 | **deposit_return_details** | [**ReturnDetailsBankModel**](ReturnDetailsBankModel.md) |  | [optional] |
 | **withdrawal_return_details** | [**ReturnDetailsBankModel**](ReturnDetailsBankModel.md) |  | [optional] |
 
@@ -35,6 +36,7 @@ instance = CybridApiBank::StageBankModel.new(
   source_account: null,
   destination_account: null,
   fees: null,
+  effective_rate: null,
   deposit_return_details: null,
   withdrawal_return_details: null
 )
