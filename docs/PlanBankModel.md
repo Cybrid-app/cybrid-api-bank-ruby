@@ -17,6 +17,7 @@
 | **destination_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **stages** | [**Array&lt;StageBankModel&gt;**](StageBankModel.md) | The stages of the plan. |  |
 | **fees** | [**Array&lt;FeeAssociationBankModel&gt;**](FeeAssociationBankModel.md) | The fees associated with the plan. |  |
+| **effective_rate** | [**EffectiveRateBankModel**](EffectiveRateBankModel.md) |  | [optional] |
 | **travel_rule_info** | [**PlanTravelRuleInfoBankModel**](PlanTravelRuleInfoBankModel.md) |  |  |
 | **purpose_of_transaction** | **String** | The purpose of transaction for the plan. | [optional] |
 | **supporting_documents** | [**Array&lt;SupportingDocumentBankModel&gt;**](SupportingDocumentBankModel.md) | Supporting documents attached to the plan. Optional when type is remittance. | [optional] |
@@ -41,6 +42,7 @@ instance = CybridApiBank::PlanBankModel.new(
   destination_account: null,
   stages: null,
   fees: null,
+  effective_rate: null,
   travel_rule_info: null,
   purpose_of_transaction: null,
   supporting_documents: null,
