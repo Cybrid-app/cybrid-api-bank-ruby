@@ -28,6 +28,7 @@
 | **business_funds_source** | **String** | The source of business funds. Required for attested business registration V3. e.g. &#39;Funds from individual customers&#39;, &#39;Funds from business customers&#39;, &#39;Funds from both individual and business customers&#39;, etc. Optional when type is kyc and method is attested_business_registration. | [optional] |
 | **business_funds_destination** | **String** | The destination of business funds. Required for attested business registration V3. e.g. &#39;To your business account (bank or wallet)&#39;, &#39;To vendors or suppliers&#39;, &#39;To employees or contractors&#39;, &#39;To sellers or merchants&#39;, &#39;Bulk payments or payouts&#39;, etc. Optional when type is kyc and method is attested_business_registration. | [optional] |
 | **occupation** | **String** | The customer&#39;s occupation. Required when type is kyc and method is attested_business_associate. Optional when type is kyc and method is attested_id_and_selfie. | [optional] |
+| **citizenship** | **String** | The customer&#39;s citizenship country code. Required when type is kyc and method is attested_business_associate. | [optional] |
 | **biometrics_verified** | **Boolean** | Whether biometrics have been verified Required when type is kyc and method is attested_business_associate or type is kyc and method is attested_id_and_database. | [optional] |
 | **external_bank_account_guid** | **String** | The external bank account&#39;s identifier. Required when type is bank_account. | [optional] |
 
@@ -61,6 +62,7 @@ instance = CybridApiBank::PostIdentityVerificationBankModel.new(
   business_funds_source: null,
   business_funds_destination: null,
   occupation: null,
+  citizenship: null,
   biometrics_verified: null,
   external_bank_account_guid: null
 )
