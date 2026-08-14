@@ -11,6 +11,7 @@
 | **phone_number** | **String** | The attested phone number. | [optional] |
 | **email_address** | **String** | The attested email address. | [optional] |
 | **occupation** | **String** | The attested occupation. | [optional] |
+| **citizenship** | **String** | The ISO 3166 country 2-Alpha country code of the customer&#39;s citizenship. | [optional] |
 | **website** | **String** | The attested website. | [optional] |
 | **nature_of_business** | **String** | The attested nature of business. | [optional] |
 | **registered_address** | [**IdentityVerificationWithDetailsPiiRegisteredAddressBankModel**](IdentityVerificationWithDetailsPiiRegisteredAddressBankModel.md) |  | [optional] |
@@ -32,6 +33,7 @@ instance = CybridApiBank::IdentityVerificationWithDetailsPiiBankModel.new(
   phone_number: null,
   email_address: null,
   occupation: null,
+  citizenship: null,
   website: null,
   nature_of_business: null,
   registered_address: null,
