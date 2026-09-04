@@ -12,7 +12,7 @@
 | **travel_rule_info** | [**PostPlanTravelRuleInfoBankModel**](PostPlanTravelRuleInfoBankModel.md) |  | [optional] |
 | **purpose_of_transaction** | **String** | The purpose of transaction for the plan. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the plan. | [optional] |
-| **supporting_documents** | [**Array&lt;PostSupportingDocumentBankModel&gt;**](PostSupportingDocumentBankModel.md) | Supporting documents to attach to the plan. Optional when type is remittance. | [optional] |
+| **supporting_documents** | [**Array&lt;PostSupportingDocumentBankModel&gt;**](PostSupportingDocumentBankModel.md) | Supporting documents to attach to the plan. Optional when type is remittance or type is invoice_pay. | [optional] |
 
 ## Example
 

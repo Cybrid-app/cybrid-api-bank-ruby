@@ -18,6 +18,8 @@
 | **business_industry** | **String** | The attested business industry. | [optional] |
 | **business_funds_source** | **String** | The attested business funds source. | [optional] |
 | **business_funds_destination** | **String** | The attested business funds destination. | [optional] |
+| **business_type** | **String** | The attested business type. | [optional] |
+| **business_incorporation_date** | **Date** | The attested business incorporation date. | [optional] |
 | **identification_numbers** | [**Array&lt;IdentificationNumberBankModel&gt;**](IdentificationNumberBankModel.md) | The attested identification numbers. | [optional] |
 
 ## Example
@@ -40,6 +42,8 @@ instance = CybridApiBank::IdentityVerificationWithDetailsPiiBankModel.new(
   business_industry: null,
   business_funds_source: null,
   business_funds_destination: null,
+  business_type: null,
+  business_incorporation_date: null,
   identification_numbers: null
 )
 ```
