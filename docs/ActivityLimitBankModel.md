@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **type** | **String** | The type of the limit; one of rolling, daily, weekly, or monthly. | [optional] |
+| **type** | **String** | The type of the limit; one of rolling, daily, weekly, monthly, or lifetime. | [optional] |
 | **name** | **String** | The name of the limit. | [optional] |
 | **asset** | **String** | The asset code for the limit. | [optional] |
 | **amount** | **Integer** | The limit amount for the asset. | [optional] |

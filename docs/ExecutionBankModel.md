@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the quote. |  |
-| **type** | **String** | The type of product the plan is for; one of remittance, deposit_return, or withdrawal_return. |  |
+| **type** | **String** | The type of product the plan is for; one of remittance, bill_pay, disbursement, invoice_pay, deposit_return, withdrawal_return, or payout_return. |  |
 | **plan_guid** | **String** | The unique identifier for the plan. |  |
 | **bank_guid** | **String** | The unique identifier for the bank. | [optional] |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
@@ -21,7 +21,7 @@
 | **holds** | [**Array&lt;HoldDetailBankModel&gt;**](HoldDetailBankModel.md) | The holds placed on the execution. | [optional] |
 | **travel_rule_info** | [**ExecutionTravelRuleInfoBankModel**](ExecutionTravelRuleInfoBankModel.md) |  |  |
 | **purpose_of_transaction** | **String** | The purpose of transaction for the execution. | [optional] |
-| **references** | [**Array&lt;PlanReferenceBankModel&gt;**](PlanReferenceBankModel.md) | Objects this return execution references (the returned execution and stage). Optional when type is deposit_return or type is withdrawal_return. | [optional] |
+| **references** | [**Array&lt;PlanReferenceBankModel&gt;**](PlanReferenceBankModel.md) | Objects this return execution references (the returned execution and stage). Optional when type is deposit_return, type is withdrawal_return, or type is payout_return. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the execution. | [optional] |
 
 ## Example
