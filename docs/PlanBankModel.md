@@ -5,7 +5,7 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **guid** | **String** | Auto-generated unique identifier for the entity. |  |
-| **type** | **String** | The type of product the plan is for; one of remittance, bill_pay, disbursement, invoice_pay, deposit_return, withdrawal_return, or payout_return. |  |
+| **type** | **String** | The type of product the plan is for; one of remittance, bill_pay, disbursement, invoice_pay, deposit, withdrawal, conversion, deposit_return, withdrawal_return, or payout_return. |  |
 | **bank_guid** | **String** | The unique identifier for the bank. | [optional] |
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. |  |
