@@ -15,6 +15,7 @@
 | **failure_code** | **String** | The failure code for failed plans. | [optional] |
 | **source_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **destination_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
+| **intermediate_accounts** | [**Array&lt;IntermediateAccountBankModel&gt;**](IntermediateAccountBankModel.md) | Intermediate accounts explicitly requested by the caller that were actually used to disambiguate the plan. | [optional] |
 | **stages** | [**Array&lt;StageBankModel&gt;**](StageBankModel.md) | The stages of the plan. |  |
 | **fees** | [**Array&lt;FeeAssociationBankModel&gt;**](FeeAssociationBankModel.md) | The fees associated with the plan. |  |
 | **effective_rate** | [**EffectiveRateBankModel**](EffectiveRateBankModel.md) |  | [optional] |
@@ -40,6 +41,7 @@ instance = CybridApiBank::PlanBankModel.new(
   failure_code: null,
   source_account: null,
   destination_account: null,
+  intermediate_accounts: null,
   stages: null,
   fees: null,
   effective_rate: null,

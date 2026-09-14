@@ -15,6 +15,7 @@
 | **quoted_amount** | **Integer** | The quoted amount in base units to transfer from or to the account. | [optional] |
 | **executed_amount** | **Integer** | The executed amount in base units transferred from or to the account. | [optional] |
 | **payment_rail** | **String** | The desired payment rail to use to initiate a fiat transfer. | [optional] |
+| **intermediate_requested** | **Boolean** | Whether this account was explicitly requested by the caller as an intermediate account. | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = CybridApiBank::AccountAssociationBankModel.new(
   requested_amount: null,
   quoted_amount: null,
   executed_amount: null,
-  payment_rail: null
+  payment_rail: null,
+  intermediate_requested: null
 )
 ```
 
