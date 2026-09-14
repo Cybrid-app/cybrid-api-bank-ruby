@@ -9,6 +9,7 @@
 | **customer_guid** | **String** | The unique identifier for the customer. | [optional] |
 | **source_account** | [**PostPlanSourceAccountBankModel**](PostPlanSourceAccountBankModel.md) |  |  |
 | **destination_account** | [**PostPlanDestinationAccountBankModel**](PostPlanDestinationAccountBankModel.md) |  |  |
+| **intermediate_accounts** | [**Array&lt;PostPlanIntermediateAccountsInnerBankModel&gt;**](PostPlanIntermediateAccountsInnerBankModel.md) | Accounts to disambiguate a multi-stage plan when more than one account of the same asset is eligible for a stage. | [optional] |
 | **travel_rule_info** | [**PostPlanTravelRuleInfoBankModel**](PostPlanTravelRuleInfoBankModel.md) |  | [optional] |
 | **purpose_of_transaction** | **String** | The purpose of transaction for the plan. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the plan. | [optional] |
@@ -25,6 +26,7 @@ instance = CybridApiBank::PostPlanBankModel.new(
   customer_guid: null,
   source_account: null,
   destination_account: null,
+  intermediate_accounts: null,
   travel_rule_info: null,
   purpose_of_transaction: null,
   labels: null,
