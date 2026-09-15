@@ -32,6 +32,8 @@ end
 api_instance = CybridApiBank::TransactionsBankApi.new
 account_guid = 'account_guid_example' # String | 
 opts = {
+  bank_guid: 'bank_guid_example', # String | Comma separated bank_guids the account must belong to.
+  customer_guid: 'customer_guid_example', # String | Comma separated customer_guids the account must belong to.
   cursor: 'cursor_example', # String | 
   per_page: 56, # Integer | 
   direction: 'credit', # String | 
@@ -72,6 +74,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **account_guid** | **String** |  |  |
+| **bank_guid** | **String** | Comma separated bank_guids the account must belong to. | [optional] |
+| **customer_guid** | **String** | Comma separated customer_guids the account must belong to. | [optional] |
 | **cursor** | **String** |  | [optional] |
 | **per_page** | **Integer** |  | [optional] |
 | **direction** | **String** |  | [optional] |
