@@ -14,11 +14,12 @@
 | **plaid_institution_id** | **String** | Plaid&#39;s institution ID for the account&#39;s institution. Required when account_kind is plaid_processor_token. | [optional] |
 | **plaid_account_mask** | **String** | The account mask for the account. Required when account_kind is plaid_processor_token. | [optional] |
 | **plaid_account_name** | **String** | The name of the account. Required when account_kind is plaid_processor_token. | [optional] |
+| **expected_behaviours** | **Array&lt;String&gt;** | Sandbox only: deterministically simulate the holder-name-match outcome instead of aligning the owner&#39;s KYC/KYB data with the linked account. Ignored for account kinds whose plan runs no holder-name match. | [optional] |
 | **counterparty_guid** | **String** | The counterparty identifier. Optional when account_kind is raw_routing_details. | [optional] |
 | **counterparty_bank_account_details** | [**Array&lt;PostBankAccountDetailsBankModel&gt;**](PostBankAccountDetailsBankModel.md) | The counterparty&#39;s checking bank account information. Required when account_kind is raw_routing_details. | [optional] |
 | **counterparty_name** | [**PostExternalBankAccountCounterpartyNameBankModel**](PostExternalBankAccountCounterpartyNameBankModel.md) |  | [optional] |
 | **counterparty_address** | [**PostExternalBankAccountCounterpartyAddressBankModel**](PostExternalBankAccountCounterpartyAddressBankModel.md) |  | [optional] |
-| **counterparty_email_address** | **String** | The counterparty&#39;s email address on their checking account. Optional when account_kind is raw_routing_details and counterparty_guid is not present. | [optional] |
+| **counterparty_email_address** | **String** | The account holder&#39;s email address. Optional when account_kind is raw_routing_details. | [optional] |
 
 ## Example
 
@@ -36,6 +37,7 @@ instance = CybridApiBank::PostExternalBankAccountBankModel.new(
   plaid_institution_id: null,
   plaid_account_mask: null,
   plaid_account_name: null,
+  expected_behaviours: null,
   counterparty_guid: null,
   counterparty_bank_account_details: null,
   counterparty_name: null,
