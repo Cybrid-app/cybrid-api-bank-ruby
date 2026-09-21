@@ -26,11 +26,11 @@ require 'time'
 require 'cybrid_api_bank_ruby'
 # setup authorization
 CybridApiBank.configure do |config|
-  # Configure Bearer authorization (JWT): BearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-
   # Configure OAuth2 access token for authorization: oauth2
   config.access_token = 'YOUR ACCESS TOKEN'
+
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = CybridApiBank::ExternalBankAccountsBankApi.new
@@ -75,7 +75,7 @@ end
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+[oauth2](../README.md#oauth2), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -98,11 +98,11 @@ require 'time'
 require 'cybrid_api_bank_ruby'
 # setup authorization
 CybridApiBank.configure do |config|
-  # Configure Bearer authorization (JWT): BearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-
   # Configure OAuth2 access token for authorization: oauth2
   config.access_token = 'YOUR ACCESS TOKEN'
+
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = CybridApiBank::ExternalBankAccountsBankApi.new
@@ -147,7 +147,7 @@ end
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+[oauth2](../README.md#oauth2), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -170,11 +170,11 @@ require 'time'
 require 'cybrid_api_bank_ruby'
 # setup authorization
 CybridApiBank.configure do |config|
-  # Configure Bearer authorization (JWT): BearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-
   # Configure OAuth2 access token for authorization: oauth2
   config.access_token = 'YOUR ACCESS TOKEN'
+
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = CybridApiBank::ExternalBankAccountsBankApi.new
@@ -227,7 +227,7 @@ end
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+[oauth2](../README.md#oauth2), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -250,11 +250,11 @@ require 'time'
 require 'cybrid_api_bank_ruby'
 # setup authorization
 CybridApiBank.configure do |config|
-  # Configure Bearer authorization (JWT): BearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-
   # Configure OAuth2 access token for authorization: oauth2
   config.access_token = 'YOUR ACCESS TOKEN'
+
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = CybridApiBank::ExternalBankAccountsBankApi.new
@@ -315,7 +315,7 @@ end
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+[oauth2](../README.md#oauth2), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -338,11 +338,11 @@ require 'time'
 require 'cybrid_api_bank_ruby'
 # setup authorization
 CybridApiBank.configure do |config|
-  # Configure Bearer authorization (JWT): BearerAuth
-  config.access_token = 'YOUR_BEARER_TOKEN'
-
   # Configure OAuth2 access token for authorization: oauth2
   config.access_token = 'YOUR ACCESS TOKEN'
+
+  # Configure Bearer authorization (JWT): BearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
 api_instance = CybridApiBank::ExternalBankAccountsBankApi.new
@@ -389,7 +389,7 @@ end
 
 ### Authorization
 
-[BearerAuth](../README.md#BearerAuth), [oauth2](../README.md#oauth2)
+[oauth2](../README.md#oauth2), [BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
