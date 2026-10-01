@@ -14,6 +14,7 @@
 | **counterparty_guid** | **String** | The counterparty identifier. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
+| **usable_at** | **Time** | ISO8601 datetime from which the destination can be used for a withdrawal. Null when no minimum age applies. | [optional] |
 | **plaid_institution_id** | **String** | The Plaid institution ID for the account. | [optional] |
 | **plaid_account_mask** | **String** | The account number mask for the account. | [optional] |
 | **plaid_account_name** | **String** | The name for the account. | [optional] |
@@ -39,6 +40,7 @@ instance = CybridApiBank::ExternalBankAccountBankModel.new(
   counterparty_guid: null,
   created_at: null,
   updated_at: null,
+  usable_at: null,
   plaid_institution_id: null,
   plaid_account_mask: null,
   plaid_account_name: null,

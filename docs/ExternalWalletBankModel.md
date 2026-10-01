@@ -15,6 +15,7 @@
 | **tag** | **String** | The blockchain tag to use when transferring crypto to the wallet. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
+| **usable_at** | **Time** | ISO8601 datetime from which the destination can be used for a withdrawal. Null when no minimum age applies. | [optional] |
 | **state** | **String** | The state of the external wallet; one of storing, pending, reviewing, failed, completed, deleting, or deleted. | [optional] |
 | **failure_code** | **String** | The failure code of an external wallet (if any) | [optional] |
 
@@ -35,6 +36,7 @@ instance = CybridApiBank::ExternalWalletBankModel.new(
   tag: null,
   created_at: null,
   updated_at: null,
+  usable_at: null,
   state: null,
   failure_code: null
 )
