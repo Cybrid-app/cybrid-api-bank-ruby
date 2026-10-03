@@ -17,7 +17,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 Cancel Transfer
 
-Initiates cancellation of an eligible funding transfer.  Required scope: **transfers:execute**
+Initiates cancellation of an eligible funding or crypto transfer.  Required scope: **transfers:execute**
 
 ### Examples
 
