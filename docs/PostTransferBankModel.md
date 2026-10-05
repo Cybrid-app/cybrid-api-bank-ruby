@@ -13,16 +13,14 @@
 | **beneficiary_memo** | **String** | The memo to send to the counterparty. Optional when transfer_type is funding. | [optional] |
 | **security_question** | **String** | The security question to send with an Interac E-Transfer withdrawal. Only accepted for e-transfer rail withdrawals; must be paired with security_answer. Optional when transfer_type is funding. | [optional] |
 | **security_answer** | **String** | The security answer the recipient must provide to claim an Interac E-Transfer. Only accepted for e-transfer rail withdrawals; must be paired with security_question. Optional when transfer_type is funding. | [optional] |
-| **source_participants** | [**Array&lt;PostTransferParticipantBankModel&gt;**](PostTransferParticipantBankModel.md) | The source participants for the transfer. Required when transfer_type is funding, transfer_type is instant_funding, transfer_type is book, transfer_type is crypto, or transfer_type is lightning. | [optional] |
-| **destination_participants** | [**Array&lt;PostTransferParticipantBankModel&gt;**](PostTransferParticipantBankModel.md) | The destination participants for the transfer. Required when transfer_type is funding, transfer_type is instant_funding, transfer_type is book, transfer_type is crypto, or transfer_type is lightning. | [optional] |
+| **source_participants** | [**Array&lt;PostTransferParticipantBankModel&gt;**](PostTransferParticipantBankModel.md) | The source participants for the transfer. Required when transfer_type is funding, transfer_type is instant_funding, transfer_type is book, or transfer_type is crypto. | [optional] |
+| **destination_participants** | [**Array&lt;PostTransferParticipantBankModel&gt;**](PostTransferParticipantBankModel.md) | The destination participants for the transfer. Required when transfer_type is funding, transfer_type is instant_funding, transfer_type is book, or transfer_type is crypto. | [optional] |
 | **sardine_session_guid** | **String** | The GUID of a previously created Sardine session. Used to correlate device signals from the Sardine SDK with the transfer screening. Optional when transfer_type is funding or transfer_type is instant_funding. | [optional] |
-| **bank_fiat_account_guid** | **String** | The identifier for the fiat account to use for the transfer. Required if the bank has multiple fiat accounts. Optional when transfer_type is instant_funding or transfer_type is lightning. | [optional] |
-| **customer_fiat_account_guid** | **String** | The identifier for the fiat account to use for the transfer. Required if the customer has multiple fiat accounts. Optional when transfer_type is instant_funding or transfer_type is lightning. | [optional] |
+| **bank_fiat_account_guid** | **String** | The identifier for the fiat account to use for the transfer. Required if the bank has multiple fiat accounts. Optional when transfer_type is instant_funding. | [optional] |
+| **customer_fiat_account_guid** | **String** | The identifier for the fiat account to use for the transfer. Required if the customer has multiple fiat accounts. Optional when transfer_type is instant_funding. | [optional] |
 | **source_account_guid** | **String** | The source account&#39;s identifier. Required when transfer_type is book or transfer_type is inter_account. | [optional] |
 | **destination_account_guid** | **String** | The destination account&#39;s identifier. Required when transfer_type is book or transfer_type is inter_account. | [optional] |
 | **external_wallet_guid** | **String** | The customer&#39;s external wallet&#39;s identifier. Optional when transfer_type is crypto. | [optional] |
-| **customer_guid** | **String** | The customer&#39;s identifier. Required when transfer_type is lightning. | [optional] |
-| **network_fee_account_guid** | **String** | The network fee account&#39;s identifier. Required for network fee transfers. Must be the identifier for the customer&#39;s or bank&#39;s fiat or trading account. For customer&#39;s to pay the network fees, include the customer&#39;s fiat or trading account guid. For bank&#39;s to pay the network fees, include the bank&#39;s fiat or trading account guid. Required when transfer_type is lightning. | [optional] |
 | **expected_behaviours** | **Array&lt;String&gt;** | The optional expected behaviour to simulate. Only applicable for transfers under sandbox banks. The force_review behaviour will force the transfer to be reviewed for funding and instant_funding transfers. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the transfer. | [optional] |
 
@@ -49,8 +47,6 @@ instance = CybridApiBank::PostTransferBankModel.new(
   source_account_guid: null,
   destination_account_guid: null,
   external_wallet_guid: null,
-  customer_guid: null,
-  network_fee_account_guid: null,
   expected_behaviours: null,
   labels: null
 )
