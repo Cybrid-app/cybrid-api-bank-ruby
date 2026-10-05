@@ -159,11 +159,11 @@ end
 
 ## get_transfer
 
-> <TransferBankModel> get_transfer(transfer_guid)
+> <TransferBankModel> get_transfer(transfer_guid, opts)
 
 Get Transfer
 
-Retrieves a transfer.  Required scope: **transfers:read**
+Retrieves a transfer.  Required scope: **transfers:read** Optional scope: **transfers:pii:read**.
 
 ### Examples
 
@@ -181,10 +181,13 @@ end
 
 api_instance = CybridApiBank::TransfersBankApi.new
 transfer_guid = 'transfer_guid_example' # String | Identifier for the transfer.
+opts = {
+  include_pii: true # Boolean | Include PII in the response (requires **transfers:pii:read** scope).
+}
 
 begin
   # Get Transfer
-  result = api_instance.get_transfer(transfer_guid)
+  result = api_instance.get_transfer(transfer_guid, opts)
   p result
 rescue CybridApiBank::ApiError => e
   puts "Error when calling TransfersBankApi->get_transfer: #{e}"
@@ -195,12 +198,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<TransferBankModel>, Integer, Hash)> get_transfer_with_http_info(transfer_guid)
+> <Array(<TransferBankModel>, Integer, Hash)> get_transfer_with_http_info(transfer_guid, opts)
 
 ```ruby
 begin
   # Get Transfer
-  data, status_code, headers = api_instance.get_transfer_with_http_info(transfer_guid)
+  data, status_code, headers = api_instance.get_transfer_with_http_info(transfer_guid, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TransferBankModel>
@@ -214,6 +217,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **transfer_guid** | **String** | Identifier for the transfer. |  |
+| **include_pii** | **Boolean** | Include PII in the response (requires **transfers:pii:read** scope). | [optional] |
 
 ### Return type
 
