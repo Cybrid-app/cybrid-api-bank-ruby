@@ -12,7 +12,7 @@
 | **created_at** | **Time** | ISO8601 datetime the record was created at. |  |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. |  |
 | **state** | **String** | The state of the execution; one of storing, executing, completed, failed, or reviewing. |  |
-| **failure_code** | **String** | The failure code for failed executions. | [optional] |
+| **failure_code** | **String** | The failure code for failed executions. Failures without a documented code are reported as internal_error. | [optional] |
 | **source_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **destination_account** | [**AccountAssociationBankModel**](AccountAssociationBankModel.md) |  |  |
 | **intermediate_accounts** | [**Array&lt;IntermediateAccountBankModel&gt;**](IntermediateAccountBankModel.md) | Intermediate accounts explicitly requested by the caller that were actually used to disambiguate the plan. | [optional] |
