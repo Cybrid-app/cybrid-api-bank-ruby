@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **type** | **String** | The counterparty&#39;s type. |  |
 | **customer_guid** | **String** | The owning customer&#39;s identifier. | [optional] |
+| **customer_relationship** | **String** | The counterparty&#39;s relationship to the owning customer. | [optional] |
 | **address** | [**PostCounterpartyAddressBankModel**](PostCounterpartyAddressBankModel.md) |  |  |
 | **name** | [**PostCounterpartyNameBankModel**](PostCounterpartyNameBankModel.md) |  | [optional] |
 | **aliases** | [**Array&lt;PostCounterpartyAliasesInnerBankModel&gt;**](PostCounterpartyAliasesInnerBankModel.md) | The aliases of the counterparty. Optional when type is business. | [optional] |
@@ -22,6 +23,7 @@ require 'cybrid_api_bank_ruby'
 instance = CybridApiBank::PostCounterpartyBankModel.new(
   type: null,
   customer_guid: null,
+  customer_relationship: null,
   address: null,
   name: null,
   aliases: null,

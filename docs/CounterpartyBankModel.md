@@ -8,6 +8,7 @@
 | **type** | **String** | The counterparty type; one of business or individual. | [optional] |
 | **bank_guid** | **String** | Auto-generated unique identifier for the counterparty&#39;s bank. | [optional] |
 | **customer_guid** | **String** | Auto-generated unique identifier for the counterparty&#39;s customer. | [optional] |
+| **customer_relationship** | **String** | The counterparty&#39;s relationship to the owning customer. | [optional] |
 | **created_at** | **Time** | ISO8601 datetime the record was created at. | [optional] |
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **state** | **String** | The counterparty state; one of storing, unverified, verified, or rejected. | [optional] |
@@ -28,6 +29,7 @@ instance = CybridApiBank::CounterpartyBankModel.new(
   type: null,
   bank_guid: null,
   customer_guid: null,
+  customer_relationship: null,
   created_at: null,
   updated_at: null,
   state: null,
