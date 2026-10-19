@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **type** | **String** | The type of object being referenced; one of returned_execution or returned_stage. |  |
+| **type** | **String** | The type of object being referenced; one of returned_execution, returned_stage, or returned_by_execution. |  |
 | **guid** | **String** | The guid of the referenced object. |  |
 
 ## Example
