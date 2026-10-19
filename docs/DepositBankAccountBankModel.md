@@ -14,7 +14,8 @@
 | **updated_at** | **Time** | ISO8601 datetime the record was last updated at. | [optional] |
 | **deleted_at** | **Time** | ISO8601 datetime the record was last deleted at. | [optional] |
 | **asset** | **String** | The asset the transfer is related to, e.g., USD. | [optional] |
-| **state** | **String** | The state of the deposit bank account; one of storing, created, deleting, or deleted. | [optional] |
+| **state** | **String** | The state of the deposit bank account; one of storing, created, deleting, deleted, reviewing, failed, or expired. | [optional] |
+| **failure_code** | **String** | The failure code for the failed deposit bank account; one of compliance_rejection. | [optional] |
 | **unique_memo_id** | **String** | The unique memo identifier for the deposit bank account. This is used to identify the recipient when sending funds to the account. This value MUST be included in all wire transfers to this account. | [optional] |
 | **counterparty_name** | **String** | The name of the account holder. | [optional] |
 | **counterparty_address** | [**DepositBankAccountCounterpartyAddressBankModel**](DepositBankAccountCounterpartyAddressBankModel.md) |  | [optional] |
@@ -40,6 +41,7 @@ instance = CybridApiBank::DepositBankAccountBankModel.new(
   deleted_at: null,
   asset: null,
   state: null,
+  failure_code: null,
   unique_memo_id: null,
   counterparty_name: null,
   counterparty_address: null,
