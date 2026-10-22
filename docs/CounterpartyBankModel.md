@@ -16,6 +16,9 @@
 | **address** | [**CounterpartyAddressBankModel**](CounterpartyAddressBankModel.md) |  | [optional] |
 | **aliases** | [**Array&lt;CounterpartyAliasesInnerBankModel&gt;**](CounterpartyAliasesInnerBankModel.md) | The counterparty&#39;s aliases. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **date_of_birth** | **Date** | The counterparty&#39;s DOB. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
+| **phone_number** | **String** | The counterparty&#39;s phone number. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
+| **email_address** | **String** | The counterparty&#39;s email address. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
+| **identification_numbers** | [**Array&lt;IdentificationNumberBankModel&gt;**](IdentificationNumberBankModel.md) | The counterparty&#39;s identification numbers. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the counterparty. | [optional] |
 | **compliance_decisions** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | The compliance decisions associated with the counterparty. | [optional] |
 
@@ -37,6 +40,9 @@ instance = CybridApiBank::CounterpartyBankModel.new(
   address: null,
   aliases: null,
   date_of_birth: null,
+  phone_number: null,
+  email_address: null,
+  identification_numbers: null,
   labels: null,
   compliance_decisions: null
 )
