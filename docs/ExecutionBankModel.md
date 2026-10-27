@@ -22,6 +22,7 @@
 | **holds** | [**Array&lt;HoldDetailBankModel&gt;**](HoldDetailBankModel.md) | The holds placed on the execution. | [optional] |
 | **travel_rule_info** | [**ExecutionTravelRuleInfoBankModel**](ExecutionTravelRuleInfoBankModel.md) |  |  |
 | **purpose_of_transaction** | **String** | The purpose of transaction for the execution. | [optional] |
+| **supporting_documents** | [**Array&lt;SupportingDocumentBankModel&gt;**](SupportingDocumentBankModel.md) | Supporting documents attached to the execution&#39;s plan. Optional when type is remittance or type is invoice_pay. | [optional] |
 | **references** | [**Array&lt;PlanReferenceBankModel&gt;**](PlanReferenceBankModel.md) | Objects this execution references. A return execution references the returned execution and stage; a returned execution references the return execution(s) that returned it. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the execution. | [optional] |
 
@@ -49,6 +50,7 @@ instance = CybridApiBank::ExecutionBankModel.new(
   holds: null,
   travel_rule_info: null,
   purpose_of_transaction: null,
+  supporting_documents: null,
   references: null,
   labels: null
 )
