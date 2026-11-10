@@ -13,7 +13,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 Get assets list
 
-Retrieves a listing of assets. Requires a valid access token; no scope is required.
+Retrieves a listing of assets.  Requires a valid access token; no scope is required.
 
 ### Examples
 

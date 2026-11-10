@@ -15,7 +15,7 @@ All URIs are relative to *https://bank.sandbox.cybrid.app*
 
 Create Counterparty
 
-Creates a counterparty.  ## Counterparty Type  Counterparty resources are an abstraction for real world individuals and businesses that are not directly on the Cybrid Platform.  ## State  | State | Description | |-------|-------------| | storing | The Platform is storing the counterparty details in our private store | | unverified | The Platform has not yet verified the counterparty's identity | | verified | The Platform has verified the counterparty's identity | | rejected | The Platform was not able to successfully verify the counterparty's identity |    Required scope: **counterparties:execute**
+Creates a counterparty.  ## Counterparty Type  Counterparty resources are an abstraction for real world individuals and businesses that are not directly on the Cybrid Platform.  ## State  | State | Description | |-------|-------------| | storing | The Platform is storing the counterparty details in our private store | | unverified | The Platform has not yet verified the counterparty's identity | | verified | The Platform has verified the counterparty's identity | | rejected | The Platform was not able to successfully verify the counterparty's identity |  Required scope: **counterparties:execute**
 
 ### Examples
 
