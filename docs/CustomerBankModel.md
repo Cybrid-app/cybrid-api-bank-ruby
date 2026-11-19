@@ -18,6 +18,7 @@
 | **phone_number** | **String** | The customer&#39;s phone number. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **email_address** | **String** | The customer&#39;s email address. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **citizenship** | **String** | The ISO 3166 country 2-Alpha country code of the customer&#39;s citizenship. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
+| **source_of_funds** | **String** | The customer&#39;s source of funds. Only available for GET operations when &#39;include_pii&#39; is set. | [optional] |
 | **labels** | **Array&lt;String&gt;** | The labels associated with the customer. | [optional] |
 | **compliance_decisions** | [**Array&lt;ComplianceDecisionBankModel&gt;**](ComplianceDecisionBankModel.md) | The compliance decisions associated with the customer. | [optional] |
 | **identification_numbers** | [**Array&lt;IdentificationNumberBankModel&gt;**](IdentificationNumberBankModel.md) | The customer&#39;s identification numbers. Only available for GET operations when &#39;include_pii&#39; is set and bank has access. | [optional] |
@@ -43,6 +44,7 @@ instance = CybridApiBank::CustomerBankModel.new(
   phone_number: null,
   email_address: null,
   citizenship: null,
+  source_of_funds: null,
   labels: null,
   compliance_decisions: null,
   identification_numbers: null,

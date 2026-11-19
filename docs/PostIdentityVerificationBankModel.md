@@ -31,6 +31,7 @@
 | **business_incorporation_date** | **Date** | The date the business was incorporated. Required for attested business registration V3. Optional when type is kyc and method is attested_business_registration. | [optional] |
 | **occupation** | **String** | The customer&#39;s occupation. Required when type is kyc and method is attested_business_associate. Optional when type is kyc and method is attested_id_and_selfie. | [optional] |
 | **citizenship** | **String** | The customer&#39;s citizenship country code. Required when type is kyc and method is attested_business_associate. Optional when type is kyc and method is attested_id_and_selfie, type is kyc and method is attested_id_and_database, or type is kyc and method is attested_database. | [optional] |
+| **source_of_funds** | **String** | The customer&#39;s source of funds. Optional when type is kyc and method is attested_id_and_selfie or type is kyc and method is attested_id_and_database. | [optional] |
 | **biometrics_verified** | **Boolean** | Whether biometrics have been verified Required when type is kyc and method is attested_business_associate or type is kyc and method is attested_id_and_database. | [optional] |
 | **external_bank_account_guid** | **String** | The external bank account&#39;s identifier. Required when type is bank_account. | [optional] |
 
@@ -67,6 +68,7 @@ instance = CybridApiBank::PostIdentityVerificationBankModel.new(
   business_incorporation_date: null,
   occupation: null,
   citizenship: null,
+  source_of_funds: null,
   biometrics_verified: null,
   external_bank_account_guid: null
 )
